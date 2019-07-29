@@ -12,6 +12,8 @@
 		4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441022EF6A1F0082CDA3 /* Main.storyboard */; };
 		4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441322EF6A200082CDA3 /* Assets.xcassets */; };
 		4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441522EF6A200082CDA3 /* LaunchScreen.storyboard */; };
+		4A6A442322EF6B280082CDA3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A442222EF6B280082CDA3 /* View.swift */; };
+		4A6A442522EF6B330082CDA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A442422EF6B330082CDA3 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		4A6A441322EF6A200082CDA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A6A441622EF6A200082CDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A6A441822EF6A200082CDA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A6A442222EF6B280082CDA3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		4A6A442422EF6B330082CDA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		4A6A441E22EF6A460082CDA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A6A442422EF6B330082CDA3 /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -75,6 +80,7 @@
 		4A6A441F22EF6A500082CDA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A6A442222EF6B280082CDA3 /* View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			files = (
 				4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
+				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
+				4A6A442522EF6B330082CDA3 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
