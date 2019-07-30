@@ -1,6 +1,6 @@
 import Foundation
 
-struct LoginAndPasswords {
+struct UserProfile {
     var users = ["admin": "admin"]
     
     func validate(_ email: String, _ password: String) -> Bool{
