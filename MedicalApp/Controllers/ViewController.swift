@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let sigIN = SignINViewControllerXIB(nibName: "SignINViewControllerXIB", bundle: nil)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.present(sigIN, animated: true, completion: nil)
+        
     }
 
 

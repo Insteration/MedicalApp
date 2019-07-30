@@ -14,8 +14,8 @@
 		4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441522EF6A200082CDA3 /* LaunchScreen.storyboard */; };
 		4A6A442322EF6B280082CDA3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A442222EF6B280082CDA3 /* View.swift */; };
 		4A6A442522EF6B330082CDA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A442422EF6B330082CDA3 /* Model.swift */; };
-		AC4F030222F023C900F1622B /* SiggINViewControllerXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F030022F023C900F1622B /* SiggINViewControllerXIB.swift */; };
-		AC4F030322F023C900F1622B /* SiggINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4F030122F023C900F1622B /* SiggINViewControllerXIB.xib */; };
+		AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */; };
+		AC4F030322F023C900F1622B /* SignINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4F030122F023C900F1622B /* SignINViewControllerXIB.xib */; };
 		AC4F030522F0322400F1622B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F030422F0322400F1622B /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +29,8 @@
 		4A6A441822EF6A200082CDA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A6A442222EF6B280082CDA3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		4A6A442422EF6B330082CDA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		AC4F030022F023C900F1622B /* SiggINViewControllerXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiggINViewControllerXIB.swift; sourceTree = "<group>"; };
-		AC4F030122F023C900F1622B /* SiggINViewControllerXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiggINViewControllerXIB.xib; sourceTree = "<group>"; };
+		AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignINViewControllerXIB.swift; sourceTree = "<group>"; };
+		AC4F030122F023C900F1622B /* SignINViewControllerXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignINViewControllerXIB.xib; sourceTree = "<group>"; };
 		AC4F030422F0322400F1622B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,8 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */,
-				AC4F030022F023C900F1622B /* SiggINViewControllerXIB.swift */,
-				AC4F030122F023C900F1622B /* SiggINViewControllerXIB.xib */,
+				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
+				AC4F030122F023C900F1622B /* SignINViewControllerXIB.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
 				4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */,
-				AC4F030322F023C900F1622B /* SiggINViewControllerXIB.xib in Resources */,
+				AC4F030322F023C900F1622B /* SignINViewControllerXIB.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +187,7 @@
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
-				AC4F030222F023C900F1622B /* SiggINViewControllerXIB.swift in Sources */,
+				AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */,
 				4A6A442522EF6B330082CDA3 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
