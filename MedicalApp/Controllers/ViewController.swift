@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let sigIN = SignINViewControllerXIB(nibName: "SignINViewControllerXIB", bundle: nil)
+    let signIN = SignINViewControllerXIB(nibName: "SignINViewControllerXIB", bundle: nil)
     
 
     override func viewDidLoad() {
@@ -20,10 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        self.present(sigIN, animated: true, completion: nil)
+        self.present(signIN, animated: true, completion: nil)
         
     }
-
-
 }
 
