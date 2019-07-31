@@ -23,3 +23,9 @@ extension Const {
         return NSLocalizedString(key, comment: "")
     }
 }
+
+extension String {
+    func loc() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
