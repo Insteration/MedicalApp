@@ -10,6 +10,8 @@ import UIKit
 
 class SignUPFinalViewController: UIViewController {
     
+    let def = Const()
+    
     var agree: Bool = false
     var timer:Timer!
     var imageController = UIImagePickerController()
@@ -116,10 +118,10 @@ class SignUPFinalViewController: UIViewController {
     }
     
     @IBAction func photoButtonAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: NSLocalizedString("titleUserPhoto", comment: ""), message: NSLocalizedString("messageChoosePhoto", comment: ""), preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("titleOpenLibrary", comment: ""), style: .default, handler: openLibrary(action:)))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("titleCancel", comment: ""), style: .cancel, handler: nil))
+        let alert = UIAlertController(title: def.titleUserPhoto, message: def.messageChoosePhoto, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: def.titleOpenCamera, style: .default, handler: openCamera(action:)))
+        alert.addAction(UIAlertAction(title: def.titleOpenLibrary, style: .default, handler: openLibrary(action:)))
+        alert.addAction(UIAlertAction(title: def.titleCancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion:nil)
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0BB36BB622F1C89C00EEA063 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0BB36BB822F1C89C00EEA063 /* Localizable.strings */; };
+		0BB36BBB22F1CF4800EEA063 /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB36BBA22F1CF4800EEA063 /*  Data.swift */; };
 		4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */; };
 		4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */; };
 		4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441022EF6A1F0082CDA3 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		0BB36BB322F1A19000EEA063 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		0BB36BB722F1C89C00EEA063 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0BB36BB922F1CA7900EEA063 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0BB36BBA22F1CF4800EEA063 /*  Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " Data.swift"; sourceTree = "<group>"; };
 		4A6A440922EF6A1F0082CDA3 /* MedicalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				4A6A441322EF6A200082CDA3 /* Assets.xcassets */,
 				4A6A441822EF6A200082CDA3 /* Info.plist */,
+				0BB36BBA22F1CF4800EEA063 /*  Data.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB36BBB22F1CF4800EEA063 /*  Data.swift in Sources */,
 				4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
