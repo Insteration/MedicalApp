@@ -10,11 +10,16 @@
 
 struct Const {
     
-    let titleUserPhoto = NSLocalizedString("titleUserPhoto", comment: "")
-    let messageChoosePhoto = NSLocalizedString("messageChoosePhoto", comment: "")
-    let titleOpenCamera = NSLocalizedString("titleOpenCamera", comment: "")
-    let titleOpenLibrary = NSLocalizedString("titleOpenLibrary", comment: "")
-    let titleCancel = NSLocalizedString("titleCancel", comment: "")
+    let titleUserPhoto = loc("titleUserPhoto")
+    let messageChoosePhoto = loc("messageChoosePhoto")
+    let titleOpenCamera = loc("titleOpenCamera")
+    let titleOpenLibrary = loc("titleOpenLibrary")
+    let titleCancel = loc("titleCancel")
     
-    
+}
+
+extension Const {
+    private static func loc(_ key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
 }
