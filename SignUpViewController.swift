@@ -33,7 +33,6 @@ class SignUPViewController: UIViewController, SignUp{
         textField.frame = CGRect(x: 20, y: 180, width: 374, height: 60)
         return textField
     }()
-    
     let lastNameTextField : UITextField = {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(string: "Last Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
