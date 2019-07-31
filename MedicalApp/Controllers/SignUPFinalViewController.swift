@@ -87,9 +87,13 @@ class SignUPFinalViewController: UIViewController {
     }
     
     @IBAction func photoButtonAction(_ sender: UIButton) {
+        
     }
     
     @IBAction func sendAction(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Success", message: "your message added to mail", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okey", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     
