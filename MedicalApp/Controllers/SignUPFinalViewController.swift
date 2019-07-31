@@ -71,9 +71,36 @@ class SignUPFinalViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
+    func delegates(){
         imageController.delegate = self
+        emailTextField.delegate = self
+        numberTextField.delegate = self
+        paysTextField.delegate = self
+        nameTextField.delegate = self
+        lastNameTextField.delegate = self
+        organistaiontextField.delegate = self
+    }
+    
+    func createNotification() { 
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil, using: {nc in self.view.frame.origin.y = -120})
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil, using: {nc in self.view.frame.origin.y = 0})
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.emailTextField.resignFirstResponder()
+        self.numberTextField.resignFirstResponder()
+        self.paysTextField.resignFirstResponder()
+        self.nameTextField.resignFirstResponder()
+        self.lastNameTextField.resignFirstResponder()
+        self.organistaiontextField.resignFirstResponder()
+        self.fonctionTextField.resignFirstResponder()
+    }
+    
+    override func viewDidLoad() {
+        delegates()
         createTimer()
+        createNotification()
         changeObjects()
     }
     
@@ -92,7 +119,7 @@ class SignUPFinalViewController: UIViewController {
         let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
         alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
-         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: openLibrary(action:)))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion:nil)
     }
     
@@ -122,4 +149,14 @@ extension SignUPFinalViewController :  UINavigationControllerDelegate,UIImagePic
         imageController.dismiss(animated: true,completion: nil)
         userPhotoImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
     }
+}
+
+
+extension SignUPFinalViewController: UITextFieldDelegate {
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    
 }
