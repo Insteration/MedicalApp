@@ -52,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-3U-vgp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-3U-vgp">
                                 <rect key="frame" x="16" y="20" width="143" height="103"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="mo5-9m-5vK"/>
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcC-5h-KSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765.217391304348" y="-85.044642857142847"/>
+            <point key="canvasLocation" x="2044" y="-537"/>
         </scene>
     </scenes>
 </document>

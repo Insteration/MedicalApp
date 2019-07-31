@@ -12,6 +12,7 @@ class SignUPFinalViewController: UIViewController {
     
     var agree: Bool = false
     var timer:Timer!
+    var imageController = UIImagePickerController()
     
     @IBOutlet weak var agreeButton: UIButton!
     @IBOutlet weak var labelInfo: UILabel!
@@ -61,7 +62,7 @@ class SignUPFinalViewController: UIViewController {
         let phone : String = numberTextField.text!
         let phoneBool = phone.validate(value: phone)
         
-        if nameTextField.text! != "" &&  lastNameTextField.text! != "" &&  fonctionTextField.text! != "" &&  paysTextField.text! != "" &&  organistaiontextField.text! != "" &&   agree != false && emailBool && phoneBool  {
+        if nameTextField.text! != "" &&  lastNameTextField.text! != "" &&  fonctionTextField.text! != "" &&  paysTextField.text! != "" &&  organistaiontextField.text! != "" &&   agree != false && emailBool && phoneBool && userPhotoImage.image != UIImage(named: "question")  {
             sendButton.alpha = 1.0
             sendButton.isEnabled = true
         } else {
@@ -71,6 +72,7 @@ class SignUPFinalViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        imageController.delegate = self
         createTimer()
         changeObjects()
     }
@@ -87,7 +89,11 @@ class SignUPFinalViewController: UIViewController {
     }
     
     @IBAction func photoButtonAction(_ sender: UIButton) {
-        
+        let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
+        alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
+         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: openLibrary(action:)))
+        present(alert, animated: true, completion:nil)
     }
     
     @IBAction func sendAction(_ sender: UIButton) {
@@ -96,5 +102,24 @@ class SignUPFinalViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension SignUPFinalViewController :  UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
+    func openLibrary(action:UIAlertAction!){
+        imageController.sourceType = .photoLibrary
+        imageController.allowsEditing = true
+        present(imageController, animated: true, completion: nil)
+    }
+    
+    func openCamera(action:UIAlertAction!){
+        imageController.sourceType = .camera
+        imageController.allowsEditing = true
+        present(imageController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imageController.dismiss(animated: true,completion: nil)
+        userPhotoImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+    }
 }
