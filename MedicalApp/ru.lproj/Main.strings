@@ -1,1 +1,9 @@
 
+/* Class = "UIButton"; normalTitle = "Send request"; ObjectID = "DGW-Ig-BPM"; */
+"DGW-Ig-BPM.normalTitle" = "Send request";
+
+/* Class = "UILabel"; text = "Something to confirm info in the"; ObjectID = "Mm4-pI-iBe"; */
+"Mm4-pI-iBe.text" = "Something to confirm info in the";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "f1V-ZL-MwT"; */
+"f1V-ZL-MwT.normalTitle" = "Button";

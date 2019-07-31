@@ -116,10 +116,10 @@ class SignUPFinalViewController: UIViewController {
     }
     
     @IBAction func photoButtonAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("titleUserPhoto", comment: ""), message: NSLocalizedString("messageChoosePhoto", comment: ""), preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
-        alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("titleOpenLibrary", comment: ""), style: .default, handler: openLibrary(action:)))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("titleCancel", comment: ""), style: .cancel, handler: nil))
         present(alert, animated: true, completion:nil)
     }
     
