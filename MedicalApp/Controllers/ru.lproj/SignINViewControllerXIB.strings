@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "PASSWORD"; ObjectID = "CLv-tE-nIq"; */
+"CLv-tE-nIq.text" = "Пароль";
+
+/* Class = "UIButton"; normalTitle = "Forgot password"; ObjectID = "CMp-Jm-tk0"; */
+"CMp-Jm-tk0.normalTitle" = "Забыл пароль";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "DAu-73-YVr"; */
+"DAu-73-YVr.text" = "EMAIL";
+
+/* Class = "UITextField"; placeholder = "Enter password"; ObjectID = "HmT-vg-tJt"; */
+"HmT-vg-tJt.placeholder" = "Введите пароль";
+
+/* Class = "UITextField"; placeholder = "Enter email"; ObjectID = "PDZ-61-81i"; */
+"PDZ-61-81i.placeholder" = "Введите пароль";
+
+/* Class = "UIButton"; normalTitle = "ENTER"; ObjectID = "XQ8-Ym-Nwe"; */
+"XQ8-Ym-Nwe.normalTitle" = "Ввод";
+
+/* Class = "UIButton"; normalTitle = "Registration"; ObjectID = "ZEZ-g7-HFz"; */
+"ZEZ-g7-HFz.normalTitle" = "Регистрация";
