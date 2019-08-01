@@ -31,9 +31,12 @@ class SignUPFinalViewController: UIViewController {
         userPhotoImage.layer.cornerRadius = self.userPhotoImage.frame.size.width / 3.5
         userPhotoImage.image  = UIImage(named: "question")
         userPhotoImage.clipsToBounds = true
+        emailTextField.autocorrectionType = .no
         userPhotoImage.backgroundColor = .white
         photoButton.backgroundColor = .white
         photoButton.setTitle("Set Photo", for: .normal)
+        numberTextField.keyboardType = UIKeyboardType.phonePad
+        emailTextField.keyboardType = UIKeyboardType.emailAddress
         photoButton.layer.cornerRadius = 20
         sendButton.layer.cornerRadius = 30
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
@@ -82,7 +85,7 @@ class SignUPFinalViewController: UIViewController {
     }
     
     func createNotification() { 
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil, using: {nc in self.view.frame.origin.y = -120})
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil, using: {nc in self.view.frame.origin.y = -130})
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil, using: {nc in self.view.frame.origin.y = 0})
     }
@@ -116,7 +119,7 @@ class SignUPFinalViewController: UIViewController {
     }
     
     @IBAction func photoButtonAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "User Photo", message:nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
         alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

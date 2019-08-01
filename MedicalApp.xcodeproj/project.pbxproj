@@ -18,6 +18,7 @@
 		C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */; };
 		C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF322F15E0200EDB741 /* RegularEmail.swift */; };
 		C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */; };
+		C25890F922F2C9C70062C780 /* 4FileseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25890F822F2C9C70062C780 /* 4FileseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C215C5D322F0BBDB003EFF72 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C215C5D522F0BBE9003EFF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignINViewControllerXIB.xib; sourceTree = "<group>"; };
 		C215C5D822F0BBF7003EFF72 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignINViewControllerXIB.strings; sourceTree = "<group>"; };
+		C25890F822F2C9C70062C780 /* 4FileseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4FileseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
 				C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */,
+				C25890F822F2C9C70062C780 /* 4FileseViewController.swift */,
 				C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */,
 			);
 			path = Controllers;
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */,
+				C25890F922F2C9C70062C780 /* 4FileseViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
