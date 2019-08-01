@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402D382122F22C3400DD264B /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D381F22F22C3400DD264B /* ReportViewController.swift */; };
+		402D382222F22C3400DD264B /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402D382022F22C3400DD264B /* ReportViewController.xib */; };
+		402D382422F22D0300DD264B /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D382322F22D0300DD264B /* ModelReport.swift */; };
 		4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */; };
 		4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */; };
 		4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441022EF6A1F0082CDA3 /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		402D381F22F22C3400DD264B /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		402D382022F22C3400DD264B /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		402D382322F22D0300DD264B /* ModelReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
 		4A6A440922EF6A1F0082CDA3 /* MedicalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 		4A6A441E22EF6A460082CDA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				402D382322F22D0300DD264B /* ModelReport.swift */,
 				4A6A442422EF6B330082CDA3 /* Model.swift */,
 			);
 			path = Models;
@@ -89,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */,
+				402D381F22F22C3400DD264B /* ReportViewController.swift */,
+				402D382022F22C3400DD264B /* ReportViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402D382222F22C3400DD264B /* ReportViewController.xib in Resources */,
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
 				4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */,
@@ -176,6 +186,8 @@
 				4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
+				402D382422F22D0300DD264B /* ModelReport.swift in Sources */,
+				402D382122F22C3400DD264B /* ReportViewController.swift in Sources */,
 				4A6A442522EF6B330082CDA3 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q8X493RPBY;
 				INFOPLIST_FILE = "$(SRCROOT)/MedicalApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -340,6 +353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q8X493RPBY;
 				INFOPLIST_FILE = "$(SRCROOT)/MedicalApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
