@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Send request"; ObjectID = "DGW-Ig-BPM"; */
+"DGW-Ig-BPM.normalTitle" = "Send request";
+
+/* Class = "UITextField"; placeholder = "PASSWORD"; ObjectID = "JOj-fZ-cpe"; */
+"JOj-fZ-cpe.placeholder" = "MOT DE PASSE";
+
+/* Class = "UILabel"; text = "Something to confirm info in the"; ObjectID = "Mm4-pI-iBe"; */
+"Mm4-pI-iBe.text" = "Something to confirm info in the";
+
+/* Class = "UINavigationItem"; title = "Medical App"; ObjectID = "MmJ-dM-ONj"; */
+"MmJ-dM-ONj.title" = "Medical App";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "Nis-Y8-bqL"; */
+"Nis-Y8-bqL.normalTitle" = "Mot de passe oublié";
+
+/* Class = "UIButton"; normalTitle = "ENTER"; ObjectID = "XaO-JF-9QT"; */
+"XaO-JF-9QT.normalTitle" = "ENTRER";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "f1V-ZL-MwT"; */
+"f1V-ZL-MwT.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "zCe-Oa-Grc"; */
+"zCe-Oa-Grc.normalTitle" = "Registre";
+
+/* Class = "UITextField"; placeholder = "MAIL"; ObjectID = "zXi-zC-2Wo"; */
+"zXi-zC-2Wo.placeholder" = "LE POSTE";
