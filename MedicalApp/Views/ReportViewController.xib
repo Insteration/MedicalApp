@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportViewController" customModule="MedicalApp" customModuleProvider="target">
             <connections>
+                <outlet property="acceptSwitch" destination="PMC-Eg-DNt" id="bP3-7U-Flu"/>
                 <outlet property="city" destination="7f1-PB-cur" id="hGs-tg-2a8"/>
                 <outlet property="country" destination="Dcz-zP-2dE" id="pjS-N3-WcZ"/>
                 <outlet property="email" destination="Hcb-wr-cyr" id="bvt-rJ-UGT"/>

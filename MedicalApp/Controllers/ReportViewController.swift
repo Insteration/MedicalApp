@@ -10,6 +10,8 @@ import UIKit
 
 class ReportViewController: UIViewController {
     @IBOutlet weak var reportLabel: UILabel!
+    @IBOutlet weak var acceptSwitch: UISwitch!
+    
     
     @IBOutlet weak var numberOfPeople: UITextField!
     @IBOutlet weak var country: UITextField!
@@ -29,7 +31,7 @@ class ReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reportData = [ReportData]()
-        clearLabels()
+        clearFields()
         customInit()
         self.hideKeyboardWhenTappedAround()
     }
@@ -52,7 +54,7 @@ class ReportViewController: UIViewController {
     @IBAction func pushButtonPlus(_ sender: UIButton) {
         if areAllFieldsFilled() {
             addReportIntoReportData()
-            clearLabels()
+            clearFields()
         } else {
             createAllert("Warning", "Not all fields are filled")
         }
@@ -74,12 +76,28 @@ class ReportViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func createAllertForExit() {
+        let alert = UIAlertController(title: "", message: "Are you sure you want to exit?", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Stay", style: UIAlertAction.Style.default, handler: nil ))
+        alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.destructive, handler: { action in
+            print("exit report ok")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func exitReport() {
-        print("exit report ok")
+        createAllertForExit()
     }
     
     private func saveReportData() {
-        print("save data ok")
+        if areAllFieldsFilled() {
+            print("save data ok")
+            clearFields()
+        } else {
+            createAllert("Warning", "Not all fields are filled")
+        }
     }
     
     private func SendRepostData() {
@@ -97,13 +115,14 @@ class ReportViewController: UIViewController {
             organisation.text != "" &&
             email.text != "" &&
             number.text != "" &&
-            message2.text != "" {
+            message2.text != "" &&
+            acceptSwitch.isOn == true{
             return true
         }
         return false
     }
     
-    private func clearLabels() {
+    private func clearFields() {
         numberOfPeople.text = ""
         country.text = ""
         city.text = ""
@@ -115,6 +134,8 @@ class ReportViewController: UIViewController {
         email.text = ""
         number.text = ""
         message2.text = ""
+        
+        acceptSwitch.isOn = false
     }
     
     private func addReportIntoReportData() {
