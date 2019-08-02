@@ -9,17 +9,19 @@
 import UIKit
 
 class ReportViewController: UIViewController {
-    @IBOutlet weak var numberOfPeopleLabel: UITextField!
-    @IBOutlet weak var countryLabel: UITextField!
-    @IBOutlet weak var cityLabel: UITextField!
-    @IBOutlet weak var message1Label: UITextField!
-    @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var lastNameLabel: UITextField!
-    @IBOutlet weak var fonctionLabel: UITextField!
-    @IBOutlet weak var organisationLabel: UITextField!
-    @IBOutlet weak var emailLabel: UITextField!
-    @IBOutlet weak var numberLabel: UITextField!
-    @IBOutlet weak var message2Label: UITextField!
+    @IBOutlet weak var reportLabel: UILabel!
+    
+    @IBOutlet weak var numberOfPeople: UITextField!
+    @IBOutlet weak var country: UITextField!
+    @IBOutlet weak var city: UITextField!
+    @IBOutlet weak var message1: UITextField!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var fonction: UITextField!
+    @IBOutlet weak var organisation: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var number: UITextField!
+    @IBOutlet weak var message2: UITextField!
     
     var reportData: [ReportData]!
     
@@ -28,6 +30,8 @@ class ReportViewController: UIViewController {
         super.viewDidLoad()
         reportData = [ReportData]()
         clearLabels()
+        customInit()
+        self.hideKeyboardWhenTappedAround()
     }
     
     
@@ -56,6 +60,12 @@ class ReportViewController: UIViewController {
     
     
     
+    private func customInit() {
+        reportLabel.layer.masksToBounds = true;
+        reportLabel.layer.cornerRadius = reportLabel.frame.height / 2
+    }
+    
+    
     private func createAllert(_ title: String,_ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
@@ -77,51 +87,64 @@ class ReportViewController: UIViewController {
     }
     
     private func areAllFieldsFilled() -> Bool {
-        if  numberOfPeopleLabel.text != "" &&
-            countryLabel.text != "" &&
-            cityLabel.text != "" &&
-            message1Label.text != "" &&
-            nameLabel.text != "" &&
-            lastNameLabel.text != "" &&
-            fonctionLabel.text != "" &&
-            organisationLabel.text != "" &&
-            emailLabel.text != "" &&
-            numberLabel.text != "" &&
-            message2Label.text != "" {
+        if  numberOfPeople.text != "" &&
+            country.text != "" &&
+            city.text != "" &&
+            message1.text != "" &&
+            name.text != "" &&
+            lastName.text != "" &&
+            fonction.text != "" &&
+            organisation.text != "" &&
+            email.text != "" &&
+            number.text != "" &&
+            message2.text != "" {
             return true
         }
         return false
     }
     
     private func clearLabels() {
-        numberOfPeopleLabel.text = ""
-        countryLabel.text = ""
-        cityLabel.text = ""
-        message1Label.text = ""
-        nameLabel.text = ""
-        lastNameLabel.text = ""
-        fonctionLabel.text = ""
-        organisationLabel.text = ""
-        emailLabel.text = ""
-        numberLabel.text = ""
-        message2Label.text = ""
+        numberOfPeople.text = ""
+        country.text = ""
+        city.text = ""
+        message1.text = ""
+        name.text = ""
+        lastName.text = ""
+        fonction.text = ""
+        organisation.text = ""
+        email.text = ""
+        number.text = ""
+        message2.text = ""
     }
     
     private func addReportIntoReportData() {
         reportData.append(ReportData(
-            numberOfPeople: numberOfPeopleLabel.text ?? "",
-            country: countryLabel.text ?? "",
-            city: cityLabel.text ?? "",
-            message1: message1Label.text ?? "",
-            name: nameLabel.text ?? "",
-            lastName: lastNameLabel.text ?? "",
-            fonction: fonctionLabel.text ?? "",
-            organisation: organisationLabel.text ?? "",
-            email: emailLabel.text ?? "",
-            number: numberLabel.text ?? "",
-            message2: message2Label.text ?? ""
+            numberOfPeople: numberOfPeople.text ?? "",
+            country: country.text ?? "",
+            city: city.text ?? "",
+            message1: message1.text ?? "",
+            name: name.text ?? "",
+            lastName: lastName.text ?? "",
+            fonction: fonction.text ?? "",
+            organisation: organisation.text ?? "",
+            email: email.text ?? "",
+            number: number.text ?? "",
+            message2: message2.text ?? ""
         ))
     }
     
 
+}
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
