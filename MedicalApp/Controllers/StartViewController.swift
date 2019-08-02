@@ -33,13 +33,13 @@ class StartViewController: UIViewController {
     @IBAction func enterButtonAction(_ sender: UIButton) {
         
         guard mailTextField.text != "", passwordTextField.text != "" else {
-            self.alertEnterData()
+            self.alertNotCorrectData(message: "Please enter your email or password.")
             return
         }
         
         Auth.auth().signIn(withEmail: mailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
-                self.alertNotCorrectData()
+                self.alertNotCorrectData(message: "You entered not correct email or password. Please try again.")
                 print(error.localizedDescription)
             }
             if user != nil {
@@ -98,15 +98,8 @@ extension StartViewController: UITextFieldDelegate {
 }
 
 extension StartViewController {
-        
-    private func alertEnterData() {
-        let alert = UIAlertController(title: "OOPS!", message: "Please enter your email or password.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func alertNotCorrectData() {
-        let alert = UIAlertController(title: "OOPS!", message: "You entered not correct email or password. Please try again.", preferredStyle: UIAlertController.Style.alert)
+    private func alertNotCorrectData(message: String) {
+        let alert = UIAlertController(title: "OOPS!", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

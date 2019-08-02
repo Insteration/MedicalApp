@@ -61,6 +61,7 @@ class RegistrationViewController: UIViewController {
     @IBAction func sendRequestButtonAction(_ sender: UIButton) {
         
         guard fullNameTextField.text != "", emailTextField.text != "", passwordTextField.text != "", comfirmPasswordTextField.text != "" else {
+            self.alertNotCorrectData(message: "You entered not correct fields. Please try again.")
             return
         }
         
@@ -68,6 +69,7 @@ class RegistrationViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 
                 if let error = error {
+                    self.alertNotCorrectData(message: "Something wrong. Get error!")
                     print(error.localizedDescription)
                 }
                 
@@ -81,11 +83,13 @@ class RegistrationViewController: UIViewController {
                     let data = self.photoImageView.image?.jpegData(compressionQuality: 0.5)
                     let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metaData, error) in
                         if error != nil {
+                            self.alertNotCorrectData(message: "\(error!.localizedDescription)")
                             print(error!.localizedDescription)
                         }
                         
                         imageRef.downloadURL(completion: { (url, error) in
                             if error != nil {
+                                self.alertNotCorrectData(message: "\(error!.localizedDescription)")
                                 print(error!.localizedDescription)
                             }
                             
@@ -109,6 +113,7 @@ class RegistrationViewController: UIViewController {
                 }
             }
         } else {
+            alertNotCorrectData(message: "Password not match.")
             print("Password not match")
         }
         
@@ -183,5 +188,13 @@ extension RegistrationViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+}
+
+extension RegistrationViewController {
+    private func alertNotCorrectData(message: String) {
+        let alert = UIAlertController(title: "OOPS!", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
