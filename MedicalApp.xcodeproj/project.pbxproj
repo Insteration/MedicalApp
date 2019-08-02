@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2222F4A3910051A609 /* ReportViewController.swift */; };
+		4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A292F2322F4A3920051A609 /* ReportViewController.xib */; };
+		4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2422F4A3920051A609 /* ModelReport.swift */; };
 		4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */; };
 		4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */; };
 		4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441022EF6A1F0082CDA3 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		28453B11ADE83C19CD8D8C1C /* Pods-MedicalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.release.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.release.xcconfig"; sourceTree = "<group>"; };
 		2B100107EB3D94E6394D7399 /* Pods-MedicalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.debug.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4A292F2222F4A3910051A609 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		4A292F2322F4A3920051A609 /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		4A292F2422F4A3920051A609 /* ModelReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
 		4A6A440922EF6A1F0082CDA3 /* MedicalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4A292F2122F4A3820051A609 /* Nikita */ = {
+			isa = PBXGroup;
+			children = (
+				4A292F2422F4A3920051A609 /* ModelReport.swift */,
+				4A292F2222F4A3910051A609 /* ReportViewController.swift */,
+				4A292F2322F4A3920051A609 /* ReportViewController.xib */,
+			);
+			path = Nikita;
+			sourceTree = "<group>";
+		};
 		4A6A440022EF6A1F0082CDA3 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +107,7 @@
 		4A6A440B22EF6A1F0082CDA3 /* MedicalApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A292F2122F4A3820051A609 /* Nikita */,
 				4A6A442122EF6ABC0082CDA3 /* Resources */,
 				4A6A442022EF6A590082CDA3 /* Controllers */,
 				4A6A441F22EF6A500082CDA3 /* Views */,
@@ -213,6 +230,7 @@
 			files = (
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
+				4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */,
 				4ADB102622F1A88400DB7ACB /* GoogleService-Info.plist in Resources */,
 				4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */,
 				C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */,
@@ -272,10 +290,12 @@
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
+				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
 				C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
 				AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */,
+				4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */,
 				4ADB102B22F1B42B00DB7ACB /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
