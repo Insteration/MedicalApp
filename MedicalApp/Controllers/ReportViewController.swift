@@ -63,8 +63,10 @@ class ReportViewController: UIViewController {
     
     
     private func customInit() {
-        reportLabel.layer.masksToBounds = true;
-        reportLabel.layer.cornerRadius = reportLabel.frame.height / 2
+        
+        // FIXME: - Complete next 68, 69
+//        reportLabel.layer.masksToBounds = true;
+//        reportLabel.layer.cornerRadius = reportLabel.frame.height / 2
     }
     
     
@@ -123,19 +125,21 @@ class ReportViewController: UIViewController {
     }
     
     private func clearFields() {
-        numberOfPeople.text = ""
-        country.text = ""
-        city.text = ""
-        message1.text = ""
-        name.text = ""
-        lastName.text = ""
-        fonction.text = ""
-        organisation.text = ""
-        email.text = ""
-        number.text = ""
-        message2.text = ""
         
-        acceptSwitch.isOn = false
+        // FIXME: - Complete next commit
+//        numberOfPeople.text = ""
+//        country.text = ""
+//        city.text = ""
+//        message1.text = ""
+//        name.text = ""
+//        lastName.text = ""
+//        fonction.text = ""
+//        organisation.text = ""
+//        email.text = ""
+//        number.text = ""
+//        message2.text = ""
+        
+//        acceptSwitch.isOn = false
     }
     
     private func addReportIntoReportData() {
