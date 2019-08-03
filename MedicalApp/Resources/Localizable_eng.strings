@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  MedicalApp
+
+  Created by Alex Kholodoff on 7/31/19.
+  Copyright © 2019 iOS Team. All rights reserved.
+*/
+
+// let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
+"titleUserPhoto" = "User Photo";
+"messageChoosePhoto" = "choose photo";
+
+//alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
+"titleOpenCamera" = "Open Camera";
+
+//alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
+"titleOpenLibrary" = "Open Library";
+
+//alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+"titleCancel" = "Cancel";
