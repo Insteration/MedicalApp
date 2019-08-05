@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401FBA3922F8593A00EB788E /* ModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FBA3822F8593A00EB788E /* ModelCollection.swift */; };
 		402D382122F22C3400DD264B /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D381F22F22C3400DD264B /* ReportViewController.swift */; };
 		402D382222F22C3400DD264B /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402D382022F22C3400DD264B /* ReportViewController.xib */; };
 		402D382422F22D0300DD264B /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D382322F22D0300DD264B /* ModelReport.swift */; };
+		40CA6E7F22F85FE400A91AB1 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA6E7D22F85FE400A91AB1 /* CollectionViewController.swift */; };
+		40CA6E8022F85FE400A91AB1 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CA6E7E22F85FE400A91AB1 /* CollectionViewController.xib */; };
 		4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */; };
 		4A6A440F22EF6A1F0082CDA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */; };
 		4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A441022EF6A1F0082CDA3 /* Main.storyboard */; };
@@ -20,9 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		401FBA3822F8593A00EB788E /* ModelCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollection.swift; sourceTree = "<group>"; };
 		402D381F22F22C3400DD264B /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		402D382022F22C3400DD264B /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		402D382322F22D0300DD264B /* ModelReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
+		40CA6E7D22F85FE400A91AB1 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../Views/CollectionViewController.swift; sourceTree = "<group>"; };
+		40CA6E7E22F85FE400A91AB1 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		4A6A440922EF6A1F0082CDA3 /* MedicalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 			children = (
 				402D382322F22D0300DD264B /* ModelReport.swift */,
 				4A6A442422EF6B330082CDA3 /* Model.swift */,
+				401FBA3822F8593A00EB788E /* ModelCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				402D382022F22C3400DD264B /* ReportViewController.xib */,
+				40CA6E7E22F85FE400A91AB1 /* CollectionViewController.xib */,
 				4A6A442222EF6B280082CDA3 /* View.swift */,
 			);
 			path = Views;
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6A440E22EF6A1F0082CDA3 /* ViewController.swift */,
+				40CA6E7D22F85FE400A91AB1 /* CollectionViewController.swift */,
 				402D381F22F22C3400DD264B /* ReportViewController.swift */,
 			);
 			path = Controllers;
@@ -170,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402D382222F22C3400DD264B /* ReportViewController.xib in Resources */,
+				40CA6E8022F85FE400A91AB1 /* CollectionViewController.xib in Resources */,
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
 				4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */,
@@ -187,6 +197,8 @@
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
 				402D382422F22D0300DD264B /* ModelReport.swift in Sources */,
+				40CA6E7F22F85FE400A91AB1 /* CollectionViewController.swift in Sources */,
+				401FBA3922F8593A00EB788E /* ModelCollection.swift in Sources */,
 				402D382122F22C3400DD264B /* ReportViewController.swift in Sources */,
 				4A6A442522EF6B330082CDA3 /* Model.swift in Sources */,
 			);
