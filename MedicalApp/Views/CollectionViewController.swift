@@ -18,6 +18,7 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.collection.dataSource = self
         self.collection.delegate = self
         data = [CollectionData(name: "marketing 1", items: ["marketing offline 11","marketing offline 12","marketing offline 13"])]
