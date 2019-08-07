@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class RegistrationViewController: UIViewController {
     
+    @IBOutlet weak var agreeButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,17 +25,46 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var selectPhoto: UIButton!
     
     private let picker = UIImagePickerController()
+    var agree: Bool = false
+    var timer : Timer!
     private var userStorage: StorageReference!
     private var reference: DatabaseReference!
+    var imageController = UIImagePickerController()
+    
+    
+    func createTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerMoves), userInfo: nil, repeats: true)
+    }
+    @objc func timerMoves(){
+        let number = phoneNumberTextField.text!
+        number.checkNumber(field: phoneNumberTextField)
+        let email:String = emailTextField.text!
+        email.checkEmail(field: emailTextField)
+        checkFields()
+    }
+    
+    func checkFields(){
+        let email : String = emailTextField.text!
+        let emailBool = email.isValidEmail(emailStr: email)
+        let phone : String = phoneNumberTextField.text!
+        let phoneBool = phone.validate(value: phone)
+        
+        if fullNameTextField.text! != "" && fonctionTextField.text! != "" &&  passwordTextField.text! != "" &&  organizationTextField.text! != "" &&   agree != false && emailBool && phoneBool && photoImageView.image != UIImage(named: "question")  {
+            sendRequestButton.alpha = 1.0
+            sendRequestButton.isEnabled = true
+        } else {
+            sendRequestButton.alpha = 0.2
+            sendRequestButton.isEnabled = false
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createTimer()
         buttonRounder()
         setupTextFields()
-
-        sendRequestButton.isHidden = true
+        imageController.delegate = self
         picker.delegate = self
         
         let storage = Storage.storage().reference(forURL: "gs://medicalapp-e7b4b.appspot.com")
@@ -52,16 +82,20 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func selectPhotoButton(_ sender: UIButton) {
-        picker.allowsEditing = true
-        picker.sourceType = .photoLibrary
-        present(picker, animated: true, completion: nil)
+        let alert = UIAlertController(title: "User Photo", message: "choose photo", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: openCamera(action:)))
+        alert.addAction(UIAlertAction(title: "Open Library", style: .default, handler: openLibrary(action:)))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: openLibrary(action:)))
+        present(alert, animated: true, completion:nil)
     }
     
     
     @IBAction func sendRequestButtonAction(_ sender: UIButton) {
         
         guard fullNameTextField.text != "", emailTextField.text != "", passwordTextField.text != "", comfirmPasswordTextField.text != "" else {
-            self.alertNotCorrectData(message: "You entered not correct fields. Please try again.")
+//            self.alertNotCorrectData(message: "You entered not correct fields. Please try again.")
+            //"notCorrectFields"
+            self.alertNotCorrectData(message: NSLocalizedString("notCorrectFields", comment: ""))
             return
         }
         
@@ -131,7 +165,25 @@ class RegistrationViewController: UIViewController {
     }
     
     
+    @IBAction func agreeAction(_ sender: UIButton) {
+        agree = !agree
+        if agree {
+            agreeButton.setTitle("✓", for: .normal)
+            agreeButton.setTitleColor(.black, for: .normal)
+        } else {
+            agreeButton.setTitle(" ", for: .normal)
+            agreeButton.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    
+    
     private final func setupTextFields() {
+        photoImageView.layer.cornerRadius = self.photoImageView.frame.size.width / 3.5
+        photoImageView.image  = UIImage(named: "question")
+        photoImageView.contentMode = .scaleAspectFit
+        photoImageView.clipsToBounds = true
+        photoImageView.backgroundColor = .white
         emailTextField.delegate = self
         emailTextField.tag = 0
         passwordTextField.delegate = self
@@ -169,11 +221,29 @@ class RegistrationViewController: UIViewController {
 }
 
 extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func openLibrary(action:UIAlertAction!){
+        imageController.sourceType = .photoLibrary
+        imageController.allowsEditing = true
+        present(imageController, animated: true, completion: nil)
+    }
+    
+    func openCamera(action:UIAlertAction!){
+        if imageController.sourceType == .camera {
+            imageController.sourceType = .camera
+            imageController.mediaTypes = [kCIAttributeTypeImage as String]
+            imageController.cameraCaptureMode = .photo
+            imageController.allowsEditing = true
+            present(imageController, animated: true, completion: nil)
+        }
+        else {
+            print("error")
+        }
+    }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.photoImageView.image = image
-            sendRequestButton.isHidden = false
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -198,3 +268,5 @@ extension RegistrationViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+

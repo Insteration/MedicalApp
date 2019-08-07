@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  MedicalApp
+
+  Created by Денис Андреев on 8/2/19.
+  Copyright © 2019 iOS Team. All rights reserved.
+*/
+//self.alertNotCorrectData(message: "You entered not correct fields. Please try again.")
+"notCorrectFields" = "You entered not correct fields. Please try again.";

@@ -111,71 +111,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MPJ-h3-N1O">
-                                <rect key="frame" x="16" y="64" width="288" height="484"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJM-eM-R6Z">
+                                <rect key="frame" x="162" y="133" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhotoButton:" destination="BW5-ET-EtE" eventType="touchUpInside" id="fO4-wi-ndn"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="MPJ-h3-N1O">
+                                <rect key="frame" x="23" y="223" width="272.5" height="326"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ge9-E9-3RC">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="120.5"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJM-eM-R6Z">
-                                        <rect key="frame" x="0.0" y="128.5" width="288" height="30"/>
-                                        <state key="normal" title="Select Photo">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectPhotoButton:" destination="BW5-ET-EtE" eventType="touchUpInside" id="fO4-wi-ndn"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hha-I2-6QG">
-                                        <rect key="frame" x="0.0" y="166.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uoC-uM-1xg">
-                                        <rect key="frame" x="0.0" y="204.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="37" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comfirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oph-tz-BNz">
-                                        <rect key="frame" x="0.0" y="242.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="74" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-Z4-2Vv">
-                                        <rect key="frame" x="0.0" y="280.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="111" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-ne-qGq">
-                                        <rect key="frame" x="0.0" y="318.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="148" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ozG-Jl-nbL">
-                                        <rect key="frame" x="0.0" y="356.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="185" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fonction" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-ST-6Aq">
-                                        <rect key="frame" x="0.0" y="394.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="222" width="272.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartQuotesType="no"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="conditions générales d'utilisation application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-4T-Ctp">
-                                        <rect key="frame" x="0.0" y="432.5" width="288" height="13.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="52O-4h-cgz">
+                                        <rect key="frame" x="0.0" y="259" width="272.5" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-sb-2X7">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="agreeAction:" destination="BW5-ET-EtE" eventType="touchUpInside" id="cpF-S9-iNe"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="conditions générales d'utilisation application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-4T-Ctp">
+                                                <rect key="frame" x="39" y="0.0" width="233.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3p-MY-15v">
-                                        <rect key="frame" x="0.0" y="454" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="296" width="272.5" height="30"/>
                                         <state key="normal" title="Send a request">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -185,18 +196,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ge9-E9-3RC">
+                                <rect key="frame" x="38" y="107" width="81" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.59782570599999996" green="0.521202147" blue="0.52463477849999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="VUO-G3-R26" firstAttribute="bottom" secondItem="MPJ-h3-N1O" secondAttribute="bottom" constant="20" id="1nV-Pa-QGb"/>
-                            <constraint firstItem="MPJ-h3-N1O" firstAttribute="top" secondItem="VUO-G3-R26" secondAttribute="top" id="N5U-rv-WRU"/>
-                            <constraint firstItem="MPJ-h3-N1O" firstAttribute="leading" secondItem="VUO-G3-R26" secondAttribute="leading" constant="16" id="NO7-A5-HUh"/>
-                            <constraint firstItem="VUO-G3-R26" firstAttribute="trailing" secondItem="MPJ-h3-N1O" secondAttribute="trailing" constant="16" id="gHp-uT-05R"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VUO-G3-R26"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="4Nk-PG-d8m"/>
                     <connections>
+                        <outlet property="agreeButton" destination="qVc-sb-2X7" id="YGD-Th-uIB"/>
                         <outlet property="comfirmPasswordTextField" destination="Oph-tz-BNz" id="F9E-BE-TDg"/>
                         <outlet property="emailTextField" destination="hha-I2-6QG" id="1mk-hb-1NO"/>
                         <outlet property="fonctionTextField" destination="u6i-ST-6Aq" id="mKk-kJ-fTO"/>
@@ -211,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYs-k1-vgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716.875" y="283.0985915492958"/>
+            <point key="canvasLocation" x="2715" y="282.04225352112678"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="v2c-Au-nGp">

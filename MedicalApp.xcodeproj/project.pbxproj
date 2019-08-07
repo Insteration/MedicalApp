@@ -25,6 +25,7 @@
 		C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */; };
 		C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF322F15E0200EDB741 /* RegularEmail.swift */; };
 		C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */; };
+		C2C8258122F4AFE100FDCAB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2C8258322F4AFE100FDCAB9 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController.swift; sourceTree = "<group>"; };
 		C204BEF322F15E0200EDB741 /* RegularEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularEmail.swift; sourceTree = "<group>"; };
 		C215C5D522F0BBE9003EFF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignINViewControllerXIB.xib; sourceTree = "<group>"; };
+		C2C8258222F4AFE100FDCAB9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2C8258422F4AFEE00FDCAB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9AF078565BD3211D661783A /* Pods_MedicalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +158,7 @@
 				4A6A441322EF6A200082CDA3 /* Assets.xcassets */,
 				4A6A441822EF6A200082CDA3 /* Info.plist */,
 				4ADB102522F1A88400DB7ACB /* GoogleService-Info.plist */,
+				C2C8258322F4AFE100FDCAB9 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -231,6 +235,7 @@
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
 				4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */,
+				C2C8258122F4AFE100FDCAB9 /* Localizable.strings in Resources */,
 				4ADB102622F1A88400DB7ACB /* GoogleService-Info.plist in Resources */,
 				4A6A441222EF6A1F0082CDA3 /* Main.storyboard in Resources */,
 				C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */,
@@ -329,6 +334,16 @@
 			);
 			name = SignINViewControllerXIB.xib;
 			sourceTree = "<group>";
+		};
+		C2C8258322F4AFE100FDCAB9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2C8258222F4AFE100FDCAB9 /* fr */,
+				C2C8258422F4AFEE00FDCAB9 /* en */,
+			);
+			name = Localizable.strings;
+			path = MedicalApp/Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
