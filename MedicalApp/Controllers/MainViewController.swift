@@ -4,42 +4,51 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var presentationCollectionView: UICollectionView!
     @IBOutlet weak var videoCollectionView: UICollectionView!
-    
+        
     var presentationLogoArray: [PresentationLogo] = { // <--- test
     var logo = PresentationLogo()
     logo.image = "cola"
-    logo.text = "PARAM-PAM-PAM"
+    logo.text = "present1"
 
     var logo1 = PresentationLogo()
     logo1.image = "fanta"
-    logo1.text = "Tuk-Tuk-Tuk"
+    logo1.text = "present1"
 
     var logo2 = PresentationLogo()
     logo2.image = "fanta"
+    logo2.text = "present2"
 
     var logo3 = PresentationLogo()
     logo3.image = "fanta"
-
+    logo3.text = "present3"
+        
     var logo4 = PresentationLogo()
     logo4.image = "fanta"
-
+    logo4.text = "present4"
+        
     var logo5 = PresentationLogo()
     logo5.image = "fanta"
+    logo5.text = "present5"
 
     var logo6 = PresentationLogo()
     logo6.image = "fanta"
+    logo6.text = "present6"
 
     var logo7 = PresentationLogo()
     logo7.image = "fanta"
+    logo7.text = "present7"
 
     var logo8 = PresentationLogo()
     logo8.image = "fanta"
+    logo8.text = "present8"
 
     var logo9 = PresentationLogo()
     logo9.image = "fanta"
+    logo9.text = "present9"
 
     var logo10 = PresentationLogo()
     logo10.image = "fanta"
+    logo10.text = "present10"
 
 
     return [logo, logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10]
@@ -81,18 +90,16 @@ class MainViewController: UIViewController {
     return [logo, logo1, logo2, logo3, logo4, logo5, logo6, logo7]
 }()
 
-//    fileprivate func createUserLogoButton() {
-//        self.userLogoButton.backgroundColor = .red
-//        self.userLogoButton.setImage(UIImage(named: "cola"), for: .normal)
-//        self.userLogoButton.layer.cornerRadius = 20
-//        self.userLogoButton.contentMode = .scaleToFill
-//
-//    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        createUserLogoButton()
+       // createUserLogoButton()
     }
+    
+    @IBAction func avatarButtonAction(_ sender: UIButton) {
+    }
+    
 
 }
 
@@ -113,12 +120,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case presentationCollectionView:
-            let itemCell = presentationCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PresentationCollectionViewCell
+            let itemCell = presentationCollectionView.dequeueReusableCell(withReuseIdentifier: "presentCell", for: indexPath) as? PresentationCollectionViewCell
             itemCell?.presentItem = presentationLogoArray[indexPath.row]
             return itemCell ?? UICollectionViewCell()
 
         case videoCollectionView:
-            let videoItemCell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "Video", for: indexPath) as? VideoCollectionViewCell
+            let videoItemCell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath) as? VideoCollectionViewCell
             videoItemCell?.videoItem = videoLogoArray[indexPath.row]
             return videoItemCell ?? UICollectionViewCell()
 
