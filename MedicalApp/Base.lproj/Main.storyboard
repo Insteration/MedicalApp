@@ -283,6 +283,10 @@
                                             <constraint firstItem="o2O-E6-KLw" firstAttribute="leading" secondItem="FPW-nt-3Oo" secondAttribute="leading" constant="5" id="w5N-ur-XcF"/>
                                         </constraints>
                                         <size key="customSize" width="198" height="155"/>
+                                        <connections>
+                                            <outlet property="presentationImageView" destination="o2O-E6-KLw" id="UiS-L7-8Ey"/>
+                                            <outlet property="presentationLabel" destination="DEV-gc-5ZZ" id="auB-w3-WcB"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -304,7 +308,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="fBC-Bu-XBE">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="fBC-Bu-XBE" customClass="VideoCollectionViewCell" customModule="MedicalApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="198" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -337,6 +341,10 @@
                                             <constraint firstItem="XME-3B-H70" firstAttribute="leading" secondItem="fBC-Bu-XBE" secondAttribute="leading" constant="5" id="ftX-XF-qXQ"/>
                                         </constraints>
                                         <size key="customSize" width="198" height="155"/>
+                                        <connections>
+                                            <outlet property="videoImageView" destination="XME-3B-H70" id="zjY-nc-VRO"/>
+                                            <outlet property="videoLable" destination="CgE-5a-z2F" id="Tea-ot-rxA"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
