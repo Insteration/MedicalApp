@@ -27,6 +27,10 @@ class SignINViewControllerXIB: UIViewController {
     
     
     @IBAction func enterButton(_ sender: UIButton) {
+        
+        let vc = UIStoryboard(name: "main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     
