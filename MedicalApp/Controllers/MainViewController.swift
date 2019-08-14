@@ -89,16 +89,23 @@ class MainViewController: UIViewController {
 
     return [logo, logo1, logo2, logo3, logo4, logo5, logo6, logo7]
 }()
-
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // createUserLogoButton()
     }
     
-    @IBAction func avatarButtonAction(_ sender: UIButton) {
+    
+    @IBAction func presentationButtonAction(_ sender: UIButton) {
     }
+    
+    @IBAction func pendingReportButtonAction(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func userLogoButtonAction(_ sender: UIButton) {
+    }
+    
+    
     
 
 }

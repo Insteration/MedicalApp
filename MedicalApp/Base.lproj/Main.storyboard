@@ -232,6 +232,9 @@
                                 <state key="normal" title="Presentation">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="presentationButtonAction:" destination="hbC-BB-Skk" eventType="touchUpInside" id="sGR-2p-uqd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsQ-SQ-fQW">
                                 <rect key="frame" x="319" y="56" width="130" height="27"/>
@@ -367,6 +370,9 @@
                                 <state key="normal" title="PENDING REPORT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="pendingReportButtonAction:" destination="hbC-BB-Skk" eventType="touchUpInside" id="2yg-a1-ilB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-kF-QJJ">
                                 <rect key="frame" x="704" y="39" width="44" height="44"/>
@@ -375,6 +381,9 @@
                                     <constraint firstAttribute="height" constant="44" id="aob-SC-a0z"/>
                                     <constraint firstAttribute="width" constant="44" id="tN3-Qk-rrN"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="userLogoButtonAction:" destination="hbC-BB-Skk" eventType="touchUpInside" id="3zm-bE-EMV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
