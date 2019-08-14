@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="2716.875" y="283.0985915492958"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tJu-SQ-AUP">
             <objects>
-                <viewController id="hbC-BB-Skk" sceneMemberID="viewController">
+                <viewController id="hbC-BB-Skk" customClass="MainViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZfA-Ud-pHH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -365,6 +365,10 @@
                         <viewLayoutGuide key="safeArea" id="DjE-7z-yh7"/>
                     </view>
                     <navigationItem key="navigationItem" id="PFe-xW-N4d"/>
+                    <connections>
+                        <outlet property="presentationCollectionView" destination="kQb-d8-451" id="jMW-Yf-piW"/>
+                        <outlet property="videoCollectionView" destination="AND-0i-Bs6" id="uJB-G3-mRv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7X0-ns-TEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -2,10 +2,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-//    @IBOutlet weak var presentationCollectionView: UICollectionView!
-//    @IBOutlet weak var videoCollectionV: UICollectionView!
-//    @IBOutlet weak var presentationButton: UIButton!
-//    @IBOutlet weak var pendingReportButtonOutlet: UIButton!
+    @IBOutlet weak var presentationCollectionView: UICollectionView!
+    
+    @IBOutlet weak var videoCollectionView: UICollectionView!
+    
+    
+    
     
 //    var presentationLogoArray: [PresentationLogo] = { // <--- test
 //        var logo = PresentationLogo()
