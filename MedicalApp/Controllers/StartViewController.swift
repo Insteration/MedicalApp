@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class StartViewController: UIViewController {
     
     @IBOutlet weak var mailTextField: UITextField!
@@ -43,6 +44,7 @@ class StartViewController: UIViewController {
                 print(error.localizedDescription)
             }
             if user != nil {
+                print("autorization done")
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
                 self.present(vc, animated: true, completion: nil)
             }

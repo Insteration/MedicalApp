@@ -10,9 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var presentationCollectionView: UICollectionView!
+    @IBOutlet weak var presentationsCollectionView: UICollectionView!
     @IBOutlet weak var videoCollectionView: UICollectionView!
-        
+    
+    
+
     var presentationLogoArray: [PresentationLogo] = { // <--- test
     var logo = PresentationLogo()
     logo.image = "cola"
@@ -101,10 +103,40 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
-    @IBAction func goBackButtonAction(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+    
 }
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        switch collectionView {
+        case presentationsCollectionView:
+            return presentationLogoArray.count
+        case videoCollectionView:
+            return videoLogoArray.count
+        default: break
+        }
+        
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case presentationsCollectionView:
+            let itemCell = presentationsCollectionView.dequeueReusableCell(withReuseIdentifier: "PresentCell", for: indexPath) as? PresentationsCollectionViewCell
+            itemCell?.presentItem = presentationLogoArray[indexPath.row]
+            return itemCell ?? UICollectionViewCell()
+            
+        case videoCollectionView:
+            let videoItemCell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as? VideoCollectionViewCell
+            videoItemCell?.videoItem = videoLogoArray[indexPath.row]
+            return videoItemCell ?? UICollectionViewCell()
+            
+        default: break
+        }
+        return UICollectionViewCell()
+    }
+    
+}
+
