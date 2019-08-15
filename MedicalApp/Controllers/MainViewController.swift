@@ -105,6 +105,8 @@ class MainViewController: UIViewController {
     @IBAction func userLogoButtonAction(_ sender: UIButton) {
     }
     
+    @IBAction func libraryButtonAction(_ sender: UIButton) {
+    }
     
     
 
