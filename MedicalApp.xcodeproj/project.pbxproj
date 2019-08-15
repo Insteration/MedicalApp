@@ -12,6 +12,7 @@
 		0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B13F1F922F56D7700BE97B9 /* Localizable.strings */; };
 		0BC6338622F5669900F2F24C /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /*  Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
+		0BDDD780230593D200574842 /* MainVcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDDD77F230593D200574842 /* MainVcData.swift */; };
 		4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2222F4A3910051A609 /* ReportViewController.swift */; };
 		4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A292F2322F4A3920051A609 /* ReportViewController.xib */; };
 		4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2422F4A3920051A609 /* ModelReport.swift */; };
@@ -39,6 +40,7 @@
 		0B13F1FA22F56D7D00BE97B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0BC6338522F5669900F2F24C /*  Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " Data.swift"; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
+		0BDDD77F230593D200574842 /* MainVcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVcData.swift; sourceTree = "<group>"; };
 		28453B11ADE83C19CD8D8C1C /* Pods-MedicalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.release.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.release.xcconfig"; sourceTree = "<group>"; };
 		2B100107EB3D94E6394D7399 /* Pods-MedicalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.debug.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4A292F2222F4A3910051A609 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				C204BEF322F15E0200EDB741 /* RegularEmail.swift */,
+				0BDDD77F230593D200574842 /* MainVcData.swift */,
 				AC4F030422F0322400F1622B /* UserProfile.swift */,
 			);
 			path = Models;
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
+				0BDDD780230593D200574842 /* MainVcData.swift in Sources */,
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
