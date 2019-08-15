@@ -1,1 +1,6 @@
 import Foundation
+
+
+struct TestView {
+    
+}
