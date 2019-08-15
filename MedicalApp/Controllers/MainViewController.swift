@@ -8,27 +8,27 @@ class MainViewController: UIViewController {
     var presentationLogoArray: [PresentationLogo] = { // <--- test
     var logo = PresentationLogo()
     logo.image = "cola"
-    logo.text = "present1"
+    logo.text = "present100"
 
     var logo1 = PresentationLogo()
     logo1.image = "fanta"
-    logo1.text = "present1"
+    logo1.text = "present111"
 
     var logo2 = PresentationLogo()
     logo2.image = "fanta"
-    logo2.text = "present2"
+    logo2.text = "present222"
 
     var logo3 = PresentationLogo()
     logo3.image = "fanta"
-    logo3.text = "present3"
+    logo3.text = "present333"
         
     var logo4 = PresentationLogo()
     logo4.image = "fanta"
-    logo4.text = "present4"
+    logo4.text = "present4444"
         
     var logo5 = PresentationLogo()
     logo5.image = "fanta"
-    logo5.text = "present5"
+    logo5.text = "present555"
 
     var logo6 = PresentationLogo()
     logo6.image = "fanta"
