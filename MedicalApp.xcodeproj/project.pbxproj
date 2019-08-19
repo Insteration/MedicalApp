@@ -13,6 +13,12 @@
 		0BC6338622F5669900F2F24C /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /*  Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
 		0BDDD780230593D200574842 /* MainVcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDDD77F230593D200574842 /* MainVcData.swift */; };
+		4004280E230B175C00B9A02C /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004280C230B175C00B9A02C /* ReportViewController.swift */; };
+		4004280F230B175C00B9A02C /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4004280D230B175C00B9A02C /* ReportViewController.xib */; };
+		40042816230B184D00B9A02C /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40042815230B184D00B9A02C /* ReportModel.swift */; };
+		40042819230B188200B9A02C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40042817230B188200B9A02C /* CollectionViewController.swift */; };
+		4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40042818230B188200B9A02C /* CollectionViewController.xib */; };
+		4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004281B230B18C500B9A02C /* CollectionModel.swift */; };
 		4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2222F4A3910051A609 /* ReportViewController.swift */; };
 		4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A292F2322F4A3920051A609 /* ReportViewController.xib */; };
 		4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2422F4A3920051A609 /* ModelReport.swift */; };
@@ -45,6 +51,12 @@
 		0BDDD77F230593D200574842 /* MainVcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVcData.swift; sourceTree = "<group>"; };
 		28453B11ADE83C19CD8D8C1C /* Pods-MedicalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.release.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.release.xcconfig"; sourceTree = "<group>"; };
 		2B100107EB3D94E6394D7399 /* Pods-MedicalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.debug.xcconfig"; path = "Target Support Files/Pods-MedicalApp/Pods-MedicalApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4004280C230B175C00B9A02C /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		4004280D230B175C00B9A02C /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		40042815230B184D00B9A02C /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		40042817230B188200B9A02C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		40042818230B188200B9A02C /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		4004281B230B18C500B9A02C /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		4A292F2222F4A3910051A609 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		4A292F2322F4A3920051A609 /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		4A292F2422F4A3920051A609 /* ModelReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
@@ -142,6 +154,8 @@
 				C204BEF322F15E0200EDB741 /* RegularEmail.swift */,
 				0BDDD77F230593D200574842 /* MainVcData.swift */,
 				AC4F030422F0322400F1622B /* UserProfile.swift */,
+				40042815230B184D00B9A02C /* ReportModel.swift */,
+				4004281B230B18C500B9A02C /* CollectionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,7 +165,9 @@
 			children = (
 				4A6A442222EF6B280082CDA3 /* View.swift */,
 				ACE63A542305BF0A00F04758 /* PresentationsCollectionViewCell.swift */,
+				40042818230B188200B9A02C /* CollectionViewController.xib */,
 				ACE63A562305BF1A00F04758 /* VideoCollectionViewCell.swift */,
+				4004280D230B175C00B9A02C /* ReportViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +181,8 @@
 				C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */,
 				4ADB102A22F1B42B00DB7ACB /* MainViewController.swift */,
 				4ADB102C22F1BDA300DB7ACB /* RegistrationViewController.swift */,
+				4004280C230B175C00B9A02C /* ReportViewController.swift */,
+				40042817230B188200B9A02C /* CollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,10 +271,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4004280F230B175C00B9A02C /* ReportViewController.xib in Resources */,
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
 				0B13F1F422F56C2200BE97B9 /* Localizable_eng.strings in Resources */,
 				4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */,
+				4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */,
 				0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */,
 				0B13F1F222F56C0E00BE97B9 /* Localizable_rus.strings in Resources */,
 				4ADB102622F1A88400DB7ACB /* GoogleService-Info.plist in Resources */,
@@ -321,13 +341,17 @@
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				0BC6338622F5669900F2F24C /*  Data.swift in Sources */,
 				ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */,
+				4004280E230B175C00B9A02C /* ReportViewController.swift in Sources */,
 				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
+				4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
 				C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
+				40042819230B188200B9A02C /* CollectionViewController.swift in Sources */,
 				ACE63A552305BF0A00F04758 /* PresentationsCollectionViewCell.swift in Sources */,
 				0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */,
 				AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */,
+				40042816230B184D00B9A02C /* ReportModel.swift in Sources */,
 				4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */,
 				4ADB102B22F1B42B00DB7ACB /* MainViewController.swift in Sources */,
 			);
