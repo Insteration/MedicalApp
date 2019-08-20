@@ -378,6 +378,15 @@
                                     <segue destination="qtE-n4-pfp" kind="show" id="GXO-YZ-bAW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-VX-JYD">
+                                <rect key="frame" x="306" y="67" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="searchActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="Djf-XE-qkP"/>
+                                    <segue destination="E31-MV-og0" kind="show" id="CbH-0t-P8X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DnA-bA-kLy"/>
@@ -464,6 +473,30 @@
             <point key="canvasLocation" x="3100.0000000000005" y="-1312.5"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="czc-m4-TDt">
+            <objects>
+                <viewController id="E31-MV-og0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TQV-0c-6Hs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aue-hR-26k">
+                                <rect key="frame" x="186" y="358" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Lbr-6y-ZLP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiG-sT-aGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3948" y="-1312"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="I8R-op-pj1">
             <objects>
                 <viewController id="lEr-Qg-vTG" sceneMemberID="viewController">
@@ -485,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6r-hM-GXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3973.913043478261" y="-1312.5"/>
+            <point key="canvasLocation" x="4803" y="-1313"/>
         </scene>
         <!--SignUP Final View Controller-->
         <scene sceneID="H8A-OW-SrW">

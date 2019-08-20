@@ -104,6 +104,11 @@ class MainViewController: UIViewController {
     }
     
     
+    @IBAction func searchActionButton(_ sender: UIButton) {
+    }
+    
+    
+    
     @IBAction func userInfoActionButton(_ sender: UIButton) {
     }
     
