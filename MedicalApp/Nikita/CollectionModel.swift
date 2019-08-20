@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+
+
+struct CollectionData {
+    var name: String
+    var items: [String]
+}
