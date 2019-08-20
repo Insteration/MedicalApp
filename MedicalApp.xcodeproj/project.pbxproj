@@ -33,6 +33,8 @@
 		AC4F030522F0322400F1622B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F030422F0322400F1622B /* UserProfile.swift */; };
 		ACE63A552305BF0A00F04758 /* PresentationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE63A542305BF0A00F04758 /* PresentationsCollectionViewCell.swift */; };
 		ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE63A562305BF1A00F04758 /* VideoCollectionViewCell.swift */; };
+		ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */; };
+		ACEA0D51230C62990054B75E /* ItemFromVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */; };
 		C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */; };
 		C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF322F15E0200EDB741 /* RegularEmail.swift */; };
 		C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */; };
@@ -72,6 +74,8 @@
 		AC4F030422F0322400F1622B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		ACE63A542305BF0A00F04758 /* PresentationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACE63A562305BF1A00F04758 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFromPresentationViewController.swift; sourceTree = "<group>"; };
+		ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFromVideoViewController.swift; sourceTree = "<group>"; };
 		C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController.swift; sourceTree = "<group>"; };
 		C204BEF322F15E0200EDB741 /* RegularEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularEmail.swift; sourceTree = "<group>"; };
 		C215C5D522F0BBE9003EFF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignINViewControllerXIB.xib; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */,
 				4ADB102A22F1B42B00DB7ACB /* MainViewController.swift */,
 				4ADB102C22F1BDA300DB7ACB /* RegistrationViewController.swift */,
+				ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */,
+				ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
 				0BC6338622F5669900F2F24C /*  Data.swift in Sources */,
 				ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */,
+				ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */,
 				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
 				4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
@@ -338,6 +345,7 @@
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
 				40042819230B188200B9A02C /* CollectionViewController.swift in Sources */,
 				ACE63A552305BF0A00F04758 /* PresentationsCollectionViewCell.swift in Sources */,
+				ACEA0D51230C62990054B75E /* ItemFromVideoViewController.swift in Sources */,
 				0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */,
 				AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */,
 				4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */,

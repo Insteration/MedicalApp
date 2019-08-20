@@ -393,6 +393,8 @@
                     <connections>
                         <outlet property="presentationsCollectionView" destination="mFR-O0-4ab" id="60p-Fg-iHX"/>
                         <outlet property="videoCollectionView" destination="SfL-T6-vy5" id="9Vn-38-G0u"/>
+                        <segue destination="Rkp-jh-dB0" kind="show" id="wcN-mS-g0j"/>
+                        <segue destination="cKC-pf-gd4" kind="show" id="OTw-7t-UiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czq-mS-cqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -494,6 +496,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiG-sT-aGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3948" y="-1312"/>
+        </scene>
+        <!--Item From Presentation View Controller-->
+        <scene sceneID="hWx-vD-Fxf">
+            <objects>
+                <viewController id="Rkp-jh-dB0" customClass="ItemFromPresentationViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F62-lp-EiR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collections items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlo-9f-zm0">
+                                <rect key="frame" x="186" y="212" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="69J-gx-DHF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DV6-i0-aCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4219" y="-537"/>
+        </scene>
+        <!--Item From Video View Controller-->
+        <scene sceneID="Jz4-eD-vau">
+            <objects>
+                <viewController id="cKC-pf-gd4" customClass="ItemFromVideoViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JIr-8w-TiF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Video items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moJ-cF-xRe">
+                                <rect key="frame" x="186" y="217" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Nb6-ds-rXj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rdr-Fk-xn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5061" y="-548"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="I8R-op-pj1">
