@@ -7,6 +7,4 @@ class ItemFromVideoViewController: UIViewController {
 
     }
     
-
-
 }

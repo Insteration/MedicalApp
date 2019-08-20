@@ -121,6 +121,18 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView {
+        case presentationsCollectionView:
+            self.performSegue(withIdentifier: "showPresentationItem", sender: nil)
+            case videoCollectionView:
+            self.performSegue(withIdentifier: "showVideoItem", sender: nil)
+        default:
+            break
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
