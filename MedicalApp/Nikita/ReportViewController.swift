@@ -31,6 +31,7 @@ class ReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reportData = [ReportData]()
+        
         clearFields()
         customInit()
         self.hideKeyboardWhenTappedAround()
