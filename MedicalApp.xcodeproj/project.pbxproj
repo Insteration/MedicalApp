@@ -26,6 +26,8 @@
 		C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF322F15E0200EDB741 /* RegularEmail.swift */; };
 		C215C5D422F0BBE9003EFF72 /* SignINViewControllerXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */; };
 		C2C8258122F4AFE100FDCAB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2C8258322F4AFE100FDCAB9 /* Localizable.strings */; };
+		C2E5027D22FF047300F4D143 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5027C22FF047300F4D143 /* Setting.swift */; };
+		C2E5027F22FF048A00F4D143 /* UserStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5027E22FF048A00F4D143 /* UserStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		C215C5D522F0BBE9003EFF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignINViewControllerXIB.xib; sourceTree = "<group>"; };
 		C2C8258222F4AFE100FDCAB9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2C8258422F4AFEE00FDCAB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2E5027C22FF047300F4D143 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		C2E5027E22FF048A00F4D143 /* UserStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStructure.swift; sourceTree = "<group>"; };
 		F9AF078565BD3211D661783A /* Pods_MedicalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 		4A6A440B22EF6A1F0082CDA3 /* MedicalApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2D444B122FB091900D44CEB /* Dennis */,
 				4A292F2122F4A3820051A609 /* Nikita */,
 				4A6A442122EF6ABC0082CDA3 /* Resources */,
 				4A6A442022EF6A590082CDA3 /* Controllers */,
@@ -144,7 +149,6 @@
 			children = (
 				4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
-				C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */,
 				C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */,
 				4ADB102A22F1B42B00DB7ACB /* MainViewController.swift */,
 				4ADB102C22F1BDA300DB7ACB /* RegistrationViewController.swift */,
@@ -161,6 +165,16 @@
 				C2C8258322F4AFE100FDCAB9 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C2D444B122FB091900D44CEB /* Dennis */ = {
+			isa = PBXGroup;
+			children = (
+				C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */,
+				C2E5027C22FF047300F4D143 /* Setting.swift */,
+				C2E5027E22FF048A00F4D143 /* UserStructure.swift */,
+			);
+			path = Dennis;
 			sourceTree = "<group>";
 		};
 		F4E357254953D78E0706489C /* Frameworks */ = {
@@ -293,8 +307,10 @@
 			files = (
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
+				C2E5027F22FF048A00F4D143 /* UserStructure.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
+				C2E5027D22FF047300F4D143 /* Setting.swift in Sources */,
 				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
 				C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */,
