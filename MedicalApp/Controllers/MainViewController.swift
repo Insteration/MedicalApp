@@ -113,6 +113,19 @@ class MainViewController: UIViewController {
     }
     
     
+    @IBAction func questionsActionButton(_ sender: UIButton) {
+        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
+        
+        self.addChild(questionsVC)
+        questionsVC.view.frame = self.view.frame
+        self.view.addSubview(questionsVC.view)
+        
+        questionsVC.didMove(toParent: self)
+        
+        
+    }
+    
+    
     @IBAction func pendingReportActionButton(_ sender: UIButton) {
     }
     

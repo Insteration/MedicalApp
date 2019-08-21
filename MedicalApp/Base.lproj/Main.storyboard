@@ -365,10 +365,14 @@
                                     <segue destination="lEr-Qg-vTG" kind="show" id="GRu-vl-g5e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-m2-Qxx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-m2-Qxx">
                                 <rect key="frame" x="294" y="676" width="100" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7jo-ph-xWq"/>
+                                    <constraint firstAttribute="width" secondItem="1nh-m2-Qxx" secondAttribute="height" multiplier="5:2" id="Bnt-q0-SVc"/>
+                                    <constraint firstAttribute="width" constant="100" id="zDW-2q-Y7u"/>
+                                </constraints>
                                 <state key="normal" title="Pending report">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -386,8 +390,29 @@
                                     <segue destination="E31-MV-og0" kind="show" id="CbH-0t-P8X"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfd-oH-DMi">
+                                <rect key="frame" x="185" y="676" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AL2-tB-htI"/>
+                                    <constraint firstAttribute="width" constant="100" id="U23-Ka-enM"/>
+                                    <constraint firstAttribute="width" secondItem="kfd-oH-DMi" secondAttribute="height" multiplier="5:2" id="WBM-il-iOM"/>
+                                </constraints>
+                                <state key="normal" title="Questions">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="questionsActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="2cd-K8-PVc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1nh-m2-Qxx" firstAttribute="leading" secondItem="kfd-oH-DMi" secondAttribute="trailing" constant="9" id="5bX-Pf-Hwk"/>
+                            <constraint firstItem="DnA-bA-kLy" firstAttribute="bottom" secondItem="kfd-oH-DMi" secondAttribute="bottom" constant="20" id="G7e-Kr-ybD"/>
+                            <constraint firstItem="DnA-bA-kLy" firstAttribute="bottom" secondItem="1nh-m2-Qxx" secondAttribute="bottom" constant="20" id="iYW-WM-dZx"/>
+                            <constraint firstItem="DnA-bA-kLy" firstAttribute="trailing" secondItem="1nh-m2-Qxx" secondAttribute="trailing" constant="20" id="nmi-CX-V2J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DnA-bA-kLy"/>
                     </view>
                     <connections>
@@ -400,6 +425,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czq-mS-cqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2784.057971014493" y="-538.04347826086962"/>
+        </scene>
+        <!--Questions View Controller-->
+        <scene sceneID="lwQ-HL-Mjq">
+            <objects>
+                <viewController storyboardIdentifier="QuestionsVC" id="AYa-nS-8kp" customClass="QuestionsViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e6G-Mt-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTh-Ch-Pgw">
+                                <rect key="frame" x="87" y="178" width="240" height="381"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-wb-oFP">
+                                        <rect key="frame" x="98" y="343" width="45" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="SEND!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendQuestionsActionButton:" destination="AYa-nS-8kp" eventType="touchUpInside" id="5Ia-w8-L8W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Lic-Ce-tEc"/>
+                    </view>
+                    <connections>
+                        <outlet property="questionsView" destination="lTh-Ch-Pgw" id="ci5-RT-LlN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hmn-2V-zAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3723.188405797102" y="287.77173913043481"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="S9g-Xs-hTv">
@@ -423,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMR-j0-cWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3595.652173913044" y="282.88043478260875"/>
+            <point key="canvasLocation" x="4601" y="283"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2Ah-Iv-F0a">
