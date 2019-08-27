@@ -122,7 +122,6 @@ class MainViewController: UIViewController {
         
         questionsVC.didMove(toParent: self)
         
-        
     }
     
     
