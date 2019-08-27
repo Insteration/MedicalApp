@@ -3,15 +3,28 @@ import UIKit
 class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var questionsView: UIView!
+    @IBOutlet weak var questionsTextField: UITextView!
+    
+    var parseSoap = ParserSoup()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         questionsView.layer.cornerRadius = 25
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         
         moveIn()
+        
+        
+//        do {
+            let answer = parseSoap.parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html")
+            questionsTextField.text = answer
+            print("ANSWER: \(answer)")
+//        } catch let error {
+//            print("Parse wrong: ", error)
+//        }
     }
     
     

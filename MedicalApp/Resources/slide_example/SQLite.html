@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>SQLite обычная таблица и таблица для FTS</title>
+	  <meta name="description" content="У меня есть таблица новости (идентификатор, news_id, news_title) и я FTS таблицу создающие: CREATE TABLE VIRTUAL news_search ИСПОЛЬЗОВАНИЯ fts4 (news_title, разметить = портер); Я использую триггер, ч..." />
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:site" content="askvoprosy.com">
+			<meta name="twitter:title" content="SQLite обычная таблица и таблица для FTS">
+			<meta name="twitter:description" content="У меня есть таблица новости (идентификатор, news_id, news_title) и я FTS таблицу создающие: CREATE TABLE VIRTUAL news_search ИСПОЛЬЗОВАНИЯ fts4 (news_title, разметить = портер); Я использую триггер, ч...">
+			<meta property="og:type" content="website" />
+			<meta property="og:title" content="SQLite обычная таблица и таблица для FTS" />
+			<meta property="og:url" content="http://askvoprosy.com/voprosy/sqlite-regular-table-and-table-for-fts" />
+			<meta property="og:description" content="У меня есть таблица новости (идентификатор, news_id, news_title) и я FTS таблицу создающие: CREATE TABLE VIRTUAL news_search ИСПОЛЬЗОВАНИЯ fts4 (news_title, разметить = портер); Я использую триггер, ч..." />
+			<meta property="og:site_name" content="http://askvoprosy.com" /><meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  <link href="https://askvoprosy.com/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://askvoprosy.com/font-awesome-4.7.0/css/font-awesome.min.css">
+      <link href="https://askvoprosy.com/css/jquery.qtip.min.css" rel="stylesheet">
+	  <link href="https://askvoprosy.com/css/simplePagination.css" rel="stylesheet">
+      <link href="https://askvoprosy.com/css/style.css" rel="stylesheet">
+      <link href="https://askvoprosy.com/css/responsive.css" rel="stylesheet">
+	  <link rel="shortcut icon" href="https://askvoprosy.com/images/favicon.png" type="image/x-icon" />
+	  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9475447199683760",
+          enable_page_level_ads: true
+     });
+</script>
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <div class="header">
+               <div class="logo">
+                  <a href="https://askvoprosy.com" title="Поиск вопросов и ответов по программированию - Askru">
+                  <img src="https://askvoprosy.com/images/ask-ru.png">
+                  </a>
+               </div>
+               <div class="search">
+                  <form action="https://askvoprosy.com/poisk/">
+                     <input type="text" name="poisk" placeholder="поиск...">
+                     <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>
+               </div>
+               <div class="mobile_menu">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+               </div>
+               <div class="mobile_search">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+               </div>
+               <div class="menu">
+                  <ul class="top_menu">
+                     <li class="active"><a href="https://askvoprosy.com" title="Главная">Главная</a></li>
+                     <li>
+                        <a title="Лучшие теги">Лучшие теги</a>
+                        <ul class="sub_menu">
+																<li><a href="https://askvoprosy.com/tegi/javascript" title="javascript">javascript</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/java" title="java">java</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/c" title="c#">c#</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/python" title="python">python</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/android" title="android">android</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/php" title="php">php</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/jquery" title="jquery">jquery</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/c" title="c++">c++</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/html" title="html">html</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/ios" title="ios">ios</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/css" title="css">css</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/sql" title="sql">sql</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/mysql" title="mysql">mysql</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/net" title=".net">.net</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/c" title="c">c</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/r" title="r">r</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/asp-net" title="asp.net">asp.net</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/ruby-on-rails" title="ruby-on-rails">ruby-on-rails</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/objective-c" title="objective-c">objective-c</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/arrays" title="arrays">arrays</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/node-js" title="node.js">node.js</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/sql-server" title="sql-server">sql-server</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/iphone" title="iphone">iphone</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/regex" title="regex">regex</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/ruby" title="ruby">ruby</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/angularjs" title="angularjs">angularjs</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/json" title="json">json</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/swift" title="swift">swift</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/django" title="django">django</a></li>
+							   									<li><a href="https://askvoprosy.com/tegi/linux" title="linux">linux</a></li>
+							                           </ul>
+                     </li>
+                     <li>
+                        <a title="Лучшие пользователи">Лучшие пользователи</a>
+                        <ul class="sub_menu">
+                           									<li><a href="https://askvoprosy.com/polzovateli/alex" title="Alex">Alex</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/chris" title="chris">chris</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/john" title="John">John</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/david" title="David">David</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/mike" title="Mike">Mike</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/michael" title="Michael">Michael</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/sam" title="sam">sam</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/matt" title="matt">matt</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/tom" title="Tom">Tom</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/mark" title="Mark">Mark</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/ben" title="Ben">Ben</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/andrew" title="Andrew">Andrew</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/james" title="james">james</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/nick" title="Nick">Nick</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/dan" title="Dan">Dan</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/daniel" title="Daniel">Daniel</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/paul" title="Paul">Paul</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/jason" title="Jason">Jason</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/dave" title="dave">dave</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/peter" title="Peter">Peter</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/tim" title="Tim">Tim</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/joe" title="Joe">Joe</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/steve" title="Steve">Steve</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/ryan" title="Ryan">Ryan</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/adam" title="Adam">Adam</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/martin" title="Martin">Martin</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/kevin" title="Kevin">Kevin</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/max" title="max">max</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/jack" title="jack">jack</a></li>
+							   									<li><a href="https://askvoprosy.com/polzovateli/thomas" title="Thomas">Thomas</a></li>
+							                              </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </header><section id="main">
+         <div class="container">
+            <div class="main">
+               <div class="main_left">
+                  <ul>
+                     <li><a href="https://askvoprosy.com" title="Главная">Главная</a></li>
+                     <li  class="active"><a href="https://askvoprosy.com/voprosy" title="Вопросы">Вопросы</a></li>
+                     <li><a href="https://askvoprosy.com/tegi" title="Теги">Теги</a></li>
+                     <li><a href="https://askvoprosy.com/polzovateli" title="пользователей">пользователей</a></li>
+                  </ul>
+               </div>
+               <div class="main_right">
+                  <div class="ques_content">
+                     <div class="main_top posts">
+                        <div class="title">
+                           <div class="tit_h1">
+                              <h1>SQLite обычная таблица и таблица для FTS</h1>
+                           </div>
+                        </div>
+                        <div class="clear-fix"></div>
+                        <div class="qinfo">
+                           <table>
+                              <tr>
+                                 <td>
+                                    <p class="label-key"><i class="fa fa-calendar" aria-hidden="true"></i> Обновить</p>
+                                 </td>
+                                 <td>
+                                    <p class="label-key" title="2011-11-13 18:21:30Z">
+                                       <strong>December 2018</strong>
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>
+                                    <p class="label-key"><i class="fa fa-eye" aria-hidden="true"></i> Просмотры</p>
+                                 </td>
+                                 <td>
+                                    <p class="label-key">
+                                       <strong>851 раз</strong>
+                                    </p>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                     <div class="main_question">
+                        <div class="quest_main">
+                           <div class="q_main_left">
+                              <div class="plus">
+                                 <span><i class="fa fa-plus" aria-hidden="true"></i></span>
+                              </div>
+                              <div class="vote_number">
+                                 <span>1</span>
+                              </div>
+                              <div class="sub">
+                                 <span><i class="fa fa-minus" aria-hidden="true"></i></span>
+                              </div>
+                              <div class="icon_favorite">
+                                 <span><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                              </div>
+                           </div>
+                           <div class="q_main_right">
+                              <div class="q_content">
+                                 <div class="post-text" itemprop="text">
+
+<p>У меня есть таблица <strong>новости (идентификатор, news_id, news_title)</strong> и я FTS таблицу создающий:</p>
+
+<pre><code>CREATE VIRTUAL TABLE news_search USING fts4 (news_title, tokenize=porter);
+</code></pre>
+
+<p>Я использую триггер, чтобы сохранить таблицу NEWS и news_search в синхронизации:</p>
+
+<pre><code>CREATE TRIGGER IF NOT EXISTS insert_news_trigger 
+AFTER INSERT ON news 
+BEGIN 
+INSERT OR IGNORE INTO news_search (news_title) VALUES (NEW.news_title);
+END;
+</code></pre>
+
+<p>Вопрос: как пользоваться поиском? Когда я MATCH в news_search таблице он возвращает мне только записи из этой таблицы, но мне нужно * news_id * из <strong>новостей</strong> таблицы. Может быть , я должен добавить * news_id * столбец <strong>news_search</strong> таблицы?</p>
+
+<p>Что такое правильный способ использовать FTS в SQLite?</p>
+    </div>                              </div>
+                              <div class="tags">
+								                                 <a href="https://askvoprosy.com/tegi/sqlite" title="sqlite">
+                                 <i class="fa fa-tag" aria-hidden="true"></i> sqlite                                 </a>
+								                                 <a href="https://askvoprosy.com/tegi/full-text-search" title="full-text-search">
+                                 <i class="fa fa-tag" aria-hidden="true"></i> full-text-search                                 </a>
+								                                 <a href="https://askvoprosy.com/tegi/fts3" title="fts3">
+                                 <i class="fa fa-tag" aria-hidden="true"></i> fts3                                 </a>
+								                                 <a href="https://askvoprosy.com/tegi/fts4" title="fts4">
+                                 <i class="fa fa-tag" aria-hidden="true"></i> fts4                                 </a>
+								                              </div>
+							                                <div class="user_small">
+                                 <div class="avatar">
+                                    <a href="https://askvoprosy.com/polzovateli/magog"><i class="fa fa-user-o" aria-hidden="true" style="font-size: xx-large;"></i></a>
+                                 </div>
+                                 <div class="name_user">
+                                    <div class="name">
+                                       <a href="https://askvoprosy.com/polzovateli/magog" title="Magog">Magog</a>
+                                    </div>
+                                 </div>
+                              </div>
+							                              </div>
+                        </div>
+												
+                        <div class="lts_ans_main">
+                           <h3>1 ответы</h3>
+						                              <div class="quest_main">
+                              <div class="q_main_left">
+                                 <div class="plus">
+                                    <span><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                 </div>
+                                 <div class="vote_number">
+                                    <span>3</span>
+                                 </div>
+                                 <div class="sub">
+                                    <span><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                 </div>
+								                               </div>
+                              <div class="q_main_right">
+                                 <div class="q_content">
+                                    <div class="post-text" itemprop="text">
+<p>Read the <a href="https://www.sqlite.org/fts3.html#section_1_3" rel="nofollow">documentation</a>; FTS tables also have a <code>rowid</code> column (also called <code>docid</code>) that you can set explicitly to the same value as the corresponding key of the original table.</p>
+
+<p>Assuming that <code>news.id</code> is the <code>rowid</code> (i.e., INTEGER PRIMARY KEY), you should change your trigger to also copy that ID value into the <code>news_search</code> table.
+You can the use that to look up the original record:</p>
+
+<pre><code>SELECT *
+FROM news
+WHERE id IN (SELECT docid
+             FROM news_search
+             WHERE news_title MATCH '😸')
+</code></pre>
+    </div>                                 </div>
+                                 
+                                                               <div class="user_small">
+                                 <div class="avatar">
+                                    <a href="https://askvoprosy.com/polzovateli/cl"><i class="fa fa-user-o" aria-hidden="true" style="font-size: xx-large;"></i></a>
+                                 </div>
+                                 <div class="name_user">
+                                    <div class="name">
+                                       <a href="https://askvoprosy.com/polzovateli/cl" title="CL.">CL.</a>
+                                    </div>
+                                 </div>
+                              </div>
+							                                    
+                              </div>
+                           </div>
+                                                   </div>
+                     </div>
+                  </div>
+                  			<div class="btn_left_menu">
+				 <ul>
+                     <li><a href="https://askvoprosy.com" title="Главная">Главная</a></li>
+                     <li><a href="https://askvoprosy.com/voprosy" title="Вопросы">Вопросы</a></li>
+                     <li><a href="https://askvoprosy.com/tegi" title="Теги">Теги</a></li>
+                     <li><a href="https://askvoprosy.com/polzovateli" title="пользователей">пользователей</a></li>
+                  </ul>
+				 <i class="fa fa-link" aria-hidden="true"></i>
+			  </div>
+				<div class="main_sidebar">
+                     <div class="lts_ques">
+                        <div class="title">
+                           <div class="tit_h1">
+                              <h3>Связанные вопросы</h3>
+                           </div>
+                        </div>
+                        <ul class="lts_ques_item">
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-regular-table-and-table-for-fts">SQLite обычная таблица и таблица для FTS</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/can-a-sqlite-fts-table-be-backed-by-a-view">Может таблица SQLite FTS быть подкреплена зрением?</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/regular-table-inside-ngtable">Обычная таблица внутри ngTable</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-drop-and-recreate-table">SQLite и падение Recreate Таблица</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-table-does-not-exist">SQLite Таблица не существует</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-multiple-table-join">SQLite: Multiple Таблица Регистрация</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-db-table-differences">SQLITE DB Таблица Различия</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/joining-tables-one-a-normal-one-and-the-other-fts-virtual-table">объединение таблиц: один нормальный один и другой FTS виртуальная таблица</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-reorder-table">SQLite Reorder Таблица?</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-table-not-saving">SQLite Таблица не экономить</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/android-order-sqlite-table">Таблица SQLite андроида заказ</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/sqlite-errors-table-created-and-queried-correctly">таблица SQLite ошибки создана и запрашиваются правильно</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/air-and-sqlite-if-table-exists-conditional">AIR и SQLite: если таблица существует условная</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/c-sqlite-table-exists-and-does-not-exist">C # SQLite Таблица существует и не существует</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/android-sqlite-table-not-created">Таблица Android SQLite не создана</a>
+                           </li>
+							                        </ul>
+                     </div>
+                     <div class="lts_ques">
+                        <div class="title">
+                           <div class="tit_h1">
+                              <h3>Последние вопросы</h3>
+                           </div>
+                        </div>
+                        <ul class="lts_ques_item">
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/swagger-ui-emplyeed-in-nginx-by-bunled-jar-it-shows-blank-page">Swagger-UI emplyeed in nginx by bunled jar, it shows blank page</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/api-status-code-for-post-request-that-has-failed">апите код состояния для запроса поста, который не смог</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/wp-new-user-notification-not-working">wp_new_user_notification не работает</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/implementing-google-calendar-api-with-angular-5">Реализация Google Calendar API с Угловыми 5</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/does-flutter-take-care-of-all-screen-sizes">Несет ли трепетание заботиться о всех размерах экрана</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/the-argument-should-be-executed-as-a-function-inside-the-body-in-javascript">Аргумент должен быть выполнен в виде функции внутри тела в JavaScript</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/mysql-copy-schema-without-data">MySQL копия схемы без данных</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/how-to-validate-if-my-list-consist-of-same-name-and-alert-already-exist">Как проверить, если мой список состоит из тех же имени и оповещения уже существует?</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/vuejs-vuex-watch-never-called-when-state-property-is-an-array">VueJS / VueX: Часы никогда не вызывается, когда государственная собственность является массивом</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/how-get-users-emails-in-though-query">Как получить пользователей электронной почты в запросе, хотя</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/in-app-purchases-in-react-native-expo">В App покупки в React-Native Expo?</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/my-asp-net-core-app-says-it-can-t-read-web-config">Мой основной приложение ASP.NET говорит, что не может читать web.config</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/withformik-how-to-access-wrapped-form-s-props-in-handlesubmit">withFormik как получить доступ к реквизиту, завернутой в форме handleSubmit</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/azure-devops-default-permissions">Azure DevOps разрешений по умолчанию</a>
+                           </li>
+							                           <li>
+                              <i class="fa fa-question-circle" aria-hidden="true"></i>
+                              <a href="https://askvoprosy.com/voprosy/keystonejs-admin-ui-view-field-instead-of-id-for-relationships">Keystonejs интерфейс администратора: Вид поле вместо идентификатора для отношений</a>
+                           </li>
+							                        </ul>
+                     </div>
+                     <div class="tags">
+                        <div class="title">
+                           <div class="tit_h1">
+                              <h3>Горячие теги</h3>
+                           </div>
+                        </div>
+						                        <a href="https://askvoprosy.com/tegi/javascript" title="javascript"><i class="fa fa-tag" aria-hidden="true"></i>javascript</a>
+                                                <a href="https://askvoprosy.com/tegi/java" title="java"><i class="fa fa-tag" aria-hidden="true"></i>java</a>
+                                                <a href="https://askvoprosy.com/tegi/c" title="c#"><i class="fa fa-tag" aria-hidden="true"></i>c#</a>
+                                                <a href="https://askvoprosy.com/tegi/python" title="python"><i class="fa fa-tag" aria-hidden="true"></i>python</a>
+                                                <a href="https://askvoprosy.com/tegi/android" title="android"><i class="fa fa-tag" aria-hidden="true"></i>android</a>
+                                                <a href="https://askvoprosy.com/tegi/php" title="php"><i class="fa fa-tag" aria-hidden="true"></i>php</a>
+                                                <a href="https://askvoprosy.com/tegi/jquery" title="jquery"><i class="fa fa-tag" aria-hidden="true"></i>jquery</a>
+                                                <a href="https://askvoprosy.com/tegi/c" title="c++"><i class="fa fa-tag" aria-hidden="true"></i>c++</a>
+                                                <a href="https://askvoprosy.com/tegi/html" title="html"><i class="fa fa-tag" aria-hidden="true"></i>html</a>
+                                                <a href="https://askvoprosy.com/tegi/ios" title="ios"><i class="fa fa-tag" aria-hidden="true"></i>ios</a>
+                                                <a href="https://askvoprosy.com/tegi/css" title="css"><i class="fa fa-tag" aria-hidden="true"></i>css</a>
+                                                <a href="https://askvoprosy.com/tegi/sql" title="sql"><i class="fa fa-tag" aria-hidden="true"></i>sql</a>
+                                                <a href="https://askvoprosy.com/tegi/mysql" title="mysql"><i class="fa fa-tag" aria-hidden="true"></i>mysql</a>
+                                                <a href="https://askvoprosy.com/tegi/net" title=".net"><i class="fa fa-tag" aria-hidden="true"></i>.net</a>
+                                                <a href="https://askvoprosy.com/tegi/c" title="c"><i class="fa fa-tag" aria-hidden="true"></i>c</a>
+                                                <a href="https://askvoprosy.com/tegi/r" title="r"><i class="fa fa-tag" aria-hidden="true"></i>r</a>
+                                                <a href="https://askvoprosy.com/tegi/asp-net" title="asp.net"><i class="fa fa-tag" aria-hidden="true"></i>asp.net</a>
+                                                <a href="https://askvoprosy.com/tegi/ruby-on-rails" title="ruby-on-rails"><i class="fa fa-tag" aria-hidden="true"></i>ruby-on-rails</a>
+                                                <a href="https://askvoprosy.com/tegi/objective-c" title="objective-c"><i class="fa fa-tag" aria-hidden="true"></i>objective-c</a>
+                                                <a href="https://askvoprosy.com/tegi/arrays" title="arrays"><i class="fa fa-tag" aria-hidden="true"></i>arrays</a>
+                                                <a href="https://askvoprosy.com/tegi/node-js" title="node.js"><i class="fa fa-tag" aria-hidden="true"></i>node.js</a>
+                                                <a href="https://askvoprosy.com/tegi/sql-server" title="sql-server"><i class="fa fa-tag" aria-hidden="true"></i>sql-server</a>
+                                                <a href="https://askvoprosy.com/tegi/iphone" title="iphone"><i class="fa fa-tag" aria-hidden="true"></i>iphone</a>
+                                                <a href="https://askvoprosy.com/tegi/regex" title="regex"><i class="fa fa-tag" aria-hidden="true"></i>regex</a>
+                                                <a href="https://askvoprosy.com/tegi/ruby" title="ruby"><i class="fa fa-tag" aria-hidden="true"></i>ruby</a>
+                                                <a href="https://askvoprosy.com/tegi/angularjs" title="angularjs"><i class="fa fa-tag" aria-hidden="true"></i>angularjs</a>
+                                                <a href="https://askvoprosy.com/tegi/json" title="json"><i class="fa fa-tag" aria-hidden="true"></i>json</a>
+                                                <a href="https://askvoprosy.com/tegi/swift" title="swift"><i class="fa fa-tag" aria-hidden="true"></i>swift</a>
+                                                <a href="https://askvoprosy.com/tegi/django" title="django"><i class="fa fa-tag" aria-hidden="true"></i>django</a>
+                                                <a href="https://askvoprosy.com/tegi/linux" title="linux"><i class="fa fa-tag" aria-hidden="true"></i>linux</a>
+                                                <a href="https://askvoprosy.com/tegi/asp-net-mvc" title="asp.net-mvc"><i class="fa fa-tag" aria-hidden="true"></i>asp.net-mvc</a>
+                                                <a href="https://askvoprosy.com/tegi/xml" title="xml"><i class="fa fa-tag" aria-hidden="true"></i>xml</a>
+                                                <a href="https://askvoprosy.com/tegi/wpf" title="wpf"><i class="fa fa-tag" aria-hidden="true"></i>wpf</a>
+                                                <a href="https://askvoprosy.com/tegi/angular" title="angular"><i class="fa fa-tag" aria-hidden="true"></i>angular</a>
+                                                <a href="https://askvoprosy.com/tegi/spring" title="spring"><i class="fa fa-tag" aria-hidden="true"></i>spring</a>
+                                                <a href="https://askvoprosy.com/tegi/string" title="string"><i class="fa fa-tag" aria-hidden="true"></i>string</a>
+                                                <a href="https://askvoprosy.com/tegi/ajax" title="ajax"><i class="fa fa-tag" aria-hidden="true"></i>ajax</a>
+                                                <a href="https://askvoprosy.com/tegi/python-3-x" title="python-3.x"><i class="fa fa-tag" aria-hidden="true"></i>python-3.x</a>
+                                                <a href="https://askvoprosy.com/tegi/git" title="git"><i class="fa fa-tag" aria-hidden="true"></i>git</a>
+                                                <a href="https://askvoprosy.com/tegi/excel" title="excel"><i class="fa fa-tag" aria-hidden="true"></i>excel</a>
+                                                <a href="https://askvoprosy.com/tegi/windows" title="windows"><i class="fa fa-tag" aria-hidden="true"></i>windows</a>
+                                                <a href="https://askvoprosy.com/tegi/xcode" title="xcode"><i class="fa fa-tag" aria-hidden="true"></i>xcode</a>
+                                                <a href="https://askvoprosy.com/tegi/multithreading" title="multithreading"><i class="fa fa-tag" aria-hidden="true"></i>multithreading</a>
+                                                <a href="https://askvoprosy.com/tegi/pandas" title="pandas"><i class="fa fa-tag" aria-hidden="true"></i>pandas</a>
+                                                <a href="https://askvoprosy.com/tegi/database" title="database"><i class="fa fa-tag" aria-hidden="true"></i>database</a>
+                                                <a href="https://askvoprosy.com/tegi/reactjs" title="reactjs"><i class="fa fa-tag" aria-hidden="true"></i>reactjs</a>
+                                                <a href="https://askvoprosy.com/tegi/bash" title="bash"><i class="fa fa-tag" aria-hidden="true"></i>bash</a>
+                                                <a href="https://askvoprosy.com/tegi/scala" title="scala"><i class="fa fa-tag" aria-hidden="true"></i>scala</a>
+                                                <a href="https://askvoprosy.com/tegi/algorithm" title="algorithm"><i class="fa fa-tag" aria-hidden="true"></i>algorithm</a>
+                                                <a href="https://askvoprosy.com/tegi/eclipse" title="eclipse"><i class="fa fa-tag" aria-hidden="true"></i>eclipse</a>
+                                                <a href="https://askvoprosy.com/tegi/html5" title="html5"><i class="fa fa-tag" aria-hidden="true"></i>html5</a>
+                                                <a href="https://askvoprosy.com/tegi/vba" title="vba"><i class="fa fa-tag" aria-hidden="true"></i>vba</a>
+                                                <a href="https://askvoprosy.com/tegi/performance" title="performance"><i class="fa fa-tag" aria-hidden="true"></i>performance</a>
+                                                <a href="https://askvoprosy.com/tegi/macos" title="macos"><i class="fa fa-tag" aria-hidden="true"></i>macos</a>
+                                                <a href="https://askvoprosy.com/tegi/postgresql" title="postgresql"><i class="fa fa-tag" aria-hidden="true"></i>postgresql</a>
+                                                <a href="https://askvoprosy.com/tegi/mongodb" title="mongodb"><i class="fa fa-tag" aria-hidden="true"></i>mongodb</a>
+                                                <a href="https://askvoprosy.com/tegi/laravel" title="laravel"><i class="fa fa-tag" aria-hidden="true"></i>laravel</a>
+                                                <a href="https://askvoprosy.com/tegi/oracle" title="oracle"><i class="fa fa-tag" aria-hidden="true"></i>oracle</a>
+                                                <a href="https://askvoprosy.com/tegi/visual-studio" title="visual-studio"><i class="fa fa-tag" aria-hidden="true"></i>visual-studio</a>
+                                                <a href="https://askvoprosy.com/tegi/list" title="list"><i class="fa fa-tag" aria-hidden="true"></i>list</a>
+                                                <a href="https://askvoprosy.com/tegi/vb-net" title="vb.net"><i class="fa fa-tag" aria-hidden="true"></i>vb.net</a>
+                                                <a href="https://askvoprosy.com/tegi/wordpress" title="wordpress"><i class="fa fa-tag" aria-hidden="true"></i>wordpress</a>
+                                                <a href="https://askvoprosy.com/tegi/linq" title="linq"><i class="fa fa-tag" aria-hidden="true"></i>linq</a>
+                                                <a href="https://askvoprosy.com/tegi/entity-framework" title="entity-framework"><i class="fa fa-tag" aria-hidden="true"></i>entity-framework</a>
+                                                <a href="https://askvoprosy.com/tegi/winforms" title="winforms"><i class="fa fa-tag" aria-hidden="true"></i>winforms</a>
+                                                <a href="https://askvoprosy.com/tegi/unit-testing" title="unit-testing"><i class="fa fa-tag" aria-hidden="true"></i>unit-testing</a>
+                                                <a href="https://askvoprosy.com/tegi/matlab" title="matlab"><i class="fa fa-tag" aria-hidden="true"></i>matlab</a>
+                                                <a href="https://askvoprosy.com/tegi/typescript" title="typescript"><i class="fa fa-tag" aria-hidden="true"></i>typescript</a>
+                                                <a href="https://askvoprosy.com/tegi/image" title="image"><i class="fa fa-tag" aria-hidden="true"></i>image</a>
+                                                <a href="https://askvoprosy.com/tegi/python-2-7" title="python-2.7"><i class="fa fa-tag" aria-hidden="true"></i>python-2.7</a>
+                                                <a href="https://askvoprosy.com/tegi/perl" title="perl"><i class="fa fa-tag" aria-hidden="true"></i>perl</a>
+                                                <a href="https://askvoprosy.com/tegi/twitter-bootstrap" title="twitter-bootstrap"><i class="fa fa-tag" aria-hidden="true"></i>twitter-bootstrap</a>
+                                                <a href="https://askvoprosy.com/tegi/numpy" title="numpy"><i class="fa fa-tag" aria-hidden="true"></i>numpy</a>
+                                                <a href="https://askvoprosy.com/tegi/css3" title="css3"><i class="fa fa-tag" aria-hidden="true"></i>css3</a>
+                                                <a href="https://askvoprosy.com/tegi/qt" title="qt"><i class="fa fa-tag" aria-hidden="true"></i>qt</a>
+                                                <a href="https://askvoprosy.com/tegi/swing" title="swing"><i class="fa fa-tag" aria-hidden="true"></i>swing</a>
+                                                <a href="https://askvoprosy.com/tegi/hibernate" title="hibernate"><i class="fa fa-tag" aria-hidden="true"></i>hibernate</a>
+                                                <a href="https://askvoprosy.com/tegi/c-11" title="c++11"><i class="fa fa-tag" aria-hidden="true"></i>c++11</a>
+                                                <a href="https://askvoprosy.com/tegi/shell" title="shell"><i class="fa fa-tag" aria-hidden="true"></i>shell</a>
+                                                <a href="https://askvoprosy.com/tegi/apache" title="apache"><i class="fa fa-tag" aria-hidden="true"></i>apache</a>
+                                                <a href="https://askvoprosy.com/tegi/amazon-web-services" title="amazon-web-services"><i class="fa fa-tag" aria-hidden="true"></i>amazon-web-services</a>
+                                                <a href="https://askvoprosy.com/tegi/haskell" title="haskell"><i class="fa fa-tag" aria-hidden="true"></i>haskell</a>
+                                                <a href="https://askvoprosy.com/tegi/maven" title="maven"><i class="fa fa-tag" aria-hidden="true"></i>maven</a>
+                                                <a href="https://askvoprosy.com/tegi/forms" title="forms"><i class="fa fa-tag" aria-hidden="true"></i>forms</a>
+                                                <a href="https://askvoprosy.com/tegi/azure" title="azure"><i class="fa fa-tag" aria-hidden="true"></i>azure</a>
+                                                <a href="https://askvoprosy.com/tegi/facebook" title="facebook"><i class="fa fa-tag" aria-hidden="true"></i>facebook</a>
+                                                <a href="https://askvoprosy.com/tegi/powershell" title="powershell"><i class="fa fa-tag" aria-hidden="true"></i>powershell</a>
+                                                <a href="https://askvoprosy.com/tegi/rest" title="rest"><i class="fa fa-tag" aria-hidden="true"></i>rest</a>
+                                                <a href="https://askvoprosy.com/tegi/function" title="function"><i class="fa fa-tag" aria-hidden="true"></i>function</a>
+                                                <a href="https://askvoprosy.com/tegi/excel-vba" title="excel-vba"><i class="fa fa-tag" aria-hidden="true"></i>excel-vba</a>
+                                                <a href="https://askvoprosy.com/tegi/delphi" title="delphi"><i class="fa fa-tag" aria-hidden="true"></i>delphi</a>
+                                                <a href="https://askvoprosy.com/tegi/tsql" title="tsql"><i class="fa fa-tag" aria-hidden="true"></i>tsql</a>
+                                                <a href="https://askvoprosy.com/tegi/ruby-on-rails-3" title="ruby-on-rails-3"><i class="fa fa-tag" aria-hidden="true"></i>ruby-on-rails-3</a>
+                                                <a href="https://askvoprosy.com/tegi/symfony" title="symfony"><i class="fa fa-tag" aria-hidden="true"></i>symfony</a>
+                                                <a href="https://askvoprosy.com/tegi/google-chrome" title="google-chrome"><i class="fa fa-tag" aria-hidden="true"></i>google-chrome</a>
+                                                <a href="https://askvoprosy.com/tegi/firebase" title="firebase"><i class="fa fa-tag" aria-hidden="true"></i>firebase</a>
+                                                <a href="https://askvoprosy.com/tegi/api" title="api"><i class="fa fa-tag" aria-hidden="true"></i>api</a>
+                                                <a href="https://askvoprosy.com/tegi/docker" title="docker"><i class="fa fa-tag" aria-hidden="true"></i>docker</a>
+                                                <a href="https://askvoprosy.com/tegi/dataframe" title="dataframe"><i class="fa fa-tag" aria-hidden="true"></i>dataframe</a>
+                                                <a href="https://askvoprosy.com/tegi/oop" title="oop"><i class="fa fa-tag" aria-hidden="true"></i>oop</a>
+                                             </div>
+                  </div>               </div>
+            </div>
+         </div>
+      </section>	<footer>
+         <div class="container">
+            <div class="footer">
+               <div class="footer_col">
+                  <a href="https://askvoprosy.com" title="Поиск вопросов и ответов по программированию - Askru">
+                  <img src="https://askvoprosy.com/images/ask-ru.png">
+                  </a>
+               </div>
+               <div class="footer_col">
+                  <h5>ASK RU</h5>
+                  <ul>
+                     <li><a href="#" title="Tour">Tour</a></li>
+                     <li><a href="#" title="Help">Help</a></li>
+                     <li><a href="#" title="Chat">Chat</a></li>
+                     <li><a href="#" title="Contact">Contact</a></li>
+                     <li><a href="#" title="Feedback">Feedback</a></li>
+                     <li><a href="#" title="Mobile">Mobile</a></li>
+                     <li><a href="#" title="Disable Responsiveness">Disable Responsiveness</a></li>
+                  </ul>
+               </div>
+               <div class="footer_col">
+                  <h5>Company</h5>
+                  <ul>
+                     <li><a href="#" title="Stack Overflow">Stack Overflow</a></li>
+                     <li><a href="#" title="Stack Overflow Business">Stack Overflow Business</a></li>
+                     <li><a href="#" title="Developer Jobs">Developer Jobs</a></li>
+                     <li><a href="#" title="About">About</a></li>
+                     <li><a href="#" title="Press">Press</a></li>
+                     <li><a href="#" title="Legal">Legal</a></li>
+                     <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
+                  </ul>
+               </div>
+               <div class="footer_col">
+                  <h5>Stack Exchange</h5>
+                  <ul>
+                     <li><a href="#" title="Technology">Technology</a></li>
+                     <li><a href="#" title="Life / Arts">Life / Arts</a></li>
+                     <li><a href="#" title="Culture / Recreation">Culture / Recreation</a></li>
+                     <li><a href="#" title="Science">Science</a></li>
+                     <li><a href="#" title="Other">Other</a></li>
+                  </ul>
+               </div>
+               <div class="footer_col">
+                  <h5>Social</h5>
+                  <div class="social_link">
+                     <div class="social_link_item">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                     </div>
+                     <div class="social_link_item">
+                        <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                     </div>
+                     <div class="social_link_item">
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                     </div>
+                     <div class="social_link_item">
+                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <p>askvoprosy.com</p>
+            </div>
+         </div>
+      </footer>
+      
+      <script src="https://askvoprosy.com/js/bootstrap.min.js"></script>
+      <script src="https://askvoprosy.com/js/detectmobilebrowser.js"></script>
+      <script src="https://askvoprosy.com/js/jquery.qtip.min.js"></script>
+      <script src="https://askvoprosy.com/js/myscript.js"></script>
+	  <script src="https://askvoprosy.com/js/jquery.simplePagination.js"></script>
+   </body>
+</html>

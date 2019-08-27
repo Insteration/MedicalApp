@@ -471,6 +471,7 @@
                         <viewLayoutGuide key="safeArea" id="Lic-Ce-tEc"/>
                     </view>
                     <connections>
+                        <outlet property="questionsTextField" destination="zCd-gq-a0V" id="w1j-k0-1Up"/>
                         <outlet property="questionsView" destination="lTh-Ch-Pgw" id="ci5-RT-LlN"/>
                     </connections>
                 </viewController>
