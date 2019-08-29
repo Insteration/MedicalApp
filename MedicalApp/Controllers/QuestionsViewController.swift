@@ -12,17 +12,11 @@ class QuestionsViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         
         moveIn()
-        
-    
-
     }
-    
     
     @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
                 moveOut()
     }
-    
-    
     
     func moveIn() {
         
