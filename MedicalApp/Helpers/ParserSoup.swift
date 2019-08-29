@@ -1,52 +1,39 @@
-import Foundation
 import SwiftSoup
 
-struct ParserSoup {
-    var document: Document = Document.init("")
+protocol ParserProtocol {
+    func parse(pathFile: String, cssSelector: String) -> String
+}
+
+extension ParserProtocol {
     
-    
-    private mutating func downloadHTML(pathFile: String) {
-        // url string to URL
-        guard let url = URL(string: pathFile) else {
-            // an error occurred
-            print("ERROR GET URL")
-            return
+    func parse(pathFile: String, cssSelector: String = "*") -> String {
+        var items = String()
+        var document: Document = Document.init("")
+        
+        guard let url = URL(string: pathFile) else { return ""}
+        print("1: ADD URL \(url)")
+        
+        do {
+            let html = try String.init(contentsOf: url)
+            document = try SwiftSoup.parse(html)
+            print("2: HTML = \(html)")
+        } catch let error {
+            print("ERROR GET DOCUMENT \(error)")
         }
         
         do {
-            // content of url
-            let html = try String.init(contentsOf: url)
-            // parse it into a Document
-            self.document = try SwiftSoup.parse(html)
-        } catch let error {
-            // an error occurred
-            print("ERROR GET DOCUMENT \(error)")        }
-        
-    }
-    
-    
-    mutating func parse(pathFile: String, cssSelector: String = "*") -> String {
-        var items = String()
-        downloadHTML(pathFile: pathFile)
-        
-        do {
-            //empty old items
-            // firn css selector
             let elements: Elements = try document.select(cssSelector)
-            //transform it into a local object (Item)
             for element in elements {
-                let text = try element.text()                
-                items += "/n" + text
-                
-                print(text)
+                let text = try element.text()
+                items += "\n" + text
             }
             
         } catch let error {
             print("Error: \(error)")
         }
-        return items
         
+        return items
     }
-    
-    
 }
+
+

@@ -1,7 +1,7 @@
 
 import UIKit
 
-class LibraryViewController: UIViewController {
+class LibraryViewController: UIViewController, ParserProtocol {
     
     @IBOutlet weak var libraryTextView: UITextView!
     
@@ -10,9 +10,12 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let answer = parseSoap.parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html")
+//        let answer = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html")
         
-        libraryTextView.text = answer
-        print("ANSWER: \(answer)")
+        let answer1 = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html", cssSelector: "div")
+        
+
+        
+        libraryTextView.text = answer1
     }
 }

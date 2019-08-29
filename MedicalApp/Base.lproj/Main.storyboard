@@ -339,6 +339,7 @@
                                 <rect key="frame" x="20" y="67" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="L"/>
                                 <connections>
                                     <action selector="libraryActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="iNf-EZ-GcM"/>
                                     <segue destination="CbR-1A-Ckr" kind="show" id="Dql-Bl-8or"/>
@@ -360,6 +361,7 @@
                                 <rect key="frame" x="354" y="67" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="User"/>
                                 <connections>
                                     <action selector="userInfoActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="lZ5-xl-eUm"/>
                                     <segue destination="lEr-Qg-vTG" kind="show" id="GRu-vl-g5e"/>
@@ -383,8 +385,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-VX-JYD">
                                 <rect key="frame" x="306" y="67" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="S"/>
                                 <connections>
                                     <action selector="searchActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="Djf-XE-qkP"/>
                                     <segue destination="E31-MV-og0" kind="show" id="CbH-0t-P8X"/>
