@@ -15,12 +15,17 @@ class LibraryViewController: UIViewController, ParserProtocol {
         
 //        let answer1 = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html", cssSelector: "div")
         
-        libraryTextView.text = db.getHTML()
+        let html = db.getHTML()
+        let parseRString = parse(htmlString: html, cssSelector: "div")
+//        let parseRString = parse(htmlString: html, cssSelector: "title")
         
-        libraryWebView.load(URLRequest(url: URL(string: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html")!))
+//        libraryTextView.text = html
+        libraryTextView.text = parseRString
         
-        //        myWebKit.load(URLRequest(url: URL(string: "file:///Users/alexkholodoff/Developer/MedicalApp/slide_exapmple/Core.html")!))
+        libraryWebView.loadHTMLString(html, baseURL: nil)
         
-//        libraryTextView.text = answer1
+//        libraryWebView.load(URLRequest(url: URL(string: "file:///Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Resources/slide_example/Core.html")!))
+        
+
     }
 }
