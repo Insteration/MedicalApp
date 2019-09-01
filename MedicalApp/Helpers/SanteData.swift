@@ -58,7 +58,7 @@ extension DB {
         
         var insert: OpaquePointer? = nil
         let insertString = """
-        INSERT INTO \(inTable) (name) VALUES ('\(name)');
+        INSERT INTO \(inTable) (question) VALUES ('\(name)');
         """
         guard sqlite3_prepare_v2(db, insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE else {
