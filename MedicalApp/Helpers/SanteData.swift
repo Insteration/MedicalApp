@@ -1,7 +1,12 @@
 import Foundation
 import SQLite3
 
-struct DB {
+protocol DB {
+    func getHTML(_ id: Int) -> String
+    
+}
+
+extension DB {
     
     func getHTML(_ id: Int = 3) -> String {
         guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else {return "FIG_VAM"}

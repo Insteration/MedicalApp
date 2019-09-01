@@ -2,11 +2,11 @@
 import UIKit
 import WebKit
 
-class LibraryViewController: UIViewController, ParserProtocol {
+class LibraryViewController: UIViewController, ParserProtocol, DB {
     
     @IBOutlet weak var libraryWebView: WKWebView!
     @IBOutlet weak var libraryTextView: UITextView!
-    var db = DB()
+//    var db = DB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,7 @@ class LibraryViewController: UIViewController, ParserProtocol {
         
 //        let answer1 = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html", cssSelector: "div")
         
-        let html = db.getHTML()
+        let html = getHTML()
         let parseRString = parse(htmlString: html, cssSelector: "div")
 //        let parseRString = parse(htmlString: html, cssSelector: "title")
         
