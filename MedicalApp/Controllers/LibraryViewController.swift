@@ -3,10 +3,13 @@ import UIKit
 import WebKit
 
 class LibraryViewController: UIViewController, ParserProtocol, DB {
+    func insertInTable(db: OpaquePointer, inTable: String, name: String) {
+        print("hh")
+    }
+    
     
     @IBOutlet weak var libraryWebView: WKWebView!
     @IBOutlet weak var libraryTextView: UITextView!
-//    var db = DB()
     
     override func viewDidLoad() {
         super.viewDidLoad()

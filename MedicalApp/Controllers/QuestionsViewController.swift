@@ -1,6 +1,6 @@
 import UIKit
 
-class QuestionsViewController: UIViewController {
+class QuestionsViewController: UIViewController, DB {
     
     @IBOutlet weak var questionsView: UIView!
     @IBOutlet weak var questionsTextView: UITextView!
@@ -16,6 +16,8 @@ class QuestionsViewController: UIViewController {
     
     @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
                 moveOut()
+        
+        insertInTable(inTable: "questions", name: questionsTextView.text)
     }
     
     func moveIn() {
