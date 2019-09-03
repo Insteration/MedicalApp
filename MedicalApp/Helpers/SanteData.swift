@@ -9,22 +9,26 @@ protocol DB {
 
 extension DB {
     
-    func getHTML(_ id: Int = 3) -> String {
-        //Choise DataBase
-        guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else { return "FIG_VAM" }
-        
+    func openDataBase() -> OpaquePointer? {
         var db: OpaquePointer? = nil
-        guard sqlite3_open(path, &db) == SQLITE_OK else {
-            print("error creating DB \(Error.self)")
-            return "" }
-        print("create DataBase done \(path)")
         
-        //----
+        guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else { return db }
+
+        
+        guard sqlite3_open(path, &db) == SQLITE_OK else {
+            print("error opened DB \(Error.self)")
+            return db}
+        print("open DataBase done \(path)")
+        
+        return db
+    }
+    
+    func getHTML(_ id: Int = 3) -> String {
         var values = String()
         var str: OpaquePointer? = nil
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
-        if sqlite3_prepare_v2(db, query, -1, &str, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(openDataBase(), query, -1, &str, nil) == SQLITE_OK {
             print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
@@ -37,51 +41,30 @@ extension DB {
             print("error get HTML from DataBase")
         }
         
-        sqlite3_close(db)
+        //        sqlite3_close(db)
         return values
     }
     
-    func updateTXT(){
-    }
-    
-    func openDataBase() -> OpaquePointer? {
-        var db: OpaquePointer? = nil
-
-        guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else { return db }
-        
-        
-        guard sqlite3_open(path, &db) == SQLITE_OK else {
-            print("error opened DB \(Error.self)")
-            return db}
-        print("open DataBase done \(path)")
-        
-        return db
-    }
-    
-    
-    
     func insertInTable(inTable: String, question: String) {
-//        guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else { return }
-//
-//        var db: OpaquePointer? = nil
-//
-//        guard sqlite3_open(path, &db) == SQLITE_OK else {
-//            print("error opened DB \(Error.self)")
-//            return}
-//        print("open DataBase done \(path)")
         
         var insert: OpaquePointer? = nil
         let insertString = """
-        INSERT INTO \(inTable) (question) VALUES ('\(question)');
+        INSERT INTO \(inTable) (name) VALUES ('\(question)');
         """
         guard sqlite3_prepare_v2(openDataBase(), insertString, -1, &insert, nil) == SQLITE_OK,
-            
-            sqlite3_step(insert) == SQLITE_DONE else {
+            sqlite3_step(insert) == SQLITE_DONE
+            else {
                 print("error insert in table")
                 return
         }
+        
+//        sqlite3_close(openDataBase())
         print("insert in table done")
         sqlite3_finalize(insert)
+    }
+    
+    
+    func updateTXT(){
     }
 }
 
