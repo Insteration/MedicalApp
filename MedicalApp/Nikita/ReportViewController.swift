@@ -39,16 +39,17 @@ class ReportViewController: UIViewController {
     
     @IBAction func pushLaterButton(_ sender: UIButton) {
         saveReportData()
-        exitReport()
+//        exitReport()
     }
     
     @IBAction func pushSendButton(_ sender: UIButton) {
         SendRepostData()
-        exitReport()
+//        exitReport()
     }
     
     @IBAction func pushNonButton(_ sender: UIButton) {
-        exitReport()
+//        exitReport()
+        createAllertForExit()
     }
     
     @IBAction func pushButtonPlus(_ sender: UIButton) {
@@ -82,15 +83,13 @@ class ReportViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Stay", style: UIAlertAction.Style.default, handler: nil ))
         alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.destructive, handler: { action in
-            print("exit report ok")
+            self.dismiss(animated: true, completion: nil)
+//            print("exit report ok")
         }))
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-    private func exitReport() {
-        createAllertForExit()
-    }
+   
     
     private func saveReportData() {
         if areAllFieldsFilled() {
