@@ -2,8 +2,8 @@ import Foundation
 import SQLite3
 
 protocol DB {
-    func getHTML(_ id: Int) -> String
-    func insertInTable(inTable: String, name: String)
+    //func getHTML(_ id: Int) -> String
+    //func insertInTable(inTable: String, question: String)
 }
 
 extension DB {
@@ -43,22 +43,22 @@ extension DB {
     func updateTXT(){
     }
     
-    func insertInTable(inTable: String, name: String) {
-        
+    
+    
+    func insertInTable(inTable: String, question: String) {
         guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else { return }
         
         var db: OpaquePointer? = nil
+        
         guard sqlite3_open(path, &db) == SQLITE_OK else {
-            print("error creating DB \(Error.self)")
-            return
-        }
-        print("create DataBase done \(path)")
-        
-        
+            print("error opened DB \(Error.self)")
+            return}
+        print("open DataBase done \(path)")
+    
         
         var insert: OpaquePointer? = nil
         let insertString = """
-        INSERT INTO \(inTable) (question) VALUES ('\(name)');
+        INSERT INTO \(inTable) (question) VALUES ('\(question)');
         """
         guard sqlite3_prepare_v2(db, insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE else {
@@ -67,9 +67,7 @@ extension DB {
         }
         print("insert in table done")
         sqlite3_finalize(insert)
-        
     }
-    
     
 }
 

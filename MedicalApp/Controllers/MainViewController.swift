@@ -120,6 +120,8 @@ class MainViewController: UIViewController {
         questionsVC.view.frame = self.view.frame
         self.view.addSubview(questionsVC.view)
         
+        
+        
         questionsVC.didMove(toParent: self)
         
     }
