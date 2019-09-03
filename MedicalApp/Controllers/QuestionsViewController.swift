@@ -18,6 +18,7 @@ class QuestionsViewController: UIViewController, DB {
                 moveOut()
         
         insertInTable(inTable: "questions", question: questionsTextView.text)
+        
     }
     
     func moveIn() {
