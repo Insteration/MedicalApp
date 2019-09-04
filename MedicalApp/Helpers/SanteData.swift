@@ -49,7 +49,7 @@ extension DB {
         
         var insert: OpaquePointer? = nil
         let insertString = """
-        INSERT INTO \(inTable) (name) VALUES ('\(question)');
+        INSERT INTO \(inTable) (question) VALUES ('\(question)');
         """
         guard sqlite3_prepare_v2(openDataBase(), insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE
@@ -60,11 +60,14 @@ extension DB {
         
 //        sqlite3_close(openDataBase())
         print("insert in table done")
+        print(insertString)
         sqlite3_finalize(insert)
     }
     
     
     func updateTXT(){
     }
+    
+    
 }
 

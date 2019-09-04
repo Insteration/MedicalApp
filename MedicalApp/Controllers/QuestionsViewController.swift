@@ -17,7 +17,7 @@ class QuestionsViewController: UIViewController, DB {
     @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
                 moveOut()
         
-        insertInTable(inTable: "slides", question: questionsTextView.text)
+        insertInTable(inTable: "test", question: questionsTextView.text)
         
     }
     
