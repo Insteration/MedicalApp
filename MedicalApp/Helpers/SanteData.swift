@@ -2,7 +2,7 @@ import Foundation
 import SQLite3
 
 struct DB: ParserProtocol {
-//    static var defaultDB = DB()
+    //    static var defaultDB = DB()
     static var db: OpaquePointer? = nil
     
     mutating func openDB() -> String {
@@ -18,7 +18,7 @@ struct DB: ParserProtocol {
         return "open DataBase done \(path)"
     }
     
-    mutating func getHTML(_ id: Int = 3) -> String {
+    func getHTML(_ id: Int = 3) -> String {
         
         var values = String()
         var str: OpaquePointer? = nil
@@ -56,7 +56,7 @@ struct DB: ParserProtocol {
                 return
         }
         
-//        sqlite3_close(openDataBase())
+        //        sqlite3_close(openDataBase())
         print("insert in table done")
         print(insertString)
         sqlite3_finalize(insert)
@@ -142,8 +142,8 @@ struct DB: ParserProtocol {
         
         let errorChar: Set<Character> = ["'"]
         txt.removeAll(where: { errorChar.contains($0) })
-
-
+        
+        
         let arrayTxt = txt.components(separatedBy:
             [",", " ", "!",".","?","\n","\r","(",")","*","_",
              "0","1","2","3","4","5","6","7","8","9", "+", "!"])
