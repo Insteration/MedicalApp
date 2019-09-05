@@ -82,12 +82,10 @@ struct DB :  ParserProtocol {
         }
         
         // parser html and update field txt
-        let txt = parse(htmlString: html)
+        var txt = parse(htmlString: html)
+        clearTxt(txt: &txt)
         
-        //        updateTXT(db: db!, inTable: "slides", txt: txt, id: id)
         updateTXT(inTable: "slides", txt: txt, id: id)
-        
-        
         
         // get TXT from BD
         let queryTXT = "SELECT txt FROM slides WHERE id = 3"
@@ -138,6 +136,24 @@ struct DB :  ParserProtocol {
         sqlite3_close(db)
     }
     
+    func clearTxt(txt: inout String) {
+        
+        let errorChar: Set<Character> = ["'"]
+        txt.removeAll(where: { errorChar.contains($0) })
+
+
+        let arrayTxt = txt.components(separatedBy:
+            [",", " ", "!",".","?","\n","\r","(",")","*","_",
+             "0","1","2","3","4","5","6","7","8","9", "+", "!"])
+            .filter({$0.count > 3})
+        print("arrayTxt.count = ", arrayTxt.count)
+        print(arrayTxt.sorted())
+        
+        var setTxt = Set<String>()
+        arrayTxt.forEach{ setTxt.insert($0.lowercased()) }
+        print("setTxt.count = ", setTxt.count)
+        print(setTxt.sorted())
+    }
     
 }
 
