@@ -11,11 +11,11 @@ struct DB: ParserProtocol {
         }
         
         guard sqlite3_open(path, &DB.db) == SQLITE_OK else {
-            print("error creating DB \(Error.self)")
+            print("error open DB \(Error.self)")
             return "error open DB on path =  \(path)"}
-        print("create DataBase done \(path)")
+        print("open DataBase done \(path)")
         
-        return "create DataBase done \(path)"
+        return "open DataBase done \(path)"
     }
     
     mutating func getHTML(_ id: Int = 3) -> String {
