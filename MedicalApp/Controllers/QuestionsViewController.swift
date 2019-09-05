@@ -1,9 +1,11 @@
 import UIKit
 
-class QuestionsViewController: UIViewController, DB {
+class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var questionsView: UIView!
     @IBOutlet weak var questionsTextView: UITextView!
+    
+    var db = DB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,10 +17,9 @@ class QuestionsViewController: UIViewController, DB {
     }
     
     @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
-                moveOut()
-        
-        insertInTable(inTable: "test", question: questionsTextView.text)
-        
+        moveOut()
+        print(db.openDB())
+        db.insertInTable(inTable: "test", question: questionsTextView.text)
     }
     
     func moveIn() {

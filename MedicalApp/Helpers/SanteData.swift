@@ -18,13 +18,13 @@ struct DB :  ParserProtocol {
         return "create DataBase done \(path)"
     }
     
-    func getHTML(_ id: Int = 3) -> String {
+    mutating func getHTML(_ id: Int = 3) -> String {
         
         var values = String()
         var str: OpaquePointer? = nil
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
-        if sqlite3_prepare_v2(openDataBase(), query, -1, &str, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(db, query, -1, &str, nil) == SQLITE_OK {
             print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
@@ -47,7 +47,7 @@ struct DB :  ParserProtocol {
         let insertString = """
         INSERT INTO \(inTable) (question) VALUES ('\(question)');
         """
-        guard sqlite3_prepare_v2(openDataBase(), insertString, -1, &insert, nil) == SQLITE_OK,
+        guard sqlite3_prepare_v2(db, insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE
             else {
                 print("error insert in table")
