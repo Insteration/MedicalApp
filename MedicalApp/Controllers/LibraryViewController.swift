@@ -19,12 +19,15 @@ class LibraryViewController: UIViewController, ParserProtocol, DB {
 //        let parseRString = parse(htmlString: html, cssSelector: "title")
         
 //        libraryTextView.text = html
-        libraryTextView.text = parseRString
+//        libraryTextView.text = parseRString
         
-        libraryWebView.loadHTMLString(html, baseURL: nil)
+//        libraryWebView.loadHTMLString(html, baseURL: nil)
         
 //        libraryWebView.load(URLRequest(url: URL(string: "file:///Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Resources/slide_example/Core.html")!))
         
-
+        let path = db.openDB()
+        db.updateTXT()
+        db.closeDB()
+        print(path)
     }
 }
