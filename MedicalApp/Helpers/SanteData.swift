@@ -1,16 +1,16 @@
 import Foundation
 import SQLite3
 
-struct DB :  ParserProtocol {
-    
-    var db: OpaquePointer? = nil
+struct DB: ParserProtocol {
+//    static var defaultDB = DB()
+    static var db: OpaquePointer? = nil
     
     mutating func openDB() -> String {
         guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else {
             return "FIG_VAM"
         }
         
-        guard sqlite3_open(path, &db) == SQLITE_OK else {
+        guard sqlite3_open(path, &DB.db) == SQLITE_OK else {
             print("error creating DB \(Error.self)")
             return "error open DB on path =  \(path)"}
         print("create DataBase done \(path)")
@@ -24,7 +24,7 @@ struct DB :  ParserProtocol {
         var str: OpaquePointer? = nil
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
-        if sqlite3_prepare_v2(db, query, -1, &str, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
@@ -47,9 +47,11 @@ struct DB :  ParserProtocol {
         let insertString = """
         INSERT INTO \(inTable) (question) VALUES ('\(question)');
         """
-        guard sqlite3_prepare_v2(db, insertString, -1, &insert, nil) == SQLITE_OK,
+        guard sqlite3_prepare_v2(DB.db, insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE
             else {
+                let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+                print("error preparing insert: \(errmsg)")
                 print("error insert in table")
                 return
         }
@@ -65,11 +67,11 @@ struct DB :  ParserProtocol {
         
         var html = String()
         var str: OpaquePointer? = nil
-        var id = 3
+        let id = 3
         
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
-        if sqlite3_prepare_v2(db, query, -1, &str, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
@@ -91,7 +93,7 @@ struct DB :  ParserProtocol {
         let queryTXT = "SELECT txt FROM slides WHERE id = 3"
         var txtSlides = ""
         
-        if sqlite3_prepare_v2(db, queryTXT, -1, &str, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(DB.db, queryTXT, -1, &str, nil) == SQLITE_OK {
             print("queryTXT \(query) is DONE")
         } else {
             print("queryTXT \(query) is uncorrect")
@@ -120,9 +122,9 @@ struct DB :  ParserProtocol {
         
         print("updateString = ",updateString)
         
-        guard sqlite3_prepare_v2(db, updateString, -1, &update, nil) == SQLITE_OK,
+        guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
             sqlite3_step(update) == SQLITE_DONE else {
-                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
                 print("error preparing update: \(errmsg)")
                 print("error run update")
                 return
@@ -133,7 +135,7 @@ struct DB :  ParserProtocol {
     }
     
     func closeDB() {
-        sqlite3_close(db)
+        sqlite3_close(DB.db)
     }
     
     func clearTxt(txt: inout String) {

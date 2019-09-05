@@ -26,9 +26,9 @@ class LibraryViewController: UIViewController, ParserProtocol {
         
         //        libraryWebView.load(URLRequest(url: URL(string: "file:///Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Resources/slide_example/Core.html")!))
         
-        let path = db.openDB()
+//        let path = db.openDB()
         db.updateTXT()
-        db.closeDB()
-        print(path)
+//        db.closeDB()
+//        print(path)
     }
 }
