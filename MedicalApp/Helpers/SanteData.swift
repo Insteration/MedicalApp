@@ -56,12 +56,10 @@ struct DB: ParserProtocol {
                 return
         }
         
-        //        sqlite3_close(openDataBase())
         print("insert in table done")
         print(insertString)
         sqlite3_finalize(insert)
     }
-    
     
     func updateTXT(){
         
@@ -85,7 +83,10 @@ struct DB: ParserProtocol {
         
         // parser html and update field txt
         var txt = parse(htmlString: html)
-        clearTxt(txt: &txt)
+        let arrDict = clearTxt(txt: &txt)
+        
+        insertSlideWord(inTable: "slide_word",
+                        arrDict: arrDict)
         
         updateTXT(inTable: "slides", txt: txt, id: id)
         
@@ -138,11 +139,10 @@ struct DB: ParserProtocol {
         sqlite3_close(DB.db)
     }
     
-    func clearTxt(txt: inout String) {
+    func clearTxt(txt: inout String) -> [(idSlide: Int , word: String, cnt: Int, listWord: String)]{
         
         let errorChar: Set<Character> = ["'"]
         txt.removeAll(where: { errorChar.contains($0) })
-        
         
         let arrayTxt = txt.components(separatedBy:
             [",", " ", "!",".","?","\n","\r","(",")","*","_",
@@ -159,9 +159,11 @@ struct DB: ParserProtocol {
         
         // формируем массив кортежей для наполенения таблицы
         // сделать через модель
-        var arrDict = [(id: Int , word: String, cnt: Int, listWord: String)]()
+        var arrDict = [(idSlide: Int,
+                        word: String,
+                        cnt: Int,
+                        listWord: String)]()
         
-        var id = 0
         setTxt.sorted().forEach{
             let word = $0
             
@@ -174,14 +176,86 @@ struct DB: ParserProtocol {
                 }
             }
             
-            let rec: (id: Int , word: String, cnt: Int, listWord: String) = (id, $0, cnt, listWord)
+            let rec: (idSlide: Int , word: String, cnt: Int, listWord: String) = (3, $0, cnt, listWord)
             arrDict.append(rec)
-            id += 1
         }
         
         print("arrDict.count = ", arrDict.count)
         arrDict.forEach({print($0)})
+        
+        return arrDict
     }
+    
+    // TODO: - create MODEL Dict
+    /*
+     CREATE TABLE "slidea_word" (
+     "id"    INTEGER PRIMARY KEY AUTOINCREMENT,
+     "id_slide"    INTEGER NOT NULL,
+     "word"    TEXT NOT NULL UNIQUE,
+     "cnt"    INTEGER NOT NULL,
+     "list_word"    TEXT NOT NULL UNIQUE
+     );
+     var arrDict = [(idSlide: Int,
+     word: String,
+     cnt: Int,
+     listWord: String)]() */
+    func insertSlideWord(inTable: String,
+        arrDict: [(
+        idSlide: Int,
+        word: String,
+        cnt: Int,
+        listWord: String)]) {
+        
+        var insert: OpaquePointer? = nil
+        
+        arrDict.forEach{
+            
+            let insertString = """
+            INSERT INTO \(inTable) (id_slide, word, cnt, list_word) VALUES ('\($0.idSlide)', '\($0.word)', '\($0.cnt)', '\($0.listWord)');
+            """
+            guard sqlite3_prepare_v2(DB.db, insertString, -1, &insert, nil) == SQLITE_OK,
+                sqlite3_step(insert) == SQLITE_DONE
+                else {
+                    let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+                    print("error preparing insert: \(errmsg)")
+                    return
+            }
+            
+            print("insert in table \(inTable) done, ",
+                $0.idSlide,
+                $0.word,
+                $0.cnt,
+                $0.listWord)
+            print(insertString)
+        }
+        
+        sqlite3_finalize(insert)
+    }
+    
+    
+    // сделать через модель
+    private func updateSlideWord(inTable: String, txt: String, id: Int) {
+        
+        var update: OpaquePointer? = nil
+        
+        print("txt = ", txt, "\nid = ", id)
+        
+        let updateString = """
+        UPDATE \(inTable) SET txt = '\(txt)' WHERE iD = \(id)
+        """
+        print("updateString = ",updateString)
+        
+        guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
+            sqlite3_step(update) == SQLITE_DONE else {
+                let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+                print("error preparing update: \(errmsg)")
+                return
+        }
+        print("update whith guard done")
+        
+        sqlite3_finalize(update)
+    }
+    
     
 }
 
