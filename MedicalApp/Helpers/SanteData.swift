@@ -146,7 +146,8 @@ struct DB: ParserProtocol {
         
         let arrayTxt = txt.components(separatedBy:
             [",", " ", "!",".","?","\n","\r","(",")","*","_",
-             "0","1","2","3","4","5","6","7","8","9", "+", "!"])
+             "0","1","2","3","4","5","6","7","8","9", "+", "!",
+             "=", ";"])
             .filter({$0.count > 3})
         print("arrayTxt.count = ", arrayTxt.count)
         print(arrayTxt.sorted())
@@ -155,6 +156,31 @@ struct DB: ParserProtocol {
         arrayTxt.forEach{ setTxt.insert($0.lowercased()) }
         print("setTxt.count = ", setTxt.count)
         print(setTxt.sorted())
+        
+        // формируем массив кортежей для наполенения таблицы
+        // сделать через модель
+        var arrDict = [(id: Int , word: String, cnt: Int, listWord: String)]()
+        
+        var id = 0
+        setTxt.sorted().forEach{
+            let word = $0
+            
+            var cnt = 1
+            var listWord = word
+            arrayTxt.forEach{
+                if $0.contains(word) {
+                    cnt += 1
+                    listWord += " " + word
+                }
+            }
+            
+            let rec: (id: Int , word: String, cnt: Int, listWord: String) = (id, $0, cnt, listWord)
+            arrDict.append(rec)
+            id += 1
+        }
+        
+        print("arrDict.count = ", arrDict.count)
+        arrDict.forEach({print($0)})
     }
     
 }
