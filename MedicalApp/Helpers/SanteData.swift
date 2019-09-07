@@ -221,11 +221,11 @@ struct DB: ParserProtocol {
                     return
             }
             
-            print("insert in table \(inTable) done, ",
-                $0.idSlide,
-                $0.word,
-                $0.cnt,
-                $0.listWord)
+//            print("insert in table \(inTable) done, ",
+//                $0.idSlide,
+//                $0.word,
+//                $0.cnt,
+//                $0.listWord)
             print(insertString)
         }
         
