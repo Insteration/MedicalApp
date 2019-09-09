@@ -50,7 +50,7 @@ extension ParserProtocol {
         do {
             let elements: Elements = try document.select(cssSelector)
             
-            // делаем на 100 тегов
+            // делаем на N тегов
             var i = 0
             for element in elements {
                 let text = try element.text()

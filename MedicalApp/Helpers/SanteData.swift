@@ -2,7 +2,7 @@ import Foundation
 import SQLite3
 
 struct DB: ParserProtocol {
-    //    static var defaultDB = DB()
+
     static var db: OpaquePointer? = nil
     
     mutating func openDB() -> String {
@@ -13,7 +13,6 @@ struct DB: ParserProtocol {
         guard sqlite3_open(path, &DB.db) == SQLITE_OK else {
             print("error open DB \(Error.self)")
             return "error open DB on path =  \(path)"}
-        print("open DataBase done \(path)")
         
         return "open DataBase done \(path)"
     }
@@ -25,7 +24,7 @@ struct DB: ParserProtocol {
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
-            print("query \(query) is DONE")
+//            print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
         }
@@ -37,7 +36,6 @@ struct DB: ParserProtocol {
             print("error get HTML from DataBase")
         }
         
-        //        sqlite3_close(db)
         return values
     }
     
@@ -52,25 +50,23 @@ struct DB: ParserProtocol {
             else {
                 let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
                 print("error preparing insert: \(errmsg)")
-                print("error insert in table")
                 return
         }
         
         print("insert in table done")
-        print(insertString)
+//        print(insertString)
         sqlite3_finalize(insert)
     }
     
-    func updateTXT(){
+    func updateTXT(_ id : Int = 3) -> String {
         
         var html = String()
         var str: OpaquePointer? = nil
-        let id = 3
         
         let query = "SELECT html FROM slides WHERE id = \(id)"
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
-            print("query \(query) is DONE")
+//            print("query \(query) is DONE")
         } else {
             print("query \(query) is uncorrect")
         }
@@ -83,7 +79,21 @@ struct DB: ParserProtocol {
         
         // parser html and update field txt
         var txt = parse(htmlString: html)
-        let arrDict = clearTxt(txt: &txt)
+        
+        let arrDict = clearTxt(txt: &txt, id)
+        
+        let dict: String = {
+            
+            var dict = String()
+            
+            arrDict.forEach{
+                dict += "\($0)" + "\n"
+            }
+            
+            return dict
+        }()
+        
+        deleteRecords(inTable: "slide_word", id: id)
         
         insertSlideWord(inTable: "slide_word",
                         arrDict: arrDict)
@@ -91,11 +101,11 @@ struct DB: ParserProtocol {
         updateTXT(inTable: "slides", txt: txt, id: id)
         
         // get TXT from BD
-        let queryTXT = "SELECT txt FROM slides WHERE id = 3"
+        let queryTXT = "SELECT txt FROM slides WHERE id = \(id)"
         var txtSlides = ""
         
         if sqlite3_prepare_v2(DB.db, queryTXT, -1, &str, nil) == SQLITE_OK {
-            print("queryTXT \(query) is DONE")
+//            print("queryTXT \(query) is DONE")
         } else {
             print("queryTXT \(query) is uncorrect")
         }
@@ -106,14 +116,16 @@ struct DB: ParserProtocol {
             print("error get TXT from DataBase")
         }
         
-        print("txtSlides = ", txtSlides)
+//        print("txtSlides = ", txtSlides)
+        
+        return dict
     }
     
     private func updateTXT(inTable: String, txt: String, id: Int) {
         
         var update: OpaquePointer? = nil
         
-        print("txt = ", txt, "\nid = ", id)
+//        print("txt = ", txt, "\nid = ", id)
         
         let updateString = """
         UPDATE \(inTable) SET txt = '\(txt)' WHERE iD = \(id)
@@ -121,7 +133,7 @@ struct DB: ParserProtocol {
         
         //        let updateString = "UPDATE slides SET txt = strftime('%Y-%m-%d %H:%M:%S', datetime('now','localtime')) WHERE iD = 3"
         
-        print("updateString = ",updateString)
+//        print("updateString = ",updateString)
         
         guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
             sqlite3_step(update) == SQLITE_DONE else {
@@ -130,16 +142,12 @@ struct DB: ParserProtocol {
                 print("error run update")
                 return
         }
-        print("update whith guard done")
+//        print("update whith guard done")
         
         sqlite3_finalize(update)
     }
     
-    func closeDB() {
-        sqlite3_close(DB.db)
-    }
-    
-    func clearTxt(txt: inout String) -> [(idSlide: Int , word: String, cnt: Int, listWord: String)]{
+    func clearTxt(txt: inout String, _ id: Int = 3) -> [(idSlide: Int , word: String, cnt: Int, listWord: String)]{
         
         let errorChar: Set<Character> = ["'"]
         txt.removeAll(where: { errorChar.contains($0) })
@@ -147,15 +155,16 @@ struct DB: ParserProtocol {
         let arrayTxt = txt.components(separatedBy:
             [",", " ", "!",".","?","\n","\r","(",")","*","_",
              "0","1","2","3","4","5","6","7","8","9", "+", "!",
-             "=", ";"])
+             "=", ";", ":", "<", "&", "\"", "\\", "@", "[", "]",
+             "{", "}", "«", "»", "-", "/", "·"])
             .filter({$0.count > 3})
         print("arrayTxt.count = ", arrayTxt.count)
-        print(arrayTxt.sorted())
+//        print(arrayTxt.sorted())
         
         var setTxt = Set<String>()
         arrayTxt.forEach{ setTxt.insert($0.lowercased()) }
         print("setTxt.count = ", setTxt.count)
-        print(setTxt.sorted())
+//        print(setTxt.sorted())
         
         // формируем массив кортежей для наполенения таблицы
         // сделать через модель
@@ -176,12 +185,12 @@ struct DB: ParserProtocol {
                 }
             }
             
-            let rec: (idSlide: Int , word: String, cnt: Int, listWord: String) = (3, $0, cnt, listWord)
+            let rec: (idSlide: Int , word: String, cnt: Int, listWord: String) = (id, $0, cnt, listWord)
             arrDict.append(rec)
         }
         
         print("arrDict.count = ", arrDict.count)
-        arrDict.forEach({print($0)})
+//        arrDict.forEach({print($0)})
         
         return arrDict
     }
@@ -221,12 +230,7 @@ struct DB: ParserProtocol {
                     return
             }
             
-//            print("insert in table \(inTable) done, ",
-//                $0.idSlide,
-//                $0.word,
-//                $0.cnt,
-//                $0.listWord)
-            print(insertString)
+//            print(insertString)
         }
         
         sqlite3_finalize(insert)
@@ -238,12 +242,12 @@ struct DB: ParserProtocol {
         
         var update: OpaquePointer? = nil
         
-        print("txt = ", txt, "\nid = ", id)
+//        print("txt = ", txt, "\nid = ", id)
         
         let updateString = """
         UPDATE \(inTable) SET txt = '\(txt)' WHERE iD = \(id)
         """
-        print("updateString = ",updateString)
+//        print("updateString = ",updateString)
         
         guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
             sqlite3_step(update) == SQLITE_DONE else {
@@ -256,6 +260,38 @@ struct DB: ParserProtocol {
         sqlite3_finalize(update)
     }
     
+}
+
+// TODO - delete records from table
+extension DB {
     
+    func deleteRecords(inTable:String, id: Int){
+        
+        var del : OpaquePointer? = nil
+        let query:String = "DELETE FROM \(inTable) WHERE id_slide = \(id)"
+        
+        guard sqlite3_prepare_v2(DB.db, query, -1, &del, nil)==SQLITE_OK else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error prepare delete: \(errmsg)")
+            return
+        }
+        
+        guard sqlite3_step(del) == SQLITE_DONE  else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error delete: \(errmsg)")
+            return
+        }
+        
+        sqlite3_finalize(del)
+        print("delete records from table \(inTable) with id_slide = \(id) is done")
+    }
+    
+}
+
+//TODO: - close DB
+extension DB {
+    func closeDB() {
+        sqlite3_close(DB.db)
+    }
 }
 

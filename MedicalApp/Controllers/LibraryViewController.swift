@@ -11,24 +11,19 @@ class LibraryViewController: UIViewController, ParserProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        let answer = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html")
+        var slideWord = String()
         
-        //        let answer1 = parse(pathFile: "file:///Users/artem/Desktop/courses/Swift/step/team%20git/MedicalApp/MedicalApp/Resources/slide_example/Back.html", cssSelector: "div")
+        for i in 1...4 {
+            slideWord += db.updateTXT(i)
+        }
         
-                let html = db.getHTML()
-        //        let parseRString = parse(htmlString: html, cssSelector: "div")
-        //        let parseRString = parse(htmlString: html, cssSelector: "title")
+        libraryTextView.text = slideWord
+        print(slideWord)
         
-        //        libraryTextView.text = html
-        //        libraryTextView.text = parseRString
+//        let html = db.getHTML(4)
+//        
+//        libraryWebView.loadHTMLString(html, baseURL: nil)
         
-                libraryWebView.loadHTMLString(html, baseURL: nil)
-        
-        //        libraryWebView.load(URLRequest(url: URL(string: "file:///Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Resources/slide_example/Core.html")!))
-        
-//        let path = db.openDB()
-        db.updateTXT()
-//        db.closeDB()
-//        print(path)
+        print(db.openDB())
     }
 }
