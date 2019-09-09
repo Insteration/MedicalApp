@@ -99,15 +99,11 @@ class MainViewController: UIViewController {
     @IBAction func libraryActionButton(_ sender: UIButton) {
     }
     
-    
     @IBAction func presentationActionButton(_ sender: UIButton) {
     }
     
-    
     @IBAction func searchActionButton(_ sender: UIButton) {
     }
-    
-    
     
     @IBAction func userInfoActionButton(_ sender: UIButton) {
     }

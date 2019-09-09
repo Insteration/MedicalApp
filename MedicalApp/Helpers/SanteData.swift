@@ -102,7 +102,7 @@ struct DB: ParserProtocol {
         
         // get TXT from BD
         let queryTXT = "SELECT txt FROM slides WHERE id = \(id)"
-        var txtSlides = ""
+//        var txtSlides = ""
         
         if sqlite3_prepare_v2(DB.db, queryTXT, -1, &str, nil) == SQLITE_OK {
 //            print("queryTXT \(query) is DONE")
@@ -111,7 +111,7 @@ struct DB: ParserProtocol {
         }
         
         if sqlite3_step(str) == SQLITE_ROW {
-            txtSlides = String(cString: sqlite3_column_text(str, 0))
+//            txtSlides = String(cString: sqlite3_column_text(str, 0))
         } else {
             print("error get TXT from DataBase")
         }
@@ -152,12 +152,13 @@ struct DB: ParserProtocol {
         let errorChar: Set<Character> = ["'"]
         txt.removeAll(where: { errorChar.contains($0) })
         
+        // for french "’" don't remove
         let arrayTxt = txt.components(separatedBy:
             [",", " ", "!",".","?","\n","\r","(",")","*","_",
              "0","1","2","3","4","5","6","7","8","9", "+", "!",
              "=", ";", ":", "<", "&", "\"", "\\", "@", "[", "]",
-             "{", "}", "«", "»", "-", "/", "·"])
-            .filter({$0.count > 3})
+             "{", "}", "«", "»", "-", "/", "·", "|", "#", " "])
+            .filter({$0.count > 1})
         print("arrayTxt.count = ", arrayTxt.count)
 //        print(arrayTxt.sorted())
         
@@ -226,7 +227,7 @@ struct DB: ParserProtocol {
                 sqlite3_step(insert) == SQLITE_DONE
                 else {
                     let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
-                    print("error preparing insert: \(errmsg)")
+                    print("error preparing insert: \(errmsg): for insert: ", insertString)
                     return
             }
             

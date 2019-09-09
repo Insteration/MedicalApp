@@ -2,7 +2,7 @@
 import UIKit
 import WebKit
 
-class LibraryViewController: UIViewController, ParserProtocol {
+class LibraryViewController: UIViewController {
     
     @IBOutlet weak var libraryWebView: WKWebView!
     @IBOutlet weak var libraryTextView: UITextView!
@@ -11,19 +11,23 @@ class LibraryViewController: UIViewController, ParserProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var slideWord = String()
-        
-        for i in 1...4 {
-            slideWord += db.updateTXT(i)
+        DispatchQueue.global(qos: .background).async {
+            let dbThread = self.db
+            var slideWord = String()
+            
+            DispatchQueue.main.async {
+                for i in 6...6 {
+                    slideWord += dbThread.updateTXT(i)
+                    print("slide \(i) is done to table list_word")
+                }
+                self.libraryTextView.text = slideWord
+//                print(slideWord)
+            }
         }
         
-        libraryTextView.text = slideWord
-        print(slideWord)
-        
-//        let html = db.getHTML(4)
-//        
-//        libraryWebView.loadHTMLString(html, baseURL: nil)
-        
-        print(db.openDB())
+        // TODO: - make with thread only read DB
+        let html = db.getHTML(6)
+        libraryWebView.loadHTMLString(html, baseURL: nil)
+
     }
 }
