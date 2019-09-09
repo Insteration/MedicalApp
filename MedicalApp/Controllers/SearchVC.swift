@@ -10,7 +10,9 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-    var db = DB()
+//    var db = DB()
+    let indentifier = "MyCell"
+    var array = ["1", "2", "3", "4"]
     
     @IBOutlet weak var searchTF: UITextField!
     @IBOutlet weak var firstTF: UITextField!
@@ -22,9 +24,7 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTv: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
 
-    
     }
     
     /*
@@ -56,3 +56,19 @@ class SearchVC: UIViewController {
 // TODO: - make with thread only read DB
 //        let html = db.getHTML(6)
 //        libraryWebView.loadHTMLString(html, baseURL: nil)
+
+extension SearchVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = searchTv.dequeueReusableCell(withIdentifier: indentifier, for: indexPath)
+        
+        let number = array[indexPath.row]
+        cell.textLabel?.text = number
+        return cell
+    }
+
+}
