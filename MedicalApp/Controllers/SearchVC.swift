@@ -6,6 +6,8 @@
 //  Copyright © 2019 iOS Team. All rights reserved.
 //
 
+// CREATE VIRTUAL TABLE "slides_search" USING FTS5 ( id , id_slide , cnt , word , list_word );
+
 import UIKit
 
 class SearchVC: UIViewController {

@@ -13,20 +13,20 @@ class LibraryViewController: UIViewController {
         
         DispatchQueue.global(qos: .background).async {
             let dbThread = self.db
-            var slideWord = String()
+//            var slideWord = String()
             
             DispatchQueue.main.async {
-                for i in 6...6 {
-                    slideWord += dbThread.updateTXT(i)
+                for i in 1...7 {
+                    dbThread.createDict(i)
                     print("slide \(i) is done to table list_word")
                 }
-                self.libraryTextView.text = slideWord
+//                self.libraryTextView.text = slideWord
 //                print(slideWord)
             }
         }
         
         // TODO: - make with thread only read DB
-        let html = db.getHTML(6)
+        let html = db.getHTML(7)
         libraryWebView.loadHTMLString(html, baseURL: nil)
 
     }

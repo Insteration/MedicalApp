@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta name="title" content="What Are Cancer Clinical Trials? - National Cancer Institute" />
+<meta name="twitter:card" content="summary" />
+<meta name="robots" content="index" />
+<meta http-equiv="content-language" content="en" />
+<link rel="canonical" href="https://www.cancer.gov/about-cancer/treatment/clinical-trials/what-are-trials" />
+<meta property="og:site_name" content="National Cancer Institute" />
+<meta name="description" content="Information about the basics of cancer clinical trials." />
+<meta property="og:type" content="Website" />
+<meta property="og:url" content="https://www.cancer.gov/about-cancer/treatment/clinical-trials/what-are-trials" />
+<meta name="dcterms.subject" content="About Cancer" />
+<meta property="og:title" content="What Are Cancer Clinical Trials?" />
+<meta property="og:description" content="Information about the basics of cancer clinical trials." />
+<meta name="dcterms.issued" content="08/10/2012 - 08:00" />
+<meta name="dcterms.isReferencedBy" content="event1" />
+<meta name="dcterms.isPartOf" content="Clinical Trials" />
+<meta name="dcterms.type" content="cgvArticle" />
+<meta property="og:image" content="https://www.cancer.gov/sites/g/files/xnrzdm211/files/cgov_image/social_media/100/200/3/files/woman-from-participating-in-ct-video-utility-social.jpg" />
+<meta name="dcterms.coverage" content="nciglobal,ncienterprise" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, minimum-scale=1" />
+<script type="text/javascript" src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5ff92daf02fb17e3cde09f428916a8a5755a6d10.js"></script>
+<script>window.CDEConfig = {  
+  "exitDisclaimerHref": {
+    "en": "/policies/linking",
+    "es": "/espanol/politicas/enlaces"
+  },
+   "showFloatingDelighters":  true
+};</script>
+<link rel="shortcut icon" href="/core/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://www.cancer.gov/about-cancer/treatment/clinical-trials/what-are-trials" />
+<link rel="alternate" hreflang="es" href="https://www.cancer.gov/espanol/cancer/tratamiento/estudios-clinicos/que-son-estudios" />
+<link rel="revision" href="https://www.cancer.gov/about-cancer/treatment/clinical-trials/what-are-trials" />
+
+    <title>What Are Cancer Clinical Trials? - National Cancer Institute</title>
+    <link rel="preconnect" href="https://static.cancer.gov" />
+    <link id="gFonts" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/apple-touch-icon.png?v=1" />
+    <link rel="icon" type="image/png" href="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/favicon-32x32.png?v=1" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/favicon-16x16.png?v=1" sizes="16x16" />
+    <link rel="mask-icon" href="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/safari-pinned-tab.svg?v=1" color="#c0143c" />
+    <link rel="shortcut icon" href="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/favicon.ico?v=1" />
+    <meta name="apple-mobile-web-app-title" content="Cancer.gov" />
+    <meta name="application-name" content="Cancer.gov" />
+    <meta name="msapplication-config" content="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/icons/favicons/browserconfig.xml?v=1" />
+    <link rel="stylesheet" media="all" href="/sites/g/files/xnrzdm211/files/css/css_DIc9KrTWrQbxwXuwQ02SR1t2iNpTR-PoVwK9Z8cfZ-4.css?pxdq25" />
+<link rel="stylesheet" media="all" href="/profiles/custom/cgov_site/themes/custom/cgov/cgov_common/dist/css/Common.css?pxdq25" />
+<link rel="stylesheet" media="all" href="/profiles/custom/cgov_site/themes/custom/cgov/cgov_common/dist/css/Article.css?pxdq25" />
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/g/files/xnrzdm211/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+
+  </head>
+  <body class="-theme">
+        <a href="#content" class="skipnav focusable">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+<header class="push" role="banner">
+  <div id="nvcgSlSiteBanner" class="row">
+       <div class="slot-item only-SI nci-logo-pages large-12 columns">
+  <a href="/"><img src="/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
+      alt="National Cancer Institute" width="60%"></a>
+</div>
+
+
+
+  </div>
+</header>
+
+<div id="page">
+  <!-- Global nav/utility bar/language  -->
+  <div class="fixedtotop">
+    <div class="headroom-area">
+      <!-- LANGUAGE BAR -->
+<div class="language-bar">
+  <div class="row sitewide-language">
+    <div id="LangList1" class="large-12 columns">
+  <ul class="links"><li hreflang="es" data-drupal-link-system-path="node/396060" class="es"><a href="/espanol/cancer/tratamiento/estudios-clinicos/que-son-estudios" class="language-link" hreflang="es" data-drupal-link-system-path="node/396060">Español</a></li></ul>
+</div>
+
+  </div>
+</div>
+<!-- END LANGUAGE BAR -->
+
+      <!-- UTILITY NAV -->
+      <div id="nvcgSlUtilityBar" class="utility-background hide-for-medium-down">
+          <div class="slot-item only-SI row utility">
+  <div class="rawHtml">
+    <div class="large-12 columns utility">
+      <span><a href="/contact">1-800-4-CANCER</a></span>
+      <span><a href="https://livehelp.cancer.gov"
+        onclick="window.open('https://livehelp.cancer.gov/','LiveHelp','scrollbars=yes,resizable=yes,menubar=yes,toolbar=yes,location=yes,width=650,height=600');
+        return false;">Live Chat</a></span>
+      <span><a href="/publications">Publications</a></span>
+      <span id="utility-dictionary" class="link"> <a href="/publications/dictionaries/cancer-terms">Dictionary</a></span>
+    </div>
+    </div>
+</div>
+
+
+
+      </div>
+      <!-- END UTILITY NAV -->
+    </div>
+    <!-- end "headroom-area" -->
+    <!-- BEGIN NAVIGATION -->
+    <!-- Begin nav-search bar -->
+    <div class="nav-search-bar gradient header">
+      <div id="nvcgSlMainNav" class="row">
+        <div class="slot-item first-SI">
+          <div class="navigation">
+              <div class="slot-item first-SI"><div class="navigation"><div class="mobile-menu-bar"><button type="button" class="open-panel nav-header menu-btn">Menu</button><a href="/contact"class="nav-contact">Contact</a><a href="/publications/dictionaries/cancer-terms" class="nav-dictionary">Dictionary</a><button type="button" class="nav-search">Search</button></div></div></div>
+
+
+
+            <nav id="mega-nav" role="navigation">
+  <ul class="menu nav-menu">
+    
+      <li class='nav-item lvl-1 has-children contains-current item-1'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer'>About Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/understanding'>Understanding Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/understanding/what-is-cancer'>What Is Cancer?</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/understanding/statistics'>Cancer Statistics</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/understanding/disparities'>Cancer Disparities</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/causes-prevention'>Cancer Causes and Prevention</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/causes-prevention/risk'>Risk Factors </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/causes-prevention/genetics'>Genetics</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/causes-prevention/patient-prevention-overview-pdq'>Cancer Prevention Overview</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/causes-prevention/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/screening'>Cancer Screening</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/screening/patient-screening-overview-pdq'>Cancer Screening Overview</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/screening/screening-tests'>Screening Tests</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/screening/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging'>Diagnosis and Staging</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/symptoms'>Symptoms </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/diagnosis'>Diagnosis</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/staging'>Staging</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/prognosis'>Prognosis</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/questions'>Questions to Ask about Your Diagnosis</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/diagnosis-staging/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2 contains-current  has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment'>Cancer Treatment</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/types'>Types of Cancer Treatment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/side-effects'>Side Effects of Cancer Treatment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3 contains-current  '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/clinical-trials'>Clinical Trials Information</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/drugs'>A to Z List of Cancer Drugs</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/cam'>Complementary &amp; Alternative Medicine (CAM)</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/questions'>Questions to Ask about Your Treatment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/treatment/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping'>Coping with Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/feelings'>Feelings and Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/adjusting-to-cancer'>Adjusting to Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/self-image'>Self-Image &amp; Sexuality</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/day-to-day'>Day-to-Day Life</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/caregiver-support'>Support for Caregivers</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/survivorship'>Survivorship</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/questions'>Questions to Ask About Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/coping/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer'>Advanced Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/care-choices'>Choices for Care</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/talking'>Talking about Your Advanced Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/feelings'>Coping with Your Feelings During Advanced Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/planning'>Planning for Advanced Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/caregivers'>Advanced Cancer and Caregivers</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/questions'>Questions to Ask about Advanced Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/advanced-cancer/research'>Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/managing-care'>Managing Cancer Care</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/managing-care/services'>Finding Health Care Services</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/managing-care/track-care-costs'>Costs &amp; Medical Information</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/managing-care/advance-directives'>Advance Directives</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-cancer/managing-care/using-trusted-resources'>Using Trusted Resources</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper">
+  <div class="sub-nav-group-subwrapper">
+    <ul class="sub-nav-group">
+      <li><a href="/about-cancer/understanding" class="sub-nav-group-header">Understanding Cancer</a>
+        <ul>
+          <li><a href="/about-cancer/understanding/what-is-cancer">What Is Cancer</a></li>
+          <li><a href="/about-cancer/understanding/statistics">Cancer Statistics</a></li>
+          <li><a href="/about-cancer/understanding/disparities">Cancer Disparities</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/causes-prevention" class="sub-nav-group-header">Causes &amp; Prevention</a>
+        <ul>
+          <li><a href="/about-cancer/causes-prevention/risk">Risk Factors</a></li>
+          <li><a href="/about-cancer/causes-prevention/genetics">Genetics</a></li>
+          <li><a href="/about-cancer/causes-prevention/patient-prevention-overview-pdq">Cancer Prevention Overview</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/screening" class="sub-nav-group-header">Screening</a>
+        <ul>
+          <li><a href="/about-cancer/screening/patient-screening-overview-pdq">Cancer Screening Overview</a></li>
+          <li><a href="/about-cancer/screening/screening-tests">Screening Tests</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/diagnosis-staging" class="sub-nav-group-header">Diagnosis &amp; Staging</a>
+        <ul>
+          <li><a href="/about-cancer/diagnosis-staging/symptoms">Symptoms</a></li>
+          <li><a href="/about-cancer/diagnosis-staging/diagnosis">Diagnosis</a></li>
+          <li><a href="/about-cancer/diagnosis-staging/staging">Staging</a></li>
+          <li><a href="/about-cancer/diagnosis-staging/prognosis">Prognosis</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/treatment" class="sub-nav-group-header">Treatment</a>
+        <ul>
+          <li><a href="/about-cancer/treatment/types">Types of Treatment</a></li>
+          <li><a href="/about-cancer/treatment/side-effects/">Side Effects</a></li>
+          <li><a href="/about-cancer/treatment/clinical-trials">Clinical Trials</a></li>
+          <li><a href="/about-cancer/treatment/drugs">Cancer Drugs</a></li>
+          <li><a href="/about-cancer/treatment/cam">Complementary &amp; Alternative Medicine</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/coping" class="sub-nav-group-header">Coping</a>
+        <ul>
+          <li><a href="/about-cancer/coping/feelings">Feelings &amp; Cancer</a></li>
+          <li><a href="/about-cancer/coping/adjusting-to-cancer">Adjusting to Cancer</a></li>
+          <li><a href="/about-cancer/coping/self-image">Self Image &amp; Sexuality</a></li>
+          <li><a href="/about-cancer/coping/day-to-day">Day to Day Life</a></li>
+          <li><a href="/about-cancer/coping/survivorship">Survivorship</a></li>
+          <li><a href="/about-cancer/coping/caregiver-support">Support for Caregivers</a></li>
+          <li><a href="/about-cancer/coping/questions">Questions to Ask About Cancer</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/advanced-cancer" class="sub-nav-group-header">Advanced Cancer</a>
+        <ul>
+          <li><a href="/about-cancer/advanced-cancer/care-choices">Choices For Care</a></li>
+          <li><a href="/about-cancer/advanced-cancer/talking">Talking About Advanced Cancer</a></li>
+          <li><a href="/about-cancer/advanced-cancer/feelings">Coping With Your Feelings</a></li>
+          <li><a href="/about-cancer/advanced-cancer/planning">Planning for Advanced Cancer</a></li>
+          <li><a href="/about-cancer/advanced-cancer/caregivers">Advanced Cancer &amp; Caregivers</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/about-cancer/managing-care" class="sub-nav-group-header">Managing Cancer Care</a>
+        <ul>
+          <li><a href="/about-cancer/managing-care/services">Finding Health Care Services</a></li>
+          <li><a href="/about-cancer/managing-care/track-care-costs">Managing Costs and Medical Information</a></li>
+          <li><a href="/about-cancer/managing-care/advance-directives">Advance Directives</a></li>
+          <li><a href="/about-cancer/managing-care/using-trusted-resources">Using Trusted Resources</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+        </div>
+      </li>
+      
+      <li class='nav-item lvl-1 has-children  item-2'>
+        <div class='nav-item-title'>
+          <a href='/types'>Cancer Types</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/types/aya'>Adolescents and Young Adults with Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/aya/research'>Reports, Research, and Literature</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/types/by-body-location'>Cancers by Body Location</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers'>Childhood Cancers</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers/late-effects-pdq'>Late Effects of Childhood Cancer Treatment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers/pediatric-care-pdq'>Pediatric Supportive Care</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers/patient/unusual-cancers-childhood-pdq'>Unusual Cancers of Childhood Treatment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers/pediatric-genomics-hp-pdq'>Childhood Cancer Genomics</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/childhood-cancers/research'>Study Findings</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/types/metastatic-cancer'>Metastatic Cancer</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/types/metastatic-cancer/research'>Metastatic Cancer Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/types/common-cancers'>Common Cancer Types</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/types/recurrent-cancer'>Recurrent Cancer</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+<ul class="sub-nav-group cancer-types-border-container">
+	<li><a href="/types/common-cancers" class="sub-nav-group-header">Common Cancer Types</a>
+		<ul>
+			<li><a href="/types/bladder">Bladder Cancer</a></li>
+			<li><a href="/types/breast">Breast Cancer</a></li>
+			<li><a href="/types/colorectal">Colorectal Cancer</a></li>
+			<li><a href="/types/kidney">Kidney (Renal Cell) Cancer</a></li>
+			<li><a href="/types/leukemia">Leukemia</a></li>
+		</ul>
+		<ul>
+			<li><a href="/types/liver">Liver Cancer</a></li>
+			<li><a href="/types/lung">Lung Cancer</a></li>
+			<li><a href="/types/lymphoma">Lymphoma</a></li>
+			<li><a href="/types/pancreatic">Pancreatic Cancer</a></li>
+		</ul>
+		<ul>
+			<li><a href="/types/prostate">Prostate Cancer</a></li>
+			<li><a href="/types/skin">Skin Cancer</a></li>
+			<li><a href="/types/thyroid">Thyroid Cancer</a></li>
+			<li><a href="/types/uterine">Uterine Cancer</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="sub-nav-group">
+	<li><a href="/types" class="sub-nav-group-header">All Cancer Types</a>
+		<ul>
+			<li><a href="/types">A to Z List of Cancers</a></li>
+			<li><a href="/types/by-body-location">Cancers by Body Location</a></li>
+			<li><a href="/types/childhood-cancers">Childhood Cancers</a></li>
+			<li><a href="/types/aya">Adolescent &amp; Young Adult Cancers</a></li>
+			<li><a href="/types/metastatic-cancer">Metastatic Cancer</a></li>
+			<li><a href="/types/recurrent-cancer">Recurrent Cancer</a></li>
+		</ul>
+	</li>
+</ul>
+</div></div>
+        </div>
+      </li>
+      
+      <li class='nav-item lvl-1 has-children  item-3'>
+        <div class='nav-item-title'>
+          <a href='/research'>Research</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role'>NCI’s Role in Cancer Research</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/intramural'>Intramural Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/extramural'>Extramural Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/bioinformatics'>Bioinformatics, Big Data, and Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/cancer-centers'>NCI-Designated Cancer Centers</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/fnlcr'>Frederick National Laboratory for Cancer Research </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/partners-collaborators'>Partners &amp; Collaborators</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/nci-role/spotlight'>Spotlight on Scientists</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/research/areas'>Research Areas</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/biology'>Cancer Biology Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/genomics'>Cancer Genomics Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/causes'>Research on Causes of Cancer</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/diagnosis'>Cancer Diagnosis Research </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/prevention'>Cancer Prevention Research </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/screening'>Screening &amp; Early Detection</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/treatment'>Cancer Treatment Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/public-health'>Cancer &amp; Public Health</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/disparities'>Cancer Health Disparities</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/childhood'>Childhood Cancers Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/clinical-trials'>Clinical Trials Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/areas/global-health'>Global Cancer Research</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/research/key-initiatives'>Key Initiatives</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/research/progress'>Progress</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/progress/annual-report-nation'>Annual Report to the Nation</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/progress/250-years-milestones'>Milestones in Cancer Research and Discovery</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/progress/discovery'>Stories of Discovery</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/research/resources'>Resources for Researchers</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/resources/cryoem'>Cryo-EM</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/research/resources/terminology'>Terminology Resources</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper">
+  <div class="sub-nav-group-subwrapper">
+    <ul class="sub-nav-group">
+      <li><a href="/research/nci-role" class="sub-nav-group-header">NCI's Role in Cancer Research</a>
+        <ul>
+          <li><a href="/research/nci-role/intramural">Intramural Research</a></li>
+          <li><a href="/research/nci-role/extramural">Extramural Research</a></li>
+          <li><a href="/research/nci-role/bioinformatics">Bioinformatics &amp; Big Data</a></li>
+          <li><a href="/research/nci-role/cancer-centers">NCI-Designated Cancer Centers</a></li>
+          <li><a href="/research/nci-role/fnlcr">Frederick National Lab</a></li>
+          <li><a href="/research/nci-role/partners-collaborators">Partners &amp; Collaborators</a></li>
+          <li><a href="/research/nci-role/spotlight">Spotlight on Scientists</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/research/areas" class="sub-nav-group-header">NCI Research Areas</a>
+        <ul>
+          <li><a href="/research/areas/biology">Cancer Biology</a></li>
+          <li><a href="/research/areas/genomics">Cancer Genomics</a></li>
+          <li><a href="/research/areas/causes">Causes of Cancer</a></li>
+          <li><a href="/research/areas/diagnosis">Diagnosis</a></li>
+          <li><a href="/research/areas/prevention">Prevention</a></li>
+          <li><a href="/research/areas/screening">Screening &amp; Early Detection</a></li>
+          <li><a href="/research/areas/treatment">Treatment</a></li>
+          <li><a href="/research/areas/public-health">Cancer &amp; Public Health</a></li>
+          <li><a href="/research/areas/disparities">Cancer Health Disparities</a></li>
+          <li><a href="/research/areas/childhood">Childhood Cancer</a></li>
+          <li><a href="/research/areas/clinical-trials">Clinical Trials</a></li>
+          <li><a href="/research/areas/global-health">Global Health</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/research/key-initiatives" class="sub-nav-group-header">Key Initiatives</a>
+        <ul>
+          <li><a href="/research/key-initiatives/moonshot-cancer-initiative">Cancer Moonshot</a></li>
+          <li><a href="/about-nci/organization/ccg/research/computational-genomics/gdc">Genomic Data Commons</a></li>
+          <li><a href="/research/areas/clinical-trials/nctn">National Clinical Trials Network</a></li>
+          <li><a href="/research/key-initiatives/ras">RAS Initiative</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/research/progress" class="sub-nav-group-header">Progress</a>
+        <ul>
+          <li><a href="/research/progress/annual-report-nation">Annual Report to the Nation</a></li>
+          <li><a href="/research/progress/discovery">Stories of Discovery</a></li>
+        </ul>
+      </li><br /><br />
+      <li>
+        <a href="/research/resources" class="sub-nav-group-header">Resources for Researchers</a>
+      </li>
+    </ul>
+  </div>
+</div>
+        </div>
+      </li>
+      
+      <li class='nav-item lvl-1 has-children  item-4'>
+        <div class='nav-item-title'>
+          <a href='/grants-training'>Grants &amp; Training</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/grants-training/grants-funding'>Research Grants</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/grants-funding/funding-opportunities'>Research Funding Opportunities</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/grants-funding/contacts'>Research Program Contacts</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/grants-funding/funding-strategy'>Funding Strategy</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/grants-training/policies-process'>Grants Policies and Process</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/policies-process/overview'>Introduction to Grants Process</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/policies-process/nci-policies'>NCI Grant Policies</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/policies-process/legal'>Legal Requirements</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/grants-training/apply-grant'>Apply for a Grant</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/apply-grant/development'>Step 1: Application Development &amp; Submission</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/apply-grant/receipt'>Step 2: Application Receipt &amp; Assignment</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/apply-grant/peer-review'>Step 3: Peer Review and Funding Outcomes</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/apply-grant/award-issuance'>Step 4: Award Negotiation &amp; Issuance</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award'>Manage Your Award</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/contacts'>Grants Management Contacts</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/monitoring'>Monitoring</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/prior-approvals'>Prior Approvals</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/report-audit'>Annual Reporting and Auditing</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/grant-transfer'>Transfer of a Grant</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/manage-award/grant-closeout'>Grant Closeout</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training'>Training</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/at-nci'>Cancer Training at NCI</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/resources-trainees'>Resources for Trainees</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/funding'>Funding for Cancer Training</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/idwb'>Building a Diverse Workforce</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/about'>About Center for Cancer Training (CCT)</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/grants-training/training/contact'>CCT Staff &amp; Contact</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper">
+  <div class="sub-nav-group-subwrapper">
+    <ul class="sub-nav-group">
+      <li><a href="/grants-training/grants-funding" class="sub-nav-group-header">Research Grants</a>
+        <ul>
+          <li><a href="/grants-training/grants-funding/funding-opportunities">Funding Opportunities</a></li>
+          <li><a href="/grants-training/grants-funding/contacts">Research Program Contacts</a></li>
+          <li><a href="/grants-training/grants-funding/funding-strategy">Funding Strategy</a></li>
+        </ul>
+      </li>
+      <br />
+      <li><a href="/grants-training/policies-process" class="sub-nav-group-header">Grants Policies &amp; Process</a> 
+        <ul>
+          <li><a href="/grants-training/policies-process/overview">Introduction to Grants Process</a></li>
+          <li><a href="/grants-training/policies-process/nci-policies">NCI Policies</a></li>
+          <li><a href="/grants-training/policies-process/legal">Legal Requirements</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/grants-training/apply-grant" class="sub-nav-group-header">Apply for a Grant</a> 
+        <ul>
+          <li><a href="/grants-training/apply-grant/development">Application Development &amp; Submission</a></li>
+          <li><a href="/grants-training/apply-grant/receipt">Receipt &amp; Assignment</a></li>
+          <li><a href="/grants-training/apply-grant/peer-review">Peer Review &amp; Outcomes</a></li>
+          <li><a href="/grants-training/apply-grant/award-issuance">Award Issuance</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/grants-training/manage-award" class="sub-nav-group-header">Manage Your Award</a>
+        <ul>
+          <li><a href="/grants-training/manage-award/contacts">Grants Management Contacts</a></li>
+          <li><a href="/grants-training/manage-award/monitoring">Monitoring</a></li>
+          <li><a href="/grants-training/manage-award/prior-approvals">Prior Approvals</a></li>
+          <li><a href="/grants-training/manage-award/report-audit">Annual Reporting &amp; Auditing</a></li>
+          <li><a href="/grants-training/manage-award/grant-transfer">Transfer of a Grant</a></li>
+          <li><a href="/grants-training/manage-award/grant-closeout">Grant Closeout</a></li>
+        </ul>
+      </li>
+      <br />
+      <li>
+        <a href="/grants-training/contracts-business" class="sub-nav-group-header">Contracts &amp; Small Business</a>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/grants-training/training" class="sub-nav-group-header">Training</a> 
+        <ul>
+          <li><a href="/grants-training/training/at-nci">Cancer Training at NCI (Intramural)</a></li>
+          <li><a href="/grants-training/training/resources-trainees">Resources for Trainees</a></li>
+          <li><a href="/grants-training/training/funding">Funding for Cancer Training (Extramural)</a></li>
+          <li><a href="/grants-training/training/diversity-training">Building a Diverse Workforce</a></li>
+          <li><a href="/grants-training/training/contact">Training Program Contacts</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+        </div>
+      </li>
+      
+      <li class='nav-item lvl-1 has-children  item-5'>
+        <div class='nav-item-title'>
+          <a href='/news-events'>News &amp; Events</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/press-releases/2019'>Press Releases</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/news-events/media-resources'>Resources for News Media</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/media-resources/contacts'>Media Contacts</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/media-resources/multicultural'>Multicultural Media Outreach Program</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/media-resources/reporting-fellowships'>Cancer Reporting Fellowships</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/news-events/events'>Events</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/events/scientific-meetings'>Scientific Meetings &amp; Lectures</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/events/conferences'>Conferences</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/events/advisory-board-meetings'>Advisory Board Meetings</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/events/social-media'>Social Media Events</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/news-events/cancer-currents-blog'>Cancer Currents Blog</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper">
+  <div class="sub-nav-group-subwrapper">
+    <ul class="sub-nav-group">
+      <li><a href="/news-events/press-releases/2019" class="sub-nav-group-header">All Press Releases</a>
+        <ul>
+<li><a href="/news-events/press-releases/2019">2019</a></li>          
+<li><a href="/news-events/press-releases/2018">2018</a></li>
+          <li><a href="/news-events/press-releases/2017">2017</a></li>
+          <li><a href="/news-events/press-releases/2016">2016</a></li>
+          <li><a href="/news-events/press-releases/2015">2015</a></li>
+          <li><a href="/news-events/press-releases/2014">2014</a></li>
+          
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/news-events/media-resources" class="sub-nav-group-header">Media Resources</a>
+        <ul>
+          <li><a href="/news-events/media-resources/contacts">Media Contacts</a></li>
+          <li><a href="/news-events/media-resources/multicultural">Multicultural Media</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/news-events/events" class="sub-nav-group-header">Events</a>
+        <ul>
+          <li><a href="/news-events/events/scientific-meetings">Scientific Meetings &amp; Lectures</a></li>
+          <li><a href="/news-events/events/conferences">Conferences</a></li>
+          <li><a href="/news-events/events/advisory-board-meetings">Advisory Board Meetings</a></li>
+          <li><a href="/news-events/events/social-media">Social Media</a></li>
+        </ul>
+      </li>
+    </ul><ul class="sub-nav-group">
+      <li><a href="/news-events/cancer-currents-blog" class="sub-nav-group-header">Cancer Currents Blog</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+      </li>
+      
+      <li class='nav-item lvl-1 has-children  item-6'>
+        <div class='nav-item-title'>
+          <a href='/about-nci'>About NCI</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-nci/overview'>NCI Overview</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/overview/history'>History</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/overview/contributing'>Contributing to Cancer Research</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/overview/strategic-planning'>Strategic Planning </a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-nci/leadership'>Leadership</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/leadership/director'>Director's Page</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/leadership/previous'>Previous NCI Directors</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/organization'>NCI Organization</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/advisory-boards'>Advisory Boards and Review Groups</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-nci/budget'>Budget &amp; Appropriations</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/budget/about-annual-plan'>About the Annual Plan &amp; Budget Proposal</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/budget/congressional-justification'>NCI Congressional Justification</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/budget/fact-book'>NCI Budget Fact Book</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/careers'>Careers at NCI</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/visit'>Visitor Information</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-2   has-children'>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative'>Legislative Activities</a>
+        </div>
+        
+    <ul class='mobile-item'>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/hearings'>Hearings &amp; Testimonies </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/current-congress'>Current Congress </a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/history'>Legislative History</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/committees'>Committees of Interest</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/resources'>Legislative Resources</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/recent-public-laws'>Recent Public Laws</a>
+        </div>
+        
+      </li>
+      
+      <li class='lvl-3   '>
+        <div class='nav-item-title'>
+          <a href='/about-nci/legislative/contact'>Contact</a>
+        </div>
+        
+      </li>
+      
+    </ul>
+    
+      </li>
+      
+    </ul>
+    
+        <div class='sub-nav-mega' aria-expanded='true' aria-haspopup='true'>
+          <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+<ul class="sub-nav-group">
+	<li><a href="/about-nci/overview" class="sub-nav-group-header">Overview &amp; Mission</a>
+		<ul>
+			<li><a href="/about-nci/overview/history">History of NCI</a></li>
+			<li><a href="/about-nci/overview/contributing">Contributing to Cancer Research</a></li>
+			<li><a href="/about-nci/overview/strategic-planning">Strategic Planning at NCI</a></li>
+
+		</ul>
+	</li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/leadership" class="sub-nav-group-header">Senior Leadership</a>
+		<ul>
+			<li><a href="/about-nci/leadership/director">Director</a></li>
+			<li><a href="/about-nci/leadership/previous">Previous Directors</a></li>
+		</ul>
+	</li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/organization" class="sub-nav-group-header">NCI Organization</a>
+		<ul>
+			<li><a href="/about-nci/organization">Divisions, Offices &amp; Centers</a></li>
+		</ul>
+	</li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/advisory-boards" class="sub-nav-group-header">Advisory Boards &amp; Review Groups</a></li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/budget" class="sub-nav-group-header">Budget &amp; Appropriations</a>
+		<ul>
+			<li><a href="/about-nci/budget/">Current Year Budget</a></li>
+			<li><a href="https://www.cancer.gov/about-nci/budget/plan">Annual Plan &amp; Budget Proposal</a></li>
+			<li><a href="/about-nci/budget/congressional-justification">Congressional Justification</a></li>
+			<li><a href="/about-nci/budget/fact-book">NCI Budget Fact Book</a></li>
+		</ul>
+	</li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/legislative" class="sub-nav-group-header">Legislative Activities</a>
+		<ul>
+			<li><a href="/about-nci/legislative/hearings">Hearings &amp; Testimonies</a></li>
+			<li><a href="/about-nci/legislative/current-congress">Current Congress</a></li>
+			<li><a href="/about-nci/legislative/history">Legislative History</a></li>
+			<li><a href="/about-nci/legislative/committees">Committees of Interest</a></li>
+			<li><a href="/about-nci/legislative/resources">Legislative Resources</a></li>
+			<li><a href="/about-nci/legislative/recent-public-laws">Recent Public Laws</a></li>
+		</ul>
+	</li>
+</ul><ul class="sub-nav-group">
+        <li><a href="/about-nci/contracts" class="sub-nav-group-header">Contracts</a></li><br /><br />
+	<li><a href="/about-nci/careers" class="sub-nav-group-header">Careers</a></li>
+</ul><ul class="sub-nav-group">
+	<li><a href="/about-nci/visit" class="sub-nav-group-header">Visitor Information</a></li>
+</ul>
+</div></div>
+        </div>
+      </li>
+      
+  </ul>
+</nav>
+
+
+          </div>
+        </div>
+        <div class="slot-item last-SI">
+  <div class="rawHtml">
+    <div class="search" role="search">
+      <form
+        action="/search/results"
+        method="post"
+        id="siteSearchForm"
+        name="siteSearchForm"
+      >
+        <label class="show-for-sr" for="swKeyword">Search</label>
+        <input
+          placeholder="search"
+          class="searchString ui-autocomplete-input"
+          id="swKeyword"
+          maxlength="255"
+          name="swKeyword"
+          onblur="bSearchBoxBool=false;"
+          onfocus="bSearchBoxBool=true;"
+          value=""
+          autocomplete="off"
+          type="text"
+          aria-autocomplete="list"
+          aria-haspopup="true"
+        >
+        <button class="searchSubmit" id="sitesearch" onclick="return siteSearchSubmit();" type="submit">
+          <span class="show-for-sr">Search</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+    </div>
+    <!-- End nav-search bar -->
+    <!-- END NAVIGATION -->
+  </div><!-- END Global nav/utility bar/language -->
+
+  <!-- Begin MAIN CONTENT AREA -->
+  <div class="main-content" id="content" tabindex="0">
+    <div class="row general-page-body-container collapse">
+      <div class="large-12 columns">
+        <div class="row">
+          <div id="cgvSlBreadcrumb" class="medium-8 columns bcrumbs">
+    <ul class="breadcrumbs">
+          <li>
+        <a href="/">Home</a>
+      </li>
+          <li>
+        <a href="/about-cancer">About Cancer</a>
+      </li>
+          <li>
+        <a href="/about-cancer/treatment">Cancer Treatment</a>
+      </li>
+          <li>
+        <a href="/about-cancer/treatment/clinical-trials">Clinical Trials Information</a>
+      </li>
+      </ul>
+
+</div>
+
+        </div> <!-- END "row" -->
+      </div> <!-- END "large-12 columns" -->
+      <div class="row">
+        <!--    SECTION NAVIGATION -->
+                    
+  <div id="nvcgSlSectionNav" class="medium-3 columns local-navigation">
+    <div class="slot-item only-SI">
+      <div class="section-nav">
+        <ul>
+          <li class="level-0 has-children contains-current">
+            <div class="">
+              <a href="/about-cancer/treatment">Cancer Treatment</a>
+            </div>
+                          <ul>
+                        <li class="level-1 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/types">Types of Cancer Treatment</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/surgery">Surgery</a>
+                      </div>
+          </li>
+      <li class="level-2 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/types/radiation-therapy">Radiation Therapy </a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/types/radiation-therapy/external-beam">External Beam Radiation</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/types/radiation-therapy/brachytherapy">Brachytherapy</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/types/radiation-therapy/side-effects">Side Effects</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/chemotherapy">Chemotherapy </a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/immunotherapy">Immunotherapy</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/targeted-therapies">Targeted Therapy</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/hormone-therapy">Hormone Therapy </a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/stem-cell-transplant">Stem Cell Transplant </a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/types/precision-medicine">Precision Medicine</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-1">
+      <div class="">
+        <a href="/about-cancer/treatment/side-effects">Side Effects of Cancer Treatment</a>
+                      </div>
+          </li>
+      <li class="level-1 has-children contains-current">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials">Clinical Trials Information</a>
+                      </div>
+              <ul style="display:block;">
+                  <li class="level-2 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/search">Find NCI-Supported Clinical Trials</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">Steps to Find a Clinical Trial</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/search/help">Help With Clinical Trials Search </a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-2 has-children contains-current">
+      <div class="current-page">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials">What Are Clinical Trials? </a>
+                      </div>
+              <ul style="display:block;">
+                  <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/where">Where Trials Take Place</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/types">Types of Clinical Trials</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/phases">Phases of Clinical Trials</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/randomization">Randomization</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/placebo">Use of Placebos</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/what-are-trials/team">Research Team Members</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-2 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/paying">Paying for Clinical Trials</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/paying/insurance">Insurance Coverage and Clinical Trials</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/paying/work-with-insurance">How to Work With Your Health Insurance Plan</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/paying/federal-programs">Federal Government Programs</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-2 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/patient-safety">Patient Safety</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/patient-safety/informed-consent">Informed Consent</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/patient-safety/childrens-assent">Children&#039;s Assent</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/patient-safety/scientific-review">Scientific Review</a>
+                      </div>
+          </li>
+      <li class="level-3">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/patient-safety/ending-trials-early">Ending Trials Early</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/taking-part">Deciding to Take Part in a Trial</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/questions">Questions to Ask about Treatment Clinical Trials</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/clinical-trials/nci-supported">Selected NCI-Supported Trials</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-1 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/drugs">A to Z List of Cancer Drugs</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/drugs/cancer-type">Drugs Approved for Different Types of Cancer</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/drugs/related-conditions">Drugs Approved for Conditions Related to Cancer</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/drugs/off-label">Off-Label Drug Use</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/drugs/access-experimental">Access to Experimental Drugs</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-1 has-children">
+      <div class="">
+        <a href="/about-cancer/treatment/cam">Complementary &amp; Alternative Medicine (CAM)</a>
+                      </div>
+              <ul style="display:none;">
+                  <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/cam/patient">CAM for Patients</a>
+                      </div>
+          </li>
+      <li class="level-2">
+      <div class="">
+        <a href="/about-cancer/treatment/cam/hp">CAM for Health Professionals</a>
+                      </div>
+          </li>
+  
+        </ul>
+          </li>
+      <li class="level-1">
+      <div class="">
+        <a href="/about-cancer/treatment/questions">Questions to Ask about Your Treatment</a>
+                      </div>
+          </li>
+      <li class="level-1">
+      <div class="">
+        <a href="/about-cancer/treatment/research">Research</a>
+                      </div>
+          </li>
+  
+              </ul>
+                      </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+                        <div class="medium-9 columns contentzone has-section-nav" id="main" tabindex="0" role="main">
+            <div data-drupal-messages-fallback class="hidden"></div>
+<!-- ********************************* BEGIN Page Content ********************************** -->
+<article>
+    <div class="resize-content">
+        <h1>
+            What Are Clinical Trials? 
+        </h1>
+        <div class="page-options-container">
+  <!-- PAGE OPTIONS -->
+  
+  <div id="PageOptionsControl1" class="page-options no-resize">
+      <ul>
+                  <li class="page-options--resize">
+            <a title="Resize font" aria-label="Resize font" href="#"></a>
+          </li>
+                          <li class="page-options--print">
+            <a title="Print" aria-label="Print" href="#"></a>
+          </li>
+                          <li class="page-options--email">
+            <a title="Email" aria-label="Email" href="#"></a>
+          </li>
+                          <li class="social-share social-share--facebook">
+            <a title="Facebook" aria-label="Facebook" href="#"></a>
+          </li>
+                          <li class="social-share social-share--twitter">
+            <a title="Twitter" aria-label="Twitter" href="#"></a>
+          </li>
+                          <li class="social-share social-share--pinterest">
+            <a title="Pinterest" aria-label="Pinterest" href="#"></a>
+          </li>
+              </ul>
+  </div>
+  <!-- END PAGE OPTIONS -->
+</div>
+
+        <div id="cgvBody">
+          
+          
+                
+<div data-embed-button="cgov_video_button" data-entity-embed-display="view_mode:media.video_display_small_no_title" data-entity-type="media" data-entity-uuid="68b5c94e-541a-47ec-8fc4-2074f042f7bb" data-caption="" data-langcode="en" class="embedded-entity align-right">            <figure class="video "><div id="ytplayer-jC8CUIID2HA" class="flex-video widescreen" data-video-url="/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3DHuxA_ccCnUg&amp;max_width=0&amp;max_height=0&amp;hash=oxuakY4pwoNup1eeKftvV0hQvFN5BMiaHmfEBoqXg3E" data-video-title="What are clinical trials?">
+        <div class="video-preview--container" tabindex="0">
+            <img src="/sites/g/files/xnrzdm211/files/oembed_thumbnails/LARSdJrXkwmNsN90_4M3uD1_SQGWOwsLtmpdngMDZCg.jpg" width="480" height="360" alt="" /><div class="video-preview--play-button">
+            <svg height="100%" version="1.1" viewbox="0 0 68 48" width="100%"><path class="play-button--bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg></div>
+          <p>What are clinical trials?</p>
+        </div>
+      </div>
+                    <figcaption class="caption-container"><p>Health professionals, people with cancer and their loved ones discuss what clinical trials are, why they are important, and how your safety is protected.</p>
+        </figcaption></figure></div>
+<p>Clinical trials are research studies that involve people. Through clinical trials, doctors find new ways to improve treatments and the quality of life for people with disease.</p>
+<p>Researchers design cancer clinical trials to test new ways to:</p>
+<ul><li>Treat cancer</li>
+<li>Find and diagnose cancer</li>
+<li>Prevent cancer</li>
+<li>Manage symptoms of cancer and side effects from its treatment</li>
+</ul><p>Clinical trials are the final step in a long process that begins with research in a lab. Before any new treatment is used with people in clinical trials, researchers work for many years to understand its effects on cancer cells in the lab and in animals. They also try to figure out the side effects it may cause.</p>
+<p>Any time you or a loved one needs treatment for cancer, clinical trials are an option to think about. Trials are available for all stages of cancer. It is a myth that they are only for people who have advanced cancer that is not responding to treatment. To look for trials, see <a data-entity-substitution="canonical" data-entity-type="node" href="/about-cancer/treatment/clinical-trials/search" data-entity-uuid="79afa25a-e4c9-4203-a919-3c5a9aa7c604">Find NCI-Supported Clinical Trials</a>.<span> </span></p>
+<p>Every trial has a person in charge, usually a doctor, who is called the principal investigator. The principal investigator prepares a plan for the trial, called a protocol. The protocol explains what will be done during the trial. It also contains information that helps the doctor decide if this treatment is right for you. The protocol includes information about:</p>
+<ul><li>The reason for doing the trial</li>
+<li>Who can join the trial (called “eligibility criteria”)</li>
+<li>How many people are needed for the trial</li>
+<li>Any drugs or other treatments that will be given, how they will be given, the dose, and how often</li>
+<li>What medical tests will be done and how often</li>
+<li>What types of information will be collected about the people taking part</li>
+</ul><h3>Why Are Clinical Trials Important?</h3>
+<p>Today, people are living longer lives from successful cancer treatments that are the results of past clinical trials. Through clinical trials, doctors determine whether new treatments are safe and effective and work better than current treatments. Clinical trials also help us find new ways to prevent and detect cancer. And they help us improve the quality of life for people during and after treatment. When you take part in a clinical trial, you add to our knowledge about cancer and help improve cancer care for future patients. Clinical trials are the key to making progress against cancer.</p>
+
+
+  
+        </div>
+    </div>
+        <footer class="article-footer">
+      
+      <div id="nvcgRelatedResourcesArea">
+	<div>
+		<aside class="related-resources list">
+      <h6>Related Resources</h6>
+      <ul>
+                  
+
+          
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="/publications/patient-education/about-prevention-trials">If You Want to Find Ways to Prevent Cancer...Learn About Prevention Clinical Trials</a>
+      
+    </div>
+  </li>
+
+
+
+                  
+
+          
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="/publications/patient-education/cancer-treatment-research-studies">Taking Part in Cancer Treatment Research Studies</a>
+      
+    </div>
+  </li>
+
+
+
+                  
+
+          
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="/publications/patient-education/providing-tissue">Providing Your Tissue for Research: What You Need To Know</a>
+      
+    </div>
+  </li>
+
+
+
+                  
+
+          
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="/about-cancer/treatment/clinical-trials/what-are-trials/where/clinical-center">Cancer Clinical Trials at the National Institutes of Health Clinical Center</a>
+      
+    </div>
+  </li>
+
+
+
+                  
+
+          
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="/about-cancer/treatment/clinical-trials/search/trial-guide">Steps to Find a Clinical Trial</a>
+      
+    </div>
+  </li>
+
+
+
+                  
+
+    
+    
+            <li class="general-list-item general list-item title-only">
+    <div class="title-and-desc title desc container">
+          <a class="title" href="http://supportorgs.cancer.gov/home.aspx?js=1">Organizations That Offer Support Services</a>
+      
+    </div>
+  </li>
+
+
+              </ul>
+    </aside>
+	</div>
+</div>
+
+                          
+            <div class="document-dates horizontal">
+                <ul class="clearfix">
+                                                                <li>
+                            <strong>Updated:</strong>
+                            <time datetime="2016-06-27T12:00:00Z">June 27, 2016</time>
+
+                        </li>
+                                                        </ul>
+            </div>
+            
+                      <div id="nvcgSlSyndication">
+	<div class="contentid-911760 slot-item only-SI">
+      <div class="syndication">
+    <div>
+      <p>Want to use this content on your website or other digital platform? Our <a href="/syndication">syndication services page</a> shows you how.</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+          </footer>
+</article>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div id="nvcgSlFooter">
+      <div class="slot-item only-SI">
+        <div class="site-footer__container">
+  <div class="site-footer__header">
+    <h1>
+      National Cancer Institute
+      <span>at the National Institutes of Health</span>
+    </h1>
+  </div>
+ 
+ 
+  <div class="site-footer__nav">
+    <div class="site-footer__icons">
+      <h2>FOLLOW US</h2>
+      <ul>
+        <li>
+          <a
+            class="facebook icon"
+            href="/social-media#facebook">
+            <span class="show-for-sr">Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="twitter icon"
+            href="/social-media#twitter">
+            <span class="show-for-sr">Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="instagram icon no-exit-notification"
+            href="/social-media#instagram">
+            <span class="show-for-sr">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="youtube icon"
+            href="/social-media#youTube">
+            <span class="show-for-sr">YouTube</span></a>
+        </li>
+        <li>
+          <a
+            class="linkedin icon"
+            href="/social-media#linkedIn">
+            <span class="show-for-sr">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="govdelivery icon"
+            href="https://public.govdelivery.com/accounts/USNIHNCI/subscriber/new">
+            <span class="show-for-sr">GovDelivery</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="rss icon"
+            href="/syndication/rss"
+            title="">
+            <span class="show-for-sr">RSS</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+ 
+    <div class="site-footer__contact">
+      <h2>CONTACT INFORMATION</h2>
+      <ul>
+        <li>
+          <a href="/contact" title="">Contact Us</a>
+        </li>
+        <li><a href="https://livehelp.cancer.gov">LiveHelp Online Chat</a></li>
+      </ul>
+    </div>
+ 
+    <div class="site-footer__info">
+      <h2>MORE INFORMATION</h2>
+      <ul>
+        <li>
+          <a href="/about-website" title="">
+            About This Website</a>
+        </li>
+        <li>
+          <a href="/espanol" title="">Cancer.gov en español</a>
+        </li>
+        <li>
+          <a href="/multimedia" title="">Multimedia</a>
+        </li>
+        <li>
+          <a href="/publications" title="">Publications</a>
+        </li>
+        <li>
+          <a href="/about-website/sitemap" title="">Site Map</a>
+        </li>
+        <li>
+          <a href="/digital-standards" title="">
+            Digital Standards for NCI Websites</a>
+        </li>
+      </ul>
+    </div>
+ 
+    <div class="site-footer__policies">
+      <h2>POLICIES</h2>
+ 
+      <ul>
+        <li>
+          <a href="/policies/accessibility" title="">Accessibility</a>
+        </li>
+        <li>
+          <a href="/policies/comments" title="">Comment Policy</a>
+        </li>
+        <li>
+          <a href="/policies/disclaimer" title="">Disclaimer</a>
+        </li>
+        <li>
+          <a href="/policies/foia" title="">FOIA</a>
+        </li>
+        <li>
+          <a href="/policies/privacy-security" title="">
+            Privacy &amp; Security</a>
+        </li>
+        <li>
+          <a href="/policies/copyright-reuse" title="">
+            Reuse &amp; Copyright</a>
+        </li>
+        <li>
+          <a href="/syndication" title="">
+            Syndication Services</a>
+        </li>
+        <li>
+          <a href="/policies/linking" title="">
+            Website Linking</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__agencies">
+    <ul>
+      <li>
+        <a href="http://www.hhs.gov/">U.S. Department of Health and Human Services</a>
+      </li>
+      <li><a href="http://www.nih.gov">National Institutes of Health</a></li>
+      <li><a href="https://www.cancer.gov/">National Cancer Institute</a></li>
+      <li><a href="http://usa.gov">USA.gov</a></li>
+    </ul>
+  </div>
+ 
+  <div class="site-footer__tagline">
+    <h4>NIH ... Turning Discovery Into Health <sup>®</sup></h4>
+  </div>
+  <a class="back-to-top" href="#top">TOP</a>
+</div>
+
+
+      </div>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+
+  </div>
+
+    <script type="text/javascript">_satellite.pageBottom();</script>
+
+    <script src="/sites/g/files/xnrzdm211/files/js/js_JUqmqBSK0ZOpPBlxC6Y3i9dah-xL9r5RpSTOSniBF74.js"></script>
+<script src="/profiles/custom/cgov_site/themes/custom/cgov/cgov_common/dist/js/Common.js?pxdq25"></script>
+<script src="/profiles/custom/cgov_site/themes/custom/cgov/cgov_common/dist/js/Article.js?pxdq25"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bfc00e1ee3","applicationID":"355359682,336353556","transactionName":"NVVTbBMHDEQDBUVcDgwfcFsVDw1ZTSJDQBEDXG1WDgIHayEJX0ETDVxdXRM6LFgGA2dcBBVzXlYVFA1bDgNDGF8UWVRP","queueTime":0,"applicationTime":1444,"atts":"GRJQGlsdH0o=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
