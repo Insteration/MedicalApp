@@ -17,7 +17,7 @@ struct DB: ParserProtocol {
         return "open DataBase done \(path)"
     }
     
-    func getHTML(_ id: Int = 3) -> String {
+    func getHTML(_ id: Int) -> String {
         
         var values = String()
         var str: OpaquePointer? = nil
@@ -150,7 +150,7 @@ extension DB {
         arrDict.forEach{
             
             let insertString = """
-            INSERT INTO \(inTable) (id_slide, word, name, cnt, list_word) VALUES ('\($0.idSlide)', '\($0.name)', '\($0.word)', '\($0.cnt)', '\($0.listWord)');
+            INSERT INTO \(inTable) (id_slide, name, word, cnt, list_word) VALUES ('\($0.idSlide)', '\($0.name)', '\($0.word)', '\($0.cnt)', '\($0.listWord)');
             """
             guard sqlite3_prepare_v2(DB.db, insertString, -1, &insert, nil) == SQLITE_OK,
                 sqlite3_step(insert) == SQLITE_DONE
@@ -235,6 +235,38 @@ extension DB {
     }
 }
 
+// MARK: - get records from table slides_search on request
+extension DB {
+    
+    // SELECT name, word, cnt from slides_search where list_word MATCH "many" ORDER BY rank;
+    func searchSlides (_ req: String) -> [String] {
+        
+        var values = [String]()
+        var str: OpaquePointer? = nil
+        let query = "SELECT name, word, cnt FROM slides_search WHERE list_word MATCH '\(req)' ORDER BY rank;"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("query \(query) is DONE")
+        } else {
+            print("query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+        
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            
+            let name = String(cString: sqlite3_column_text(str, 0))
+            let word = String(cString: sqlite3_column_text(str, 1))
+            let cnt = String(cString: sqlite3_column_text(str, 2))
+            print(name + " : " + word + " - " + cnt)
+            values.append(name + " : " + word + " - " + cnt)
+        }
+        
+        return values
+    }
+    
+}
+
 // TODO: - delete extension!
 extension DB {
     
@@ -263,7 +295,7 @@ extension DB {
     
     // TODO: - create MODEL Dict
     /*
-     CREATE TABLE "slidea_word" (
+     CREATE TABLE "slides_word" (
      "id"    INTEGER PRIMARY KEY AUTOINCREMENT,
      "id_slide"    INTEGER NOT NULL,
      "word"    TEXT NOT NULL UNIQUE,

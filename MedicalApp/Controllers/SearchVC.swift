@@ -12,9 +12,9 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-//    var db = DB()
+    var db = DB()
     let indentifier = "MyCell"
-    var array = ["1", "2", "3", "4"]
+    var array = [String]()
     
     @IBOutlet weak var searchTF: UITextField!
     @IBOutlet weak var firstTF: UITextField!
@@ -26,7 +26,15 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTv: UITableView!
     
     override func viewDidLoad() {
-
+        
+    }
+    
+    @IBAction func btSearch(_ sender: UIButton) {
+        
+        array = db.searchSlides(searchTF.text ?? "")
+        searchTv.reloadData()
+        print(array)
+        
     }
     
     /*
