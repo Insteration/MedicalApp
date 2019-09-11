@@ -16,9 +16,9 @@ class LibraryViewController: UIViewController {
 //            var slideWord = String()
             
             DispatchQueue.main.async {
-                for i in 5...7 {
+                for i in 1...7 {
                     dbThread.createDict(i)
-                    print("slide \(i) is done to table list_word")
+                    print("slide \(i) is done to table slides_search")
                 }
 //                self.libraryTextView.text = slideWord
 //                print(slideWord)
