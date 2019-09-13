@@ -30,43 +30,38 @@ class SearchVC: UIViewController {
     
     @IBAction func btSearch(_ sender: UIButton) {
         
-        array = db.searchSlides(searchTF.text ?? "")
+        guard let query = searchTF.text,
+            query.count > 0  else { return }
+        
+        array = []
+        array = db.searchSlides(query)
+        db.splittingSearch(query)
         searchTv.reloadData()
         print(array)
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btReindex(_ sender: UIButton) {
+        
+        let from = Int(firstTF.text!) ?? 0
+        let to = Int(lastTF.text!) ?? 0
+        
+        guard to >= from else {
+            return
+        }
+        
+        reindex(from: from, to: to)
     }
-    */
-
+    
+ 
 }
-
-//        DispatchQueue.global(qos: .background).async {
-//            let dbThread = self.db
-//            var slideWord = String()
-//
-//            DispatchQueue.main.async {
-//                for i in 6...6 {
-//                    slideWord += dbThread.updateTXT(i)
-//                    print("slide \(i) is done to table list_word")
-//                }
-//                self.libraryTextView.text = slideWord
-//                //                print(slideWord)
-//            }
-//        }
 
 // TODO: - make with thread only read DB
 //        let html = db.getHTML(6)
 //        libraryWebView.loadHTMLString(html, baseURL: nil)
 
 extension SearchVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
@@ -80,4 +75,26 @@ extension SearchVC: UITableViewDataSource {
         return cell
     }
 
+}
+
+// MARK: - reindex table slides_search
+extension SearchVC {
+    
+    func reindex(from: Int = 0, to: Int = 0) {
+        
+        DispatchQueue.global(qos: .background).async {
+            let dbThread = self.db
+            //            var slideWord = String()
+            
+            DispatchQueue.main.async {
+                for i in from...to {
+                    dbThread.createDict(i)
+                    print("slide \(i) is done to table slides_search")
+                }
+                //                self.libraryTextView.text = slideWord
+                //                print(slideWord)
+            }
+        }
+    }
+    
 }

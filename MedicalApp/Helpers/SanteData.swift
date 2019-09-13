@@ -67,6 +67,7 @@ struct DB: ParserProtocol {
                         word: String,
                         cnt: Int,
                         listWord: String)]()
+        arrDict = []
         
         setTxt.sorted().forEach{
             let word = $0
@@ -86,7 +87,10 @@ struct DB: ParserProtocol {
         }
         
         print("arrDict.count = ", arrDict.count)
-        //        arrDict.forEach({print($0)})
+        
+        // sort Dict on cnt, more to less
+        arrDict = arrDict.sorted(by: { $0.3 > $1.3 } )
+//        arrDict.forEach({print($0)})
         
         return arrDict
     }
@@ -98,8 +102,8 @@ extension DB {
     
     func deleteRecords(inTable:String, id: Int){
         
-        var del : OpaquePointer? = nil
-        let query:String = "DELETE FROM \(inTable) WHERE id_slide = \(id)"
+        var del: OpaquePointer? = nil
+        let query = "DELETE FROM \(inTable) WHERE id_slide = '\(id)'"
         
         guard sqlite3_prepare_v2(DB.db, query, -1, &del, nil)==SQLITE_OK else {
             let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
@@ -114,7 +118,7 @@ extension DB {
         }
         
         sqlite3_finalize(del)
-        print("delete records from table \(inTable) with id_slide = \(id) is done")
+        print(query)
     }
     
 }
@@ -160,7 +164,6 @@ extension DB {
                     return
             }
             
-            //            print(insertString)
         }
         
         sqlite3_finalize(insert)
@@ -199,12 +202,16 @@ extension DB {
             print("error get HTML from DataBase")
         }
         
+        sqlite3_finalize(str)
+        
         // parser html
         var txt = parse(htmlString: html)
         
         let arrDict = clearTxt(txt: &txt, id: id, name: name)
+        print("let arrDict = clearTxt(txt: &txt, id: id, name: name,  arrDict.count = ", arrDict.count)
         
         deleteRecords(inTable: "slides_search", id: id)
+        printWordCount(id)
         
         insertSlideSearch(inTable: "slides_search",
                         arrDict: arrDict)
@@ -238,6 +245,10 @@ extension DB {
 // MARK: - get records from table slides_search on request
 extension DB {
     
+    
+    // select *, GROUP_CONCAT(word || cnt, " ") FROM slides_search WHERE id_slide = '6' AND cnt = '1'
+
+    
     // SELECT name, word, cnt from slides_search where list_word MATCH "many" ORDER BY rank;
     func searchSlides (_ req: String) -> [String] {
         
@@ -263,6 +274,71 @@ extension DB {
         }
         
         return values
+    }
+    
+    /*
+     SELECT name, count(), sum(count_word) as sum_count_word,
+     GROUP_CONCAT(listWord || "(" || count_word || ")", "; ") as list from
+     (
+     select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
+     FROM slides_search WHERE list_word MATCH 'pre*' GROUP BY name
+     UNION
+     select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
+     FROM slides_search WHERE list_word MATCH 'at*' GROUP BY name
+     )
+     GROUP BY name HAVING count() > 1;
+    */
+    // MARK: - split search query on space
+    func splittingSearch(_ query: String) -> [String] {
+        
+        var txt = query
+//        let errorChar: Set<Character> = ["'"]
+        let errorChar: Set<Character> = [
+            "'", ",", "!", ".","?","\n","\r","(",")", "_",
+            "0","1","2","3","4","5","6","7","8","9", "+", "!",
+            "=", ";", ":", "<", "&", "\"", "\\", "@", "[", "]",
+            "{", "}", "«", "»", "-", "/", "·", "|", "#", "“"]
+
+        txt.removeAll(where: { errorChar.contains($0) })
+        
+        // for french "’" don't remove
+        let arrayTxt = txt.components(separatedBy: " ")
+        
+        print("arrayTxt.count = ", arrayTxt.count)
+        print(arrayTxt)
+        
+        var setTxt = Set<String>()
+        arrayTxt.forEach{ setTxt.insert($0.lowercased()) }
+        print("setTxt.count = ", setTxt.count)
+        print(setTxt)
+        
+        return arrayTxt
+    }
+    
+}
+
+// MARK: - get count word in table slides_search on id_slide
+// SELECT count(word) as word_count FROM slides_search  WHERE id_slide = "7";
+extension DB {
+    
+    func printWordCount(_ id: Int) {
+        
+        var str: OpaquePointer? = nil
+        
+        let query = "SELECT count(word) as word_count FROM slides_search  WHERE id_slide = '\(id)';"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+        } else {
+            print("query \(query) is uncorrect")
+        }
+        
+        if sqlite3_step(str) == SQLITE_ROW {
+            print("word_count with id = \(id): ", String(cString: sqlite3_column_text(str, 0)))
+        } else {
+            print("error get word_count with id = \(id)")
+        }
+        
+        sqlite3_finalize(str)
     }
     
 }
@@ -352,7 +428,6 @@ extension DB {
             sqlite3_step(update) == SQLITE_DONE else {
                 let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
                 print("error preparing update: \(errmsg)")
-                print("error run update")
                 return
         }
         //        print("update whith guard done")
