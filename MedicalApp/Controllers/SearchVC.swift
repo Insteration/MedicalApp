@@ -34,8 +34,11 @@ class SearchVC: UIViewController {
             query.count > 0  else { return }
         
         array = []
-        array = db.searchSlides(query)
-        db.splittingSearch(query)
+        
+        let arrWordSearch = db.splittingSearch(query)
+        let querySql = db.prepareSearch(arrWordSearch)
+        array = db.searchSlides(querySql)
+        
         searchTv.reloadData()
         print(array)
         
