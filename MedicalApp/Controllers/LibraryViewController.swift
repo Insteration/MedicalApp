@@ -27,6 +27,8 @@ class LibraryViewController: UIViewController {
 //            }
 //        }
         
+        getImage()
+        
         // TODO: - make with thread only read DB
         let html = db.getHTML(1)
         libraryWebView.loadHTMLString(html, baseURL: nil)
@@ -34,6 +36,30 @@ class LibraryViewController: UIViewController {
     }
 }
 
+// MARK: - data to image to imageView
+extension LibraryViewController {
+    
+    func getImage() {
+        //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+        //        {
+        let data = db.getDataFromBlob()
+        print("data: \n", data)
+//        var image: UIImage?
+//        if data != nil {
+//            artist.vImageData = data
+        let image = UIImage(data: data)
+        print("image: \n", image)
+            //            } else {
+            //                image = UIImage(named: <defaultImageLikeNoAvailable>)
+            //            }
+            
+            //            dispatch_async(dispatch_get_main_queue()) {
+        imageView.image = image
+            //            }
+//        }
+    }
+    
+}
 /*
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
 {

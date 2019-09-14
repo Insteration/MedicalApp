@@ -382,6 +382,8 @@ extension DB {
             if let dataBlob = sqlite3_column_blob(str, 0){
                 let dataBlobLength = sqlite3_column_bytes(str, 0)
                 blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
+                print("dataBlob: \n", dataBlob)
+                print("dataBlobLength = ", dataBlobLength)
             }            
         } else {
             print("query \(query) is uncorrect")
