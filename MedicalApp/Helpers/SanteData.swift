@@ -360,6 +360,40 @@ extension DB {
 }
 
 
+// MARK: get data image from blob
+extension DB {
+    
+    // TODO: - use Model
+    func getDataFromBlob() -> Data {
+        
+        var str: OpaquePointer? = nil
+        var blob = Data()
+        let query = "SELECT image from slides_image WHERE id = 1;"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("prepare query \(query) is DONE")
+        } else {
+            print("prepare query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+        
+        if sqlite3_step(str) == SQLITE_ROW {
+            if let dataBlob = sqlite3_column_blob(str, 0){
+                let dataBlobLength = sqlite3_column_bytes(str, 0)
+                blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
+            }            
+        } else {
+            print("query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error run query: \(errmsg)")
+        }
+        
+        return blob
+    }
+}
+
+
 // MARK: - get count word in table slides_search on id_slide
 // SELECT count(word) as word_count FROM slides_search  WHERE id_slide = "7";
 extension DB {
