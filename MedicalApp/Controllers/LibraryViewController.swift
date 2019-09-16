@@ -9,6 +9,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var db = DB()
+//    var fm = FM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,9 @@ class LibraryViewController: UIViewController {
         
         // TODO: - make with thread only read DB
         let html = db.getHTML(1)
-        libraryWebView.loadHTMLString(html, baseURL: nil)
+        let documentsDirectoryURL = FM.documentsDirectoryURL
+        print("documentsDirectoryURL = ", documentsDirectoryURL)
+        libraryWebView.loadHTMLString(html, baseURL: documentsDirectoryURL)
 
     }
 }
@@ -48,7 +51,7 @@ extension LibraryViewController {
 //        if data != nil {
 //            artist.vImageData = data
         let image = UIImage(data: data)
-        print("image: \n", image)
+//        print("image: \n", image)
             //            } else {
             //                image = UIImage(named: <defaultImageLikeNoAvailable>)
             //            }
@@ -57,6 +60,8 @@ extension LibraryViewController {
         imageView.image = image
             //            }
 //        }
+        
+        print(FM.storeImageToDocumentDirectory(data: data, fileName: "1.jpg")!)
     }
     
 }

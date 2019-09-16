@@ -11,6 +11,7 @@
 		0B13F1F422F56C2200BE97B9 /* Localizable_eng.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B13F1F322F56C2200BE97B9 /* Localizable_eng.strings */; };
 		0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B13F1F922F56D7700BE97B9 /* Localizable.strings */; };
 		0B2EFB912326DAF30082FE9B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB902326DAF30082FE9B /* SearchVC.swift */; };
+		0B2EFB94232FE5330082FE9B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB93232FE5330082FE9B /* FM.swift */; };
 		0BC6338622F5669900F2F24C /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /*  Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
 		0BDDD780230593D200574842 /* MainVcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDDD77F230593D200574842 /* MainVcData.swift */; };
@@ -54,6 +55,7 @@
 		0B13F1F822F56D7700BE97B9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0B13F1FA22F56D7D00BE97B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0B2EFB902326DAF30082FE9B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
 		0BC6338522F5669900F2F24C /*  Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " Data.swift"; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
 		0BDDD77F230593D200574842 /* MainVcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVcData.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				ACC2FFD82315A25A00439103 /* ParserSoup.swift */,
 				AC2877ED23183A3300ED15A3 /* SanteData.swift */,
+				0B2EFB93232FE5330082FE9B /* FM.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
 				ACC2FFD92315A25A00439103 /* ParserSoup.swift in Sources */,
 				0BDDD780230593D200574842 /* MainVcData.swift in Sources */,
+				0B2EFB94232FE5330082FE9B /* FM.swift in Sources */,
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
