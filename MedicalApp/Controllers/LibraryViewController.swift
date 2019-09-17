@@ -28,12 +28,14 @@ class LibraryViewController: UIViewController {
 //            }
 //        }
         
-        getImage()
+        getImage(1)
+//        getImage(2)
+//        getImage(3)
         
         // TODO: - make with thread only read DB
         let html = db.getHTML(1)
         let documentsDirectoryURL = FM.documentsDirectoryURL
-        print("documentsDirectoryURL = ", documentsDirectoryURL)
+//        print("documentsDirectoryURL = ", documentsDirectoryURL)
         libraryWebView.loadHTMLString(html, baseURL: documentsDirectoryURL)
 
     }
@@ -42,10 +44,10 @@ class LibraryViewController: UIViewController {
 // MARK: - data to image to imageView
 extension LibraryViewController {
     
-    func getImage() {
+    func getImage(_ id: Int = 1) {
         //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
         //        {
-        let data = db.getDataFromBlob()
+        let (name, data) = db.getDataFromBlob(id)
         print("data: \n", data)
 //        var image: UIImage?
 //        if data != nil {
@@ -61,9 +63,8 @@ extension LibraryViewController {
             //            }
 //        }
         
-        print(FM.storeImageToDocumentDirectory(data: data, fileName: "1.jpg")!)
+        print(FM.storeImageToDocumentDirectory(data: data, fileName: name)!)
     }
-    
 }
 /*
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))

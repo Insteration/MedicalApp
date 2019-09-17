@@ -31,3 +31,5 @@ struct FM {
     }
 
 }
+
+// <img src="file:///1.jpg" alt="упражнения для спины"  itemprop="image"/></li>

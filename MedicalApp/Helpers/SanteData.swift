@@ -94,7 +94,6 @@ struct DB: ParserProtocol {
         
         return arrDict
     }
-    
 }
 
 // MARK: - delete records from table
@@ -120,7 +119,6 @@ extension DB {
         sqlite3_finalize(del)
         print(query)
     }
-    
 }
 
 //MARK: - close DB
@@ -168,7 +166,6 @@ extension DB {
         
         sqlite3_finalize(insert)
     }
-    
 }
 
 // MARK: - get dict for insert in table slides_search
@@ -359,16 +356,16 @@ extension DB {
     
 }
 
-
 // MARK: get data image from blob
 extension DB {
     
-    // TODO: - use Model
-    func getDataFromBlob() -> Data {
+    // TODO: - use Model : (String, Data)
+    func getDataFromBlob(_ id: Int = 1) -> (String, Data) {
         
         var str: OpaquePointer? = nil
         var blob = Data()
-        let query = "SELECT image from slides_image WHERE id = 1;"
+        var name = String()
+        let query = "SELECT name, image from slides_image WHERE id = \(id);"
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("prepare query \(query) is DONE")
@@ -379,8 +376,12 @@ extension DB {
         }
         
         if sqlite3_step(str) == SQLITE_ROW {
-            if let dataBlob = sqlite3_column_blob(str, 0){
-                let dataBlobLength = sqlite3_column_bytes(str, 0)
+            
+            // get name file image
+            name = String(cString: sqlite3_column_text(str, 0))
+            
+            if let dataBlob = sqlite3_column_blob(str, 1){
+                let dataBlobLength = sqlite3_column_bytes(str, 1)
                 blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
                 print("dataBlob: \n", dataBlob)
                 print("dataBlobLength = ", dataBlobLength)
@@ -391,10 +392,9 @@ extension DB {
             print("error run query: \(errmsg)")
         }
         
-        return blob
+        return (name, blob)
     }
 }
-
 
 // MARK: - get count word in table slides_search on id_slide
 // SELECT count(word) as word_count FROM slides_search  WHERE id_slide = "7";
