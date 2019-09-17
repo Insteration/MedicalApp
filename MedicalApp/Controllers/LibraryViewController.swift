@@ -29,8 +29,8 @@ class LibraryViewController: UIViewController {
 //        }
         
         getImage(1)
-//        getImage(2)
-//        getImage(3)
+        getImage(2)
+        getImage(3)
         
         // TODO: - make with thread only read DB
         let html = db.getHTML(1)
@@ -83,3 +83,8 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
     }
 }
 */
+
+
+//             "url": "https://takprosto.cc/wp-content/uploads/general/logo.png",
+//                     <img src="https://takprosto.cc/wp-content/uploads/general/logo.png" alt="Так Просто!" width="205" height="180">
+

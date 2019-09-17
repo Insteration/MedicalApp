@@ -33,3 +33,4 @@ struct FM {
 }
 
 // <img src="file:///1.jpg" alt="упражнения для спины"  itemprop="image"/></li>
+//<img src="https://takprosto.cc/wp-content/uploads/u/uprazhneniya-dlya-spiny/2.jpg" alt="упражнения для спины"  itemprop="image"/></li>
