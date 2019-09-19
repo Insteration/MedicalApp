@@ -29,6 +29,18 @@ struct FM {
             return nil
         }
     }
+    
+    // func get data and name file, create video file in folder Documenters
+//    public static func storeVideoToDocumentDirectory(data: Data, fileName: String) -> URL? {
+//        
+//        let fileURL = self.fileURLInDocumentDirectory(fileName)
+//        do {
+//            try data.write(to: fileURL)
+//            return fileURL
+//        } catch {
+//            return nil
+//        }
+//    }
 
 }
 
