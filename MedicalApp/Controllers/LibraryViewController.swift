@@ -32,9 +32,10 @@ class LibraryViewController: UIViewController {
         getImage(2)
         getImage(3)
         getImage(4)
-        
+        getImage(5)
+
         // TODO: - make with thread only read DB
-        let html = db.getHTML(8)
+        let html = db.getHTML(9)
         let documentsDirectoryURL = FM.documentsDirectoryURL
 //        print("documentsDirectoryURL = ", documentsDirectoryURL)
         
