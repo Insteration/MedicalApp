@@ -4,6 +4,7 @@ import UIKit
 class QuestionsTableViewController: UITableViewController {
     
     var db = DB()
+    var engine = Engine()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,19 +18,19 @@ class QuestionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-       return db.selectFromTable(question: "questions", inTable: "questions").count
+       return engine.selectFromTableEngine(nameTable: "questions").count
         
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = engine.selectFromTableEngine(nameTable: "questions")[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
