@@ -406,14 +406,7 @@
                                 </state>
                                 <connections>
                                     <action selector="questionsActionButton:" destination="BuF-VF-Lzi" eventType="touchUpInside" id="2cd-K8-PVc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTN-Mk-g1S">
-                                <rect key="frame" x="515" y="867" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TEST!!!!"/>
-                                <connections>
-                                    <segue destination="o0s-qo-Xxc" kind="show" id="vz2-zx-akh"/>
+                                    <segue destination="Axh-Wp-w1L" kind="show" id="7e7-6l-zCR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -490,7 +483,7 @@
             </objects>
             <point key="canvasLocation" x="2737.5" y="1011.9140624999999"/>
         </scene>
-        <!--Questions Table View Controller-->
+        <!--Questions-->
         <scene sceneID="MSf-EM-eiT">
             <objects>
                 <tableViewController id="o0s-qo-Xxc" customClass="QuestionsTableViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -506,6 +499,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="oMY-7t-Qts" kind="show" identifier="showQuestVC" id="HnP-p7-gdf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -513,10 +509,52 @@
                             <outlet property="delegate" destination="o0s-qo-Xxc" id="r7w-1f-01M"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Questions" id="Cbh-4p-W2O">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="oui-a9-3Bj"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krF-8i-zSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608" y="302"/>
+            <point key="canvasLocation" x="4373.4375" y="301.7578125"/>
+        </scene>
+        <!--Questions View Controller-->
+        <scene sceneID="ujh-rM-VXk">
+            <objects>
+                <viewController id="oMY-7t-Qts" customClass="QuestionsViewController" customModule="MedicalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DC5-ab-r4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ijr-td-1EY">
+                                <rect key="frame" x="20" y="70" width="728" height="777"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udL-1T-Fzc">
+                                <rect key="frame" x="323" y="974" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendQuestionButton:" destination="oMY-7t-Qts" eventType="touchUpInside" id="WIz-aR-gzr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Gh8-rc-kcZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="textViewQuestion" destination="Ijr-td-1EY" id="aX3-o7-9kD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36b-46-2rC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4367.96875" y="1042.96875"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="S9g-Xs-hTv">
@@ -540,7 +578,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMR-j0-cWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="283"/>
+            <point key="canvasLocation" x="5366.40625" y="282.421875"/>
         </scene>
         <!--Library View Controller-->
         <scene sceneID="2Ah-Iv-F0a">
@@ -951,6 +989,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FC7-KM-CCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.375" y="-536.61971830985919"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qyr-v0-Ire">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Axh-Wp-w1L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ta9-8p-2J4">
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o0s-qo-Xxc" kind="relationship" relationship="rootViewController" id="Ml5-qk-egP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHq-6C-XpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607.8125" y="301.7578125"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

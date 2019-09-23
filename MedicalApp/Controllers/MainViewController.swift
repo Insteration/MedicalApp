@@ -111,12 +111,12 @@ class MainViewController: UIViewController {
     
     @IBAction func questionsActionButton(_ sender: UIButton) {
         // MARK: - popUp version
-        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
-
-        self.addChild(questionsVC)
-        questionsVC.view.frame = self.view.frame
-        self.view.addSubview(questionsVC.view)
-        questionsVC.didMove(toParent: self)
+//        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
+//
+//        self.addChild(questionsVC)
+//        questionsVC.view.frame = self.view.frame
+//        self.view.addSubview(questionsVC.view)
+//        questionsVC.didMove(toParent: self)
         
         
         
