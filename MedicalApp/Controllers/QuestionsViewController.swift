@@ -3,6 +3,7 @@ import UIKit
 class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var textViewQuestion: UITextView!
+    var db = DB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +16,7 @@ class QuestionsViewController: UIViewController {
     
     @IBAction func sendQuestionButton(_ sender: UIButton) {
         
-        
+        db.insertInTable(inTable: "questions", question: textViewQuestion.text)
         
     }
     
