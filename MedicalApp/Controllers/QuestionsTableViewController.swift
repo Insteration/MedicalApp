@@ -3,7 +3,6 @@ import UIKit
 
 class QuestionsTableViewController: UITableViewController {
     
-    var db = DB()
     var engine = Engine()
 
     override func viewDidLoad() {
