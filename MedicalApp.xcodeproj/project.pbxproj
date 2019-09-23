@@ -18,6 +18,8 @@
 		40042819230B188200B9A02C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40042817230B188200B9A02C /* CollectionViewController.swift */; };
 		4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40042818230B188200B9A02C /* CollectionViewController.xib */; };
 		4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004281B230B18C500B9A02C /* CollectionModel.swift */; };
+		404A85162339084D00159DED /* MainReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A85142339084D00159DED /* MainReportViewController.swift */; };
+		404A85172339084D00159DED /* MainReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404A85152339084D00159DED /* MainReportViewController.xib */; };
 		4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2222F4A3910051A609 /* ReportViewController.swift */; };
 		4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A292F2322F4A3920051A609 /* ReportViewController.xib */; };
 		4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2422F4A3920051A609 /* ModelReport.swift */; };
@@ -63,6 +65,8 @@
 		40042817230B188200B9A02C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		40042818230B188200B9A02C /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		4004281B230B18C500B9A02C /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
+		404A85142339084D00159DED /* MainReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReportViewController.swift; sourceTree = "<group>"; };
+		404A85152339084D00159DED /* MainReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainReportViewController.xib; sourceTree = "<group>"; };
 		4A292F2222F4A3910051A609 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		4A292F2322F4A3920051A609 /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		4A292F2422F4A3920051A609 /* ModelReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			children = (
 				4A292F2422F4A3920051A609 /* ModelReport.swift */,
 				4A292F2222F4A3910051A609 /* ReportViewController.swift */,
+				404A85142339084D00159DED /* MainReportViewController.swift */,
+				404A85152339084D00159DED /* MainReportViewController.xib */,
 				4A292F2322F4A3920051A609 /* ReportViewController.xib */,
 				4004281B230B18C500B9A02C /* CollectionModel.swift */,
 				40042817230B188200B9A02C /* CollectionViewController.swift */,
@@ -317,6 +323,7 @@
 				ACC2FFD62315A15A00439103 /* slide_example in Resources */,
 				4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */,
 				4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */,
+				404A85172339084D00159DED /* MainReportViewController.xib in Resources */,
 				0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */,
 				0B13F1F222F56C0E00BE97B9 /* Localizable_rus.strings in Resources */,
 				4ADB102622F1A88400DB7ACB /* GoogleService-Info.plist in Resources */,
@@ -390,6 +397,7 @@
 			files = (
 				AC2877E923181EBC00ED15A3 /* LibraryViewController.swift in Sources */,
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
+				404A85162339084D00159DED /* MainReportViewController.swift in Sources */,
 				ACC2FFD92315A25A00439103 /* ParserSoup.swift in Sources */,
 				0BDDD780230593D200574842 /* MainVcData.swift in Sources */,
 				0B2EFB94232FE5330082FE9B /* FM.swift in Sources */,
