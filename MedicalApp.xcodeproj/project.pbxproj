@@ -131,14 +131,14 @@
 		4A292F2122F4A3820051A609 /* Nikita */ = {
 			isa = PBXGroup;
 			children = (
-				4A292F2422F4A3920051A609 /* ModelReport.swift */,
-				4A292F2222F4A3910051A609 /* ReportViewController.swift */,
 				404A85142339084D00159DED /* MainReportViewController.swift */,
 				404A85152339084D00159DED /* MainReportViewController.xib */,
+				4A292F2222F4A3910051A609 /* ReportViewController.swift */,
 				4A292F2322F4A3920051A609 /* ReportViewController.xib */,
-				4004281B230B18C500B9A02C /* CollectionModel.swift */,
 				40042817230B188200B9A02C /* CollectionViewController.swift */,
 				40042818230B188200B9A02C /* CollectionViewController.xib */,
+				4004281B230B18C500B9A02C /* CollectionModel.swift */,
+				4A292F2422F4A3920051A609 /* ModelReport.swift */,
 			);
 			path = Nikita;
 			sourceTree = "<group>";

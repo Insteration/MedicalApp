@@ -10,6 +10,7 @@ import UIKit
 
 class ReportViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
+    
     var textFields = [UITextField]()
     var labels = [UILabel]()
     var send = UIButton()
@@ -19,23 +20,12 @@ class ReportViewController: UIViewController {
     var acceptSwitch = UISwitch()
     
     
-    var reportData = ReportData()
+    var data = ReportData()
     var isKeyboardShow = false
     var lastCell = UITableViewCell()
     var keyBoardHeight = CGFloat(0)
     
-    
-    var data: [ReportData] {
-        get {
-            return UserDefaults.standard.structArrayData(ReportData.self, forKey: "ReportData")
-        }
-        set {
-            UserDefaults.standard.setStructArray(newValue, forKey: "ReportData")
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    
+   
     
     
     override func viewDidLoad() {
@@ -44,7 +34,7 @@ class ReportViewController: UIViewController {
         customInit()
         clearFields()
         
-        data = []
+        //dataReport = []
         printData()
         self.hideKeyboardWhenTappedAround()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -139,7 +129,7 @@ class ReportViewController: UIViewController {
     }
     
     private func clearFields() {
-        for i in 2..<textFields.count {
+        for i in 5..<textFields.count {
             textFields[i].text = ""
         }
         acceptSwitch.isOn = false
@@ -148,35 +138,39 @@ class ReportViewController: UIViewController {
     
     
     private func printData() {
-        for value in data {
+        for value in dataReport {
             print("///////////////////////////////////////")
-            print(names[namesId.dateOfMeeting.rawValue], "-", value.dateOfMeating)
-            print(names[namesId.numberOfPeople.rawValue], "-", value.numberOfPeople)
-            print(names[2], value.isAccepted)
+            for i in 0..<value.meatingData.count {
+                print(names[i], "-", value.meatingData[i])
+            }
+            print("Accepted", value.isAccepted)
             for value2 in value.peopleReports {
                 for i in 0..<value2.count {
-                    print(names[i + 2], "-", value2[i])
+                    print(names[i + 5], "-", value2[i])
                 }
             }
         }
     }
     
     private func addReportIntoData() {
-        if let dateOfmeating = textFields[namesId.dateOfMeeting.rawValue].text,
-            let numberOfPeople = textFields[namesId.numberOfPeople.rawValue].text {
-            reportData.dateOfMeating = dateOfmeating
-            reportData.numberOfPeople = numberOfPeople
+        for i in 0..<data.meatingData.count {
+            if let tmp = textFields[i].text {
+                if data.meatingData.count == i {
+                    data.meatingData.append(String())
+                }
+                data.meatingData[i] = tmp
+            }
         }
-        reportData.peopleReports.append([String]())
-        for i in 2..<textFields.count {
-            reportData.peopleReports[reportData.countPeoples - 1].append(String())
-            reportData.peopleReports[reportData.countPeoples - 1][i - 2] = textFields[i].text ?? ""
+        data.peopleReports.append([String]())
+        for i in 5..<textFields.count {
+            data.peopleReports[data.countPeoples - 1].append(String())
+            data.peopleReports[data.countPeoples - 1][i - 5] = textFields[i].text ?? ""
         }
-        reportData.isAccepted = acceptSwitch.isOn
+        data.isAccepted = acceptSwitch.isOn
     }
     
     private func saveData() {
-        data.append(reportData)
+        dataReport.append(data)
         clearFields()
         printData()
         
@@ -444,16 +438,15 @@ extension ReportViewController {
 
 
 
-
-fileprivate extension UserDefaults {
+ extension UserDefaults {
     
-     func setStructArray<T: Codable>(_ value: [T], forKey defaultName: String){
+    public func setStructArray<T: Codable>(_ value: [T], forKey defaultName: String){
         let data = value.map { try? JSONEncoder().encode($0) }
         
         set(data, forKey: defaultName)
     }
     
-     func structArrayData<T>(_ type: T.Type, forKey defaultName: String) -> [T] where T : Decodable {
+    public func structArrayData<T>(_ type: T.Type, forKey defaultName: String) -> [T] where T : Decodable {
         guard let encodedData = array(forKey: defaultName) as? [Data] else {
             return []
         }

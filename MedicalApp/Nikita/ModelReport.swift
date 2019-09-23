@@ -10,28 +10,11 @@ import Foundation
 
 
 
-//struct ReportData {
-//    var numberOfPeople: String
-//    var country: String
-//    var city: String
-//    var message1: String
-//    var name: String
-//    var lastName: String
-//    var fonction: String
-//    var organisation: String
-//    var email: String
-//    var number: String
-//    var message2: String
-//}
-
-
-
-
-
 
 struct ReportData: Codable {
-    var dateOfMeating: String
-    var numberOfPeople: String
+//    var dateOfMeating: String
+//    var numberOfPeople: String
+    var meatingData: [String]
     var peopleReports: [[String]]
     var isAccepted = Bool()
     var countPeoples: Int {
@@ -42,8 +25,9 @@ struct ReportData: Codable {
     
     
     init() {
-        dateOfMeating = ""
-        numberOfPeople = ""
+//        dateOfMeating = ""
+//        numberOfPeople = ""
+        meatingData = [String]()
         peopleReports = [[String]]()
         
     }
@@ -94,3 +78,14 @@ enum namesId: Int {
 }
 
 
+
+
+var dataReport: [ReportData] {
+    get {
+        return UserDefaults.standard.structArrayData(ReportData.self, forKey: "ReportData")
+    }
+    set {
+        UserDefaults.standard.setStructArray(newValue, forKey: "ReportData")
+        UserDefaults.standard.synchronize()
+    }
+}
