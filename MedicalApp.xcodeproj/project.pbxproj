@@ -201,11 +201,11 @@
 		4A6A442022EF6A590082CDA3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4ADB102A22F1B42B00DB7ACB /* MainViewController.swift */,
 				4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
 				C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */,
 				C215C5D622F0BBE9003EFF72 /* SignINViewControllerXIB.xib */,
-				4ADB102A22F1B42B00DB7ACB /* MainViewController.swift */,
 				4ADB102C22F1BDA300DB7ACB /* RegistrationViewController.swift */,
 				ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */,
 				ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */,

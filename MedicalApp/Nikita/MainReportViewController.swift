@@ -13,7 +13,6 @@ class MainReportViewController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
-    //var data: [Int] = Array(0..<10)
     var data = dataReport
     
     override func loadView() {
@@ -56,8 +55,9 @@ extension MainReportViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifier, for: indexPath) as! Cell
-        let data = self.data[indexPath.item]
-//        cell.textLabel.text = data.
+    
+        cell.textLabel.text = self.data[indexPath.item].meatingData[namesId.dateOfMeeting.rawValue] + "/n"
+//            + self.data[indexPath.item].
         cell.backgroundColor = .blue
         return cell
     }
@@ -101,6 +101,7 @@ class Cell: UICollectionViewCell {
         
         
         textLabel = UILabel()
+        textLabel.numberOfLines = 0
         contentView.addSubview(textLabel)
         textLabel.backgroundColor = .orange
         textLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -12,24 +12,18 @@ import Foundation
 
 
 struct ReportData: Codable {
-//    var dateOfMeating: String
-//    var numberOfPeople: String
     var meatingData: [String]
     var peopleReports: [[String]]
-    var isAccepted = Bool()
+    var isAccepted = [Bool]()
     var countPeoples: Int {
         get {
             return peopleReports.count
         }
     }
     
-    
     init() {
-//        dateOfMeating = ""
-//        numberOfPeople = ""
         meatingData = [String]()
         peopleReports = [[String]]()
-        
     }
 }
 
