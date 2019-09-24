@@ -38,22 +38,18 @@ class QuestionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
-    let listQuestVC = ListQuestionsViewController()
-    
-    
-    
-    
+    let listQuestVC = ListQuestViewController()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showListQuestions" {
+        if segue.identifier == "QuestVC" {
             
             if let path = tableView.indexPathForSelectedRow {
 //               let vc = segue.destination as! ListQuestionsViewController
                 
                 print("Questions =  \(engine.selectFromTableEngine(nameTable: "questions")[path.row])")
                 
-                listQuestVC.questionTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
+                listQuestVC.questTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
                 
 //                vc.questionTextView.text = "TEST"
 //                    engine.selectFromTableEngine(nameTable: "questions")[path.row]
