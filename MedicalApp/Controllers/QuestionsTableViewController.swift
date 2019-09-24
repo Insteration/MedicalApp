@@ -23,7 +23,6 @@ class QuestionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return engine.selectFromTableEngine(nameTable: "questions").count
-        
     }
     
     
@@ -38,22 +37,31 @@ class QuestionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
-    let listQuestVC = ListQuestViewController()
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "QuestVC" {
             
-            if let path = tableView.indexPathForSelectedRow {
-//               let vc = segue.destination as! ListQuestionsViewController
-                
-                print("Questions =  \(engine.selectFromTableEngine(nameTable: "questions")[path.row])")
-                
-                listQuestVC.questTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
-                
-//                vc.questionTextView.text = "TEST"
-//                    engine.selectFromTableEngine(nameTable: "questions")[path.row]
+            guard let path = tableView.indexPathForSelectedRow else {
+                print("error get path from table")
+                return
             }
+            
+            let vc = segue.destination as! ListQuestViewController
+
+             print("Questions =  \(engine.selectFromTableEngine(nameTable: "questions")[path.row])")
+                        
+            vc.txt = "09876"
+//            vc.questTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
+            
+//            vc.questionTextView.text =              engine.selectFromTableEngine(nameTable: "questions")[path.row]
+
+            
+//            if let path = tableView.indexPathForSelectedRow {
+//               let vc = segue.destination as ListQuestionsViewController
+//
+//                listQuestVC.questTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
+//
+//            }
             
         }
         
