@@ -18,6 +18,7 @@ class ReportViewController: UIViewController {
     var usagePropre = UIButton()
     var plus = UIButton()
     var acceptSwitch = UISwitch()
+    var picker = UIPickerView()
     
     
     var data = ReportData()
@@ -40,9 +41,14 @@ class ReportViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        for i in 0..<textFields.count {
+            textFields[i].text = String(i)
+        }
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        picker.delegate = self
+        picker.dataSource = self
     }
     
     
@@ -50,7 +56,12 @@ class ReportViewController: UIViewController {
         for i in 0..<12 {
             labels.append(UILabel())
             labels[i].textAlignment = .right
-            labels[i].text = names[i]
+            if i >= namesId.visitType.rawValue {
+                labels[i].text = names[i + 1]
+            } else {
+                labels[i].text = names[i]
+            }
+            
         }
         for i in 0..<12 {
             textFields.append(UITextField())
@@ -141,27 +152,33 @@ class ReportViewController: UIViewController {
         for value in dataReport {
             print("///////////////////////////////////////")
             for i in 0..<value.meatingData.count {
-                print(names[i], "-", value.meatingData[i])
+                    print(names[i], "-", value.meatingData[i])
+                
             }
             
             for j in 0..<value.peopleReports.count {
+                print("Person number ----->", j)
                 print("Accepted", value.isAccepted[j])
                 for i in 0..<value.peopleReports[j].count {
-                    print(names[i + 5], "-", value.peopleReports[j][i])
+                    print(names[i + namesId.name.rawValue], "-", value.peopleReports[j][i])
                 }
             }
         }
     }
     
     private func addReportIntoData() {
-        for i in 0..<namesId.name.rawValue {
-            if data.meatingData.count < namesId.name.rawValue {
+        for i in 0..<namesId.visitType.rawValue {
+            if data.meatingData.count < namesId.visitType.rawValue {
                 data.meatingData.append(String())
                 if let tmp = textFields[i].text {
                     data.meatingData[i] = tmp
                 }
             }
         }
+        if data.meatingData.count == namesId.visitType.rawValue {
+            data.meatingData.append(String())
+        }
+        data.meatingData[data.meatingData.count - 1] = reportDataPicker[picker.selectedRow(inComponent: 0)]
         data.peopleReports.append([String]())
         for i in 5..<textFields.count {
             data.peopleReports[data.countPeoples - 1].append(String())
@@ -338,13 +355,23 @@ extension ReportViewController {
     }
     
     private func createCellForPicer() -> UITableViewCell {
-        var cell = UITableViewCell()
-        let picker = UIPickerView()
-        //picker.
-        //FIXME: End this
+        let cell = UITableViewCell()
+        cell.addSubview(picker)
+        
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+        picker.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
+        picker.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
+        picker.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+       
+        
         return cell
     }
 }
+
+
+
+
 
 
 
@@ -386,7 +413,7 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
         case 0..<2:
             cell = createCellForItem(indexPath.row)
         case 2:
-            cell = createCellWithLabel()
+            cell = createCellForPicer() //createCellWithLabel()
         case 3..<6:
             cell = createCellForItem(indexPath.row - 1)
         case 7..<14:
@@ -445,16 +472,26 @@ extension ReportViewController {
 }
 
 
-extension ReportViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+
+
+extension ReportViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
+        return reportDataPicker.count
     }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return reportDataPicker[row]
+    }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
 
 

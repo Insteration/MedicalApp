@@ -56,7 +56,8 @@ extension MainReportViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifier, for: indexPath) as! Cell
     
-        cell.textLabel.text = self.data[indexPath.item].meatingData[namesId.dateOfMeeting.rawValue] + "/n"
+        cell.textLabel.text = self.data[indexPath.item].meatingData[namesId.visitType.rawValue] + "\n"
+        + self.data[indexPath.item].meatingData[namesId.dateOfMeeting.rawValue]
 //            + self.data[indexPath.item].
         cell.backgroundColor = .blue
         return cell
@@ -115,11 +116,16 @@ class Cell: UICollectionViewCell {
         contentView.addSubview(buttonFinish)
         buttonFinish.backgroundColor = .red
         buttonFinish.translatesAutoresizingMaskIntoConstraints = false
-        buttonFinish.topAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
+        buttonFinish.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 8).isActive = true
         buttonFinish.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         buttonFinish.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         buttonFinish.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         buttonFinish.heightAnchor.constraint(equalTo: textLabel.heightAnchor).isActive = true
+        
+//        buttonFinish.titleLabel?.textColor = .black
+        buttonFinish.setTitle(names[namesId.buttonFinish.rawValue], for: .normal)
+        //FIXME: continue this button round rect
+//        bu
         
         
     }

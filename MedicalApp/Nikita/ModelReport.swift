@@ -27,13 +27,14 @@ struct ReportData: Codable {
     }
 }
 
-
+let reportDataPicker = ["HCP visite", "Pharmacy visit", "Round table" ,"Clinical meeting", "Others"]
 
 let names = ["Date of meeting",
              "Number of people",
              "Country",
              "City",
              "Commentaire",
+             "visitType",
              "Name",
              "Last name",
              "Fonction",
@@ -47,7 +48,8 @@ let names = ["Date of meeting",
              "SEND",
              "Usage propre",
              "Report",
-             "+"]
+             "+",
+             "Finish"]
 
 enum namesId: Int {
     case dateOfMeeting
@@ -55,6 +57,7 @@ enum namesId: Int {
     case country
     case city
     case casecommentaire1
+    case visitType
     case name
     case lastName
     case fonction
@@ -69,6 +72,7 @@ enum namesId: Int {
     case butttonUsagePropre
     case report
     case buttonPlus
+    case buttonFinish
 }
 
 
