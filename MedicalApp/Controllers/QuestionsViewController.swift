@@ -7,17 +7,11 @@ class QuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
-//        moveIn()
     }
     
     
     @IBAction func sendQuestionButton(_ sender: UIButton) {
-        
         db.insertInTable(inTable: "questions", question: textViewQuestion.text)
-        
     }
     
     
