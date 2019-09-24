@@ -129,7 +129,7 @@ extension DB {
 }
 
 // MARK: - CREATE VIRTUAL TABLE "slides_search"
-/* CREATE VIRTUAL TABLE "slides_search" USING FTS5 ( id_slide, name, word, list_word, cnt )
+/* CREATE VIRTUAL TABLE "slides_search" USING FTS5 ( "id_slide" , "name_topic" , "name" , "word" , "list_word" , "cnt" );
  var arrDict = [(
     idSlide: Int,
     name: String,
@@ -356,7 +356,7 @@ extension DB {
     
 }
 
-// MARK: get data image from blob
+// MARK: get data image and video from blob
 extension DB {
     
     // TODO: - use Model : (String, Data)
