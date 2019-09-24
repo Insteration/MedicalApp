@@ -12,6 +12,7 @@ class QuestionsViewController: UIViewController {
     
     @IBAction func sendQuestionButton(_ sender: UIButton) {
         db.insertInTable(inTable: "questions", question: textViewQuestion.text)
+        dismiss(animated: true, completion: nil)
     }
     
     

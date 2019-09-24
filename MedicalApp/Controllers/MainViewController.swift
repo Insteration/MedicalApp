@@ -125,6 +125,8 @@ class MainViewController: UIViewController {
     
     
     @IBAction func pendingReportActionButton(_ sender: UIButton) {
+        present(ReportViewController(), animated: true, completion: nil)
+        
     }
     
     
