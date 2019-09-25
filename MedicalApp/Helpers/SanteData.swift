@@ -254,7 +254,6 @@ extension DB {
 // MARK: - get records from table slides_search on request
 extension DB {
     
-    // SELECT name, word, cnt from slides_search where list_word MATCH "many" ORDER BY rank;
     func searchSlides (_ req: String) -> [String] {
         
         var values = [String]()
@@ -271,12 +270,15 @@ extension DB {
         
         while (sqlite3_step(str)) == SQLITE_ROW {
             
-            let name = String(cString: sqlite3_column_text(str, 0))
-            let count = String(cString: sqlite3_column_text(str, 1))
-            let sum_count_word = String(cString: sqlite3_column_text(str, 2))
-            let list = String(cString: sqlite3_column_text(str, 3))
-            print(name + "(" + count + ", " + sum_count_word + "): " + list)
-            values.append(name + "(" + sum_count_word + ", " + count + "): " + list)
+            let idSlide = String(cString: sqlite3_column_text(str, 0))
+            let nameTopic = String(cString: sqlite3_column_text(str, 1))
+
+            let name = String(cString: sqlite3_column_text(str, 2))
+            let count = String(cString: sqlite3_column_text(str, 3))
+            let sum_count_word = String(cString: sqlite3_column_text(str, 4))
+            let list = String(cString: sqlite3_column_text(str, 5))
+            print(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
+            values.append(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
         }
         
         return values
@@ -310,48 +312,14 @@ extension DB {
         return arrayTxt
     }
     
-    /*
-     SELECT name, count(), sum(count_word) as sum_count_word,
-     GROUP_CONCAT(listWord || "(" || count_word || ")", "; ") as list from
-     (
-         select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
-         FROM
-         (
-            select * FROM slides_search WHERE list_word MATCH 'pre*' ORDER BY rank
-         )
-         GROUP BY name
-         UNION
-         select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
-         FROM
-         (
-            select * FROM slides_search WHERE list_word MATCH 'at*' ORDER BY rank
-         )
-         GROUP BY name
-     )
-     GROUP BY name HAVING count() = 2;
-     */
-    
-    /*
-     SELECT id_slide, name_topic, name, count(), sum(count_word) as sum_count_word,
-     GROUP_CONCAT(listWord || "(" || count_word || ")", "; ") as list from
-     (
-          select id_slide, name_topic, name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
-          FROM
-          (
-             select * FROM slides_search WHERE list_word MATCH 'a*' ORDER BY rank
-          )
-          GROUP BY name)
-     GROUP BY name HAVING count() = 1
-     */
-     
     // MARK: - prepare sql query for search with multi words
     func prepareSearch(_ arrWord: [String]) -> String {
         
-        var searcgSql = """
-        SELECT name, count(), sum(count_word) as sum_count_word,
+        var searchgSql = """
+        SELECT id_slide, name_topic, name, count(), sum(count_word) as sum_count_word,
         GROUP_CONCAT(listWord || "(" || count_word || ")", "; ") as list from
         (
-             select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
+             select id_slide, name_topic, name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
              FROM
              (
                 select * FROM slides_search WHERE list_word MATCH '\(arrWord[0])' ORDER BY rank
@@ -360,9 +328,9 @@ extension DB {
         """
         
         for index in 1..<arrWord.count{
-            searcgSql += """
+            searchgSql += """
             \nUNION
-            select name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
+            select id_slide, name_topic, name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
             FROM
             (
                 select * FROM slides_search WHERE list_word MATCH '\(arrWord[index])' ORDER BY rank
@@ -371,13 +339,12 @@ extension DB {
             """
         }
         
-        searcgSql += """
+        searchgSql += """
         )
         GROUP BY name HAVING count() = \(arrWord.count);
         """
         
-//        print(searcgSql)
-        return searcgSql
+        return searchgSql
     }
     
 }
