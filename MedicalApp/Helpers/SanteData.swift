@@ -330,6 +330,20 @@ extension DB {
      )
      GROUP BY name HAVING count() = 2;
      */
+    
+    /*
+     SELECT id_slide, name_topic, name, count(), sum(count_word) as sum_count_word,
+     GROUP_CONCAT(listWord || "(" || count_word || ")", "; ") as list from
+     (
+          select id_slide, name_topic, name, GROUP_CONCAT(word || "(" || cnt || ")", "; ") listWord, count(word) as count_word
+          FROM
+          (
+             select * FROM slides_search WHERE list_word MATCH 'a*' ORDER BY rank
+          )
+          GROUP BY name)
+     GROUP BY name HAVING count() = 1
+     */
+     
     // MARK: - prepare sql query for search with multi words
     func prepareSearch(_ arrWord: [String]) -> String {
         
