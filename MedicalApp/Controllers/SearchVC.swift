@@ -67,7 +67,7 @@ class SearchVC: UIViewController {
 //        let html = db.getHTML(6)
 //        libraryWebView.loadHTMLString(html, baseURL: nil)
 
-extension SearchVC: UITableViewDataSource {
+extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
@@ -80,6 +80,27 @@ extension SearchVC: UITableViewDataSource {
         let number = array[indexPath.row]
         cell.textLabel?.text = number
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let search = array[indexPath.row]
+        
+        print(search)
+//        let slideVC = SlideVC()
+//        present(slideVC, animated: true)
+        
+        let slideVC = SlideVC()
+        
+        slideVC.id = 1
+        slideVC.search = search
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
+        let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
+
+        controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        controller.modalPresentationStyle = .overCurrentContext
+        self.present(controller, animated: true, completion: nil)
     }
 
 }
