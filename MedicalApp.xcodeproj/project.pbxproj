@@ -14,6 +14,7 @@
 		0B2EFB94232FE5330082FE9B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB93232FE5330082FE9B /* FM.swift */; };
 		0BC6338622F5669900F2F24C /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /*  Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
+		0BCDE5CB233B8DDF0081DA44 /* SlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */; };
 		0BDDD780230593D200574842 /* MainVcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDDD77F230593D200574842 /* MainVcData.swift */; };
 		40042819230B188200B9A02C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40042817230B188200B9A02C /* CollectionViewController.swift */; };
 		4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40042818230B188200B9A02C /* CollectionViewController.xib */; };
@@ -58,6 +59,7 @@
 		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
 		0BC6338522F5669900F2F24C /*  Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " Data.swift"; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
+		0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideVC.swift; path = Controllers/SlideVC.swift; sourceTree = "<group>"; };
 		0BDDD77F230593D200574842 /* MainVcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVcData.swift; sourceTree = "<group>"; };
 		2FD39EF8466ADD142FC0684A /* Pods-MedicalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedicalApp/Pods-MedicalApp.release.xcconfig"; sourceTree = "<group>"; };
 		40042817230B188200B9A02C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4A6A441E22EF6A460082CDA3 /* Models */,
 				4A6A440C22EF6A1F0082CDA3 /* AppDelegate.swift */,
 				4A6A441022EF6A1F0082CDA3 /* Main.storyboard */,
+				0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */,
 				4A6A441522EF6A200082CDA3 /* LaunchScreen.storyboard */,
 			);
 			path = MedicalApp;
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BCDE5CB233B8DDF0081DA44 /* SlideVC.swift in Sources */,
 				AC2877E923181EBC00ED15A3 /* LibraryViewController.swift in Sources */,
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
 				ACC2FFD92315A25A00439103 /* ParserSoup.swift in Sources */,
