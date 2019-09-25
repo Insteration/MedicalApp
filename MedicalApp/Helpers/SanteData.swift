@@ -39,7 +39,9 @@ struct DB: ParserProtocol {
         return values
     }
     
-    func clearTxt(txt: inout String, id: Int, name: String) -> [(idSlide: Int , name: String, word: String, cnt: Int, listWord: String)]{
+    //TODO: - make with Model
+    func clearTxt(txt: inout String, id: Int, name: String, nameTopic: String)
+        -> [(idSlide: Int , name: String, word: String, cnt: Int, listWord: String, nameTopic: String)]{
         
         let errorChar: Set<Character> = ["'"]
         txt.removeAll(where: { errorChar.contains($0) })
@@ -62,12 +64,12 @@ struct DB: ParserProtocol {
         
         // формируем массив кортежей для наполнения таблицы
         // сделать через модель
-        var arrDict = [(idSlide: Int,
-                        name: String,
-                        word: String,
-                        cnt: Int,
-                        listWord: String)]()
-        arrDict = []
+            var arrDict = [(idSlide: Int,
+                            name: String,
+                            word: String,
+                            cnt: Int,
+                            listWord: String,
+                            nameTopic: String)]()
         
         setTxt.sorted().forEach{
             let word = $0
@@ -81,7 +83,7 @@ struct DB: ParserProtocol {
                 }
             }
             
-            let rec: (idSlide: Int , name: String, word: String, cnt: Int, listWord: String) = (id, name, $0, cnt, listWord)
+            let rec: (idSlide: Int , name: String, word: String, cnt: Int, listWord: String, nameTopic: String) = (id, name, $0, cnt, listWord, nameTopic)
             
             arrDict.append(rec)
         }
@@ -145,14 +147,16 @@ extension DB {
         name: String,
         word: String,
         cnt: Int,
-        listWord: String)]) {
+        listWord: String,
+        nameTopic: String
+        )]) {
         
         var insert: OpaquePointer? = nil
         
         arrDict.forEach{
             
             let insertString = """
-            INSERT INTO \(inTable) (id_slide, name, word, cnt, list_word) VALUES ('\($0.idSlide)', '\($0.name)', '\($0.word)', '\($0.cnt)', '\($0.listWord)');
+            INSERT INTO \(inTable) (id_slide, name, word, cnt, list_word, name_topic) VALUES ('\($0.idSlide)', '\($0.name)', '\($0.word)', '\($0.cnt)', '\($0.listWord)', '\($0.nameTopic)');
             """
             guard sqlite3_prepare_v2(DB.db, insertString, -1, &insert, nil) == SQLITE_OK,
                 sqlite3_step(insert) == SQLITE_DONE
@@ -175,16 +179,23 @@ extension DB {
     word: String,
     cnt: Int,
     listWord: String
+    nameTopic: String
     )]() */
 extension DB {
     
     func createDict(_ id : Int) {
         
         var html = String()
+        var nameTopic = String()
         var name = String()
         var str: OpaquePointer? = nil
         
-        let query = "SELECT name, html FROM slides WHERE id = \(id)"
+        let query = """
+        SELECT slides.name, html, slides_topic.name as name_topic
+        FROM slides JOIN slides_topic
+        on slides.id_topic = slides_topic.id
+        WHERE slides.id = \(id)
+        """
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             //            print("query \(query) is DONE")
@@ -195,6 +206,7 @@ extension DB {
         if sqlite3_step(str) == SQLITE_ROW {
             name = String(cString: sqlite3_column_text(str, 0))
             html = String(cString: sqlite3_column_text(str, 1))
+            nameTopic = String(cString: sqlite3_column_text(str, 2))
         } else {
             print("error get HTML from DataBase")
         }
@@ -204,8 +216,8 @@ extension DB {
         // parser html
         var txt = parse(htmlString: html)
         
-        let arrDict = clearTxt(txt: &txt, id: id, name: name)
-        print("let arrDict = clearTxt(txt: &txt, id: id, name: name,  arrDict.count = ", arrDict.count)
+        let arrDict = clearTxt(txt: &txt, id: id, name: name, nameTopic: nameTopic)
+        print("let arrDict = clearTxt(txt: &txt, id: id, name: name, nameTopic: nameTopic, arrDict.count = ", arrDict.count)
         
         deleteRecords(inTable: "slides_search", id: id)
         printWordCount(id)
