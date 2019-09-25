@@ -12,6 +12,7 @@ import UIKit
 class MainReportViewController: UIViewController {
     
     weak var collectionView: UICollectionView!
+    var buttons = [UIButton]()
     
     var data = dataReport
     
@@ -28,6 +29,10 @@ class MainReportViewController: UIViewController {
             self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             ])
         self.collectionView = collectionView
+        
+        for _ in 0..<self.data.count {
+            buttons.append(UIButton())
+        }
     }
     
     override func viewDidLoad() {
@@ -55,11 +60,15 @@ extension MainReportViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifier, for: indexPath) as! Cell
+         cell.backgroundColor = .blue
     
         cell.textLabel.text = self.data[indexPath.item].meatingData[namesId.visitType.rawValue] + "\n"
         + self.data[indexPath.item].meatingData[namesId.dateOfMeeting.rawValue]
-//            + self.data[indexPath.item].
-        cell.backgroundColor = .blue
+       
+        cell.buttonFinish.setTitle(names[namesId.buttonFinish.rawValue], for: .normal)
+        buttons[indexPath.item] = cell.buttonFinish
+
+        
         return cell
     }
 
@@ -86,10 +95,10 @@ class Cell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
        
-        self.backgroundColor = .blue
+        self.backgroundColor = .lightGray
         customInit()
-        self.reset()
     }
+    
     
     private func customInit() {
         imageView = UIImageView()
@@ -103,6 +112,7 @@ class Cell: UICollectionViewCell {
         
         textLabel = UILabel()
         textLabel.numberOfLines = 0
+        textLabel.textAlignment = .center
         contentView.addSubview(textLabel)
         textLabel.backgroundColor = .orange
         textLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -120,12 +130,10 @@ class Cell: UICollectionViewCell {
         buttonFinish.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         buttonFinish.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         buttonFinish.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        buttonFinish.heightAnchor.constraint(equalTo: textLabel.heightAnchor).isActive = true
+        buttonFinish.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-//        buttonFinish.titleLabel?.textColor = .black
-        buttonFinish.setTitle(names[namesId.buttonFinish.rawValue], for: .normal)
-        //FIXME: continue this button round rect
-//        bu
+        buttonFinish.titleLabel?.textColor = .black
+        buttonFinish.layer.cornerRadius = 15
         
         
     }
@@ -136,12 +144,9 @@ class Cell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.reset()
     }
     
-    func reset() {
-        self.textLabel.textAlignment = .center
-    }
+    
 }
 
 

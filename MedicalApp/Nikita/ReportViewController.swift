@@ -34,8 +34,8 @@ class ReportViewController: UIViewController {
         mainTableView.allowsSelection = false
         customInit()
         clearFields()
-        
 //        dataReport = []
+//        dataReport = [dataReport[0],dataReport[1],dataReport[2],dataReport[3],dataReport[4],dataReport[0],dataReport[1],dataReport[2],dataReport[3],dataReport[4]]
         printData()
         self.hideKeyboardWhenTappedAround()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -44,6 +44,7 @@ class ReportViewController: UIViewController {
         for i in 0..<textFields.count {
             textFields[i].text = String(i)
         }
+        
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -71,6 +72,14 @@ class ReportViewController: UIViewController {
         later.addTarget(self, action: #selector(pushLaterButton), for: UIControl.Event.touchUpInside)
         usagePropre.addTarget(self, action: #selector(pushUsagePropreButton), for: UIControl.Event.touchUpInside)
         plus.addTarget(self, action: #selector(pushButtonPlus), for: UIControl.Event.touchUpInside)
+        
+        let tmpButtont = [send , usagePropre, later]
+        
+        for value in tmpButtont {
+           value.layer.cornerRadius = 15
+            value.clipsToBounds = true
+        }
+        
     }
     
     
@@ -80,6 +89,7 @@ class ReportViewController: UIViewController {
         if areAllFieldsFilled() {
             addReportIntoData()
             saveData()
+            dismiss(animated: true, completion: nil)
         } else {
             createAllert("Warning", "Not all fields are filled")
         }
@@ -88,7 +98,9 @@ class ReportViewController: UIViewController {
     
     @IBAction func pushSendButton(_ sender: UIButton) {
         if areAllFieldsFilled() {
+            addReportIntoData()
             sendData()
+            dismiss(animated: true, completion: nil)
         } else {
             createAllert("Warning", "Not all fields are filled")
         }
@@ -373,10 +385,6 @@ extension ReportViewController {
 
 
 
-
-
-
-
 extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -493,6 +501,9 @@ extension ReportViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 }
+
+
+
 
 
  extension UserDefaults {
