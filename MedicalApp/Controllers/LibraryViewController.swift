@@ -9,6 +9,11 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var db = DB()
+    
+    @IBAction func btBack(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
 //    var fm = FM()
     
     override func viewDidLoad() {

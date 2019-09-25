@@ -27,6 +27,11 @@ class SearchVC: UIViewController {
         
     }
     
+    @IBAction func btBack(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    
     @IBAction func btSearch(_ sender: UIButton) {
         
         guard let query = searchTF.text,
