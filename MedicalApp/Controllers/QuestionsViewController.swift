@@ -2,26 +2,19 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
-    @IBOutlet weak var questionsView: UIView!
-    @IBOutlet weak var questionsTextView: UITextView!
-    
+    @IBOutlet weak var textViewQuestion: UITextView!
     var db = DB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        questionsView.layer.cornerRadius = 25
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-        
-        moveIn()
     }
     
-    @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
-        moveOut()
-//        print(db.openDB())
-        db.insertInTable(inTable: "questions", question: questionsTextView.text)
-//        db.closeDB()
+    
+    @IBAction func sendQuestionButton(_ sender: UIButton) {
+        db.insertInTable(inTable: "questions", question: textViewQuestion.text)
+        dismiss(animated: true, completion: nil)
     }
+    
     
     func moveIn() {
         

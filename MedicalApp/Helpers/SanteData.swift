@@ -231,6 +231,7 @@ extension DB {
 
 // MARK: - insert In Table question
 extension DB {
+    
     func insertInTable(inTable: String, question: String) {
         
         var insert: OpaquePointer? = nil
@@ -249,6 +250,36 @@ extension DB {
         print(insertString)
         sqlite3_finalize(insert)
     }
+}
+
+
+extension DB {
+    
+    func selectFromTable(name: String, inTable: String, afterWhere: String) -> [String] {
+        var values = [String]()
+        var str: OpaquePointer? = nil
+        var query = "SELECT \(name) FROM \(inTable) "
+        
+        if afterWhere != "" {
+            query += "WHERE \(afterWhere)"
+        }
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("query \(query) is DONE")
+        } else {
+            print("query \(query) is uncorrect")
+        }
+        
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            let id = sqlite3_column_int(str, 0)
+            let name = String(cString: sqlite3_column_text(str, 1))
+            values.append(String(id) + " " + name)
+        }
+        
+        return values
+    }
+    
+    
 }
 
 // MARK: - get records from table slides_search on request
