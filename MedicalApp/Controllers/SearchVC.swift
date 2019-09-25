@@ -90,14 +90,12 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
 //        let slideVC = SlideVC()
 //        present(slideVC, animated: true)
         
-        let slideVC = SlideVC()
-        
-        slideVC.id = 1
-        slideVC.search = search
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
         let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
-
+        
+        controller.id = 1
+        controller.search = search
+        controller.navigationItem.title = "name slide"
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: true, completion: nil)

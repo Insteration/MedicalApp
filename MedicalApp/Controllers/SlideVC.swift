@@ -11,7 +11,7 @@ import WebKit
 
 class SlideVC: UIViewController {
     
-    var id = 1
+    var id = Int()
     var search = String()
     var db = DB()
     
@@ -31,9 +31,7 @@ class SlideVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        self.title = "name slide"
-        
+                
         lbSearch.text = search
         
         let html = db.getHTML(id)
