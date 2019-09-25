@@ -10,10 +10,9 @@ import UIKit
 
 class ListQuestViewController: UIViewController {
     
-    @IBOutlet weak var qLabel: UILabel!
     @IBOutlet weak var questTextView: UITextView!
     
-    var txt = "123"
+    var txtQ = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,7 @@ class ListQuestViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.qLabel.text = txt
+        questTextView.text = txtQ
     }
 
     /*

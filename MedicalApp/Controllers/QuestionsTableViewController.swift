@@ -50,7 +50,7 @@ class QuestionsTableViewController: UITableViewController {
 
              print("Questions =  \(engine.selectFromTableEngine(nameTable: "questions")[path.row])")
                         
-            vc.txt = "09876"
+            vc.txtQ = engine.selectFromTableEngine(nameTable: "questions")[path.row]
 //            vc.questTextView.text = engine.selectFromTableEngine(nameTable: "questions")[path.row]
             
 //            vc.questionTextView.text =              engine.selectFromTableEngine(nameTable: "questions")[path.row]
