@@ -12,7 +12,6 @@ class SearchVC: UIViewController {
 
     var db = DB()
     let indentifier = "MyCell"
-//    var array = [String]()
     var slides = [Slide]()
 
         
@@ -87,9 +86,13 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
         let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
         
-        controller.id = slides[indexPath.row].id
-        controller.search = slides[indexPath.row].search ?? "search"
-        controller.navigationItem.title = slides[indexPath.row].name
+        controller.slide = slides[indexPath.row]
+        
+//        controller.slide = slides[indexPath.row]
+        
+//        controller.id = slides[indexPath.row].id
+//        controller.search = slides[indexPath.row].search ?? "search"
+//        controller.navigationItem.title = slides[indexPath.row].name
         
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext

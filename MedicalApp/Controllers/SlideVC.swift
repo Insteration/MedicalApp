@@ -11,9 +11,8 @@ import WebKit
 
 class SlideVC: UIViewController {
     
-    var id = Int()
-    var search = String()
     var db = DB()
+    var slide = Slide()
     
     @IBOutlet weak var lbSearch: UILabel!
     @IBOutlet weak var webView: WKWebView!
@@ -22,35 +21,20 @@ class SlideVC: UIViewController {
         dismiss(animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print("SlideVC")
-        
-        // Do any additional setup after loading the view.
-    }
+    override func viewDidLoad() {}
     
     override func viewWillAppear(_ animated: Bool) {
-                
-        lbSearch.text = search
+        
+        let id = self.slide.id
+        
+        lbSearch.text = slide.search ?? "search"
+        
         
         let html = db.getHTML(id)
         let documentsDirectoryURL = FM.documentsDirectoryURL
         //        print("documentsDirectoryURL = ", documentsDirectoryURL)
         
-        //        libraryWebView.allow
         webView.loadHTMLString(html, baseURL: documentsDirectoryURL)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
