@@ -4,7 +4,7 @@ import SQLite3
 struct DB: ParserProtocol {
     
     static var db: OpaquePointer? = nil
-    
+        
     mutating func openDB() -> String {
         guard let path = Bundle.main.path(forResource: "Sante", ofType: "db") else {
             return "FIG_VAM"
@@ -282,6 +282,42 @@ extension DB {
         }
         
         return values
+    }
+    
+    func searchSlides (_ req: String) -> [Slide] {
+        
+        var slides: [Slide] = []
+        
+        var str: OpaquePointer? = nil
+        let query = req
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("query \(query) is DONE")
+        } else {
+            print("query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+        
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            
+            let idSlide = Int(String(cString: sqlite3_column_text(str, 0))) ?? 0
+            let nameTopic = String(cString: sqlite3_column_text(str, 1))
+
+            let name = String(cString: sqlite3_column_text(str, 2))
+            let count = String(cString: sqlite3_column_text(str, 3))
+            let sum_count_word = String(cString: sqlite3_column_text(str, 4))
+            let list = String(cString: sqlite3_column_text(str, 5))
+            print(nameTopic + ": id=\(idSlide), " + name + "(" + count + ", " + sum_count_word + "): " + list)
+            
+            // values.append(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
+                        
+            let slide = Slide(id: idSlide, name: name, nameTopic: nameTopic,
+                              search: "(" + count + ", " + sum_count_word + "): " + list)
+            slides.append(slide)
+        }
+        
+        return slides
     }
     
     // MARK: - split search query on space

@@ -12,8 +12,10 @@ class SearchVC: UIViewController {
 
     var db = DB()
     let indentifier = "MyCell"
-    var array = [String]()
-    
+//    var array = [String]()
+    var slides = [Slide]()
+
+        
     @IBOutlet weak var searchTF: UITextField!
     @IBOutlet weak var firstTF: UITextField!
     @IBOutlet weak var lastTF: UITextField!
@@ -23,29 +25,27 @@ class SearchVC: UIViewController {
     
     @IBOutlet weak var searchTv: UITableView!
     
-    override func viewDidLoad() {
-        
-    }
+    override func viewDidLoad() {}
     
     @IBAction func btBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-    
     
     @IBAction func btSearch(_ sender: UIButton) {
         
         guard let query = searchTF.text,
             query.count > 0  else { return }
         
-        array = []
+        self.slides = []
         
         let arrWordSearch = db.splittingSearch(query)
         let querySql = db.prepareSearch(arrWordSearch)
-        array = db.searchSlides(querySql)
+//        array = db.searchSlides(querySql)
+        
+        self.slides = db.searchSlides(querySql)
+        print("slides = ", slides)
         
         searchTv.reloadData()
-        print(array)
-        
     }
     
     @IBAction func btReindex(_ sender: UIButton) {
@@ -70,32 +70,27 @@ class SearchVC: UIViewController {
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return slides.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = searchTv.dequeueReusableCell(withIdentifier: indentifier, for: indexPath)
         
-        let number = array[indexPath.row]
-        cell.textLabel?.text = number
+        let result = slides[indexPath.row].name
+        cell.textLabel?.text = result
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let search = array[indexPath.row]
-        
-        print(search)
-//        let slideVC = SlideVC()
-//        present(slideVC, animated: true)
-        
+                
         let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
         let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
         
-        controller.id = 1
-        controller.search = search
-        controller.navigationItem.title = "name slide"
+        controller.id = slides[indexPath.row].id
+        controller.search = slides[indexPath.row].search ?? "search"
+        controller.navigationItem.title = slides[indexPath.row].name
+        
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: true, completion: nil)
