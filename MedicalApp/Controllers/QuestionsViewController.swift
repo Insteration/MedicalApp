@@ -18,9 +18,7 @@ class QuestionsViewController: UIViewController {
     
     @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
         moveOut()
-//        print(db.openDB())
         db.insertInTable(inTable: "questions", question: questionsTextView.text)
-//        db.closeDB()
     }
     
     func moveIn() {

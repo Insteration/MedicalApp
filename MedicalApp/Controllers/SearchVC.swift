@@ -88,17 +88,10 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
         
         controller.slide = slides[indexPath.row]
         
-//        controller.slide = slides[indexPath.row]
-        
-//        controller.id = slides[indexPath.row].id
-//        controller.search = slides[indexPath.row].search ?? "search"
-//        controller.navigationItem.title = slides[indexPath.row].name
-        
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: true, completion: nil)
     }
-
 }
 
 // MARK: - reindex table slides_search
@@ -108,15 +101,12 @@ extension SearchVC {
         
         DispatchQueue.global(qos: .background).async {
             let dbThread = self.db
-            //            var slideWord = String()
             
             DispatchQueue.main.async {
                 for i in from...to {
                     dbThread.createDict(i)
                     print("slide \(i) is done to table slides_search")
                 }
-                //                self.libraryTextView.text = slideWord
-                //                print(slideWord)
             }
         }
     }

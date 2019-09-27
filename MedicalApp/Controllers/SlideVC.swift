@@ -31,10 +31,10 @@ class SlideVC: UIViewController {
         
         
         let html = db.getHTML(id)
-        let documentsDirectoryURL = FM.documentsDirectoryURL
-        //        print("documentsDirectoryURL = ", documentsDirectoryURL)
         
-        webView.loadHTMLString(html, baseURL: documentsDirectoryURL)
+        let getUrlForSlide = FM.getUrlForSlide(id)
+        
+        webView.loadHTMLString(html, baseURL: getUrlForSlide)
     }
     
 }

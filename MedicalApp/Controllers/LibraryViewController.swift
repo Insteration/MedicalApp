@@ -33,19 +33,23 @@ class LibraryViewController: UIViewController {
 //            }
 //        }
         
+        let id = 5
+        
         getImage(1)
         getImage(2)
         getImage(3)
         getImage(4)
         getImage(5)
 
+        getImage(id)
+
         // TODO: - make with thread only read DB
-        let html = db.getHTML(9)
-        let documentsDirectoryURL = FM.documentsDirectoryURL
-//        print("documentsDirectoryURL = ", documentsDirectoryURL)
+        let html = db.getHTML(id)
+//        let documentsDirectoryURL = FM.documentsDirectoryURL
+        let urlForSlide = FM.getUrlForSlide(id)
+        print("urlForSlide = ", urlForSlide)
         
-//        libraryWebView.allow
-        libraryWebView.loadHTMLString(html, baseURL: documentsDirectoryURL)
+        libraryWebView.loadHTMLString(html, baseURL: urlForSlide)
 
     }
 }
@@ -73,7 +77,8 @@ extension LibraryViewController {
             //            }
 //        }
         
-        print(FM.storeImageToDocumentDirectory(data: data, fileName: name)!)
+        FM.createDir(id)
+        print(FM.storeImageToDocumentDirectory(data: data, fileName: "\(id)/" + name) ?? "fileName: \(id)/" + name)
     }
 }
 /*

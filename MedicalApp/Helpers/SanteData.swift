@@ -131,14 +131,6 @@ extension DB {
 }
 
 // MARK: - CREATE VIRTUAL TABLE "slides_search"
-/* CREATE VIRTUAL TABLE "slides_search" USING FTS5 ( "id_slide" , "name_topic" , "name" , "word" , "list_word" , "cnt" );
- var arrDict = [(
-    idSlide: Int,
-    name: String,
-    word: String,
-    cnt: Int,
-    listWord: String
- )]() */
 extension DB {
     
     func insertSlideSearch(inTable: String,
@@ -179,8 +171,7 @@ extension DB {
     word: String,
     cnt: Int,
     listWord: String
-    nameTopic: String
-    )]() */
+    nameTopic: String )]() */
 extension DB {
     
     func createDict(_ id : Int) {
@@ -253,37 +244,7 @@ extension DB {
 
 // MARK: - get records from table slides_search on request
 extension DB {
-    
-    func searchSlides (_ req: String) -> [String] {
         
-        var values = [String]()
-        var str: OpaquePointer? = nil
-        let query = req
-        
-        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
-            print("query \(query) is DONE")
-        } else {
-            print("query \(query) is uncorrect")
-            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
-            print("error preparing query: \(errmsg)")
-        }
-        
-        while (sqlite3_step(str)) == SQLITE_ROW {
-            
-            let idSlide = String(cString: sqlite3_column_text(str, 0))
-            let nameTopic = String(cString: sqlite3_column_text(str, 1))
-
-            let name = String(cString: sqlite3_column_text(str, 2))
-            let count = String(cString: sqlite3_column_text(str, 3))
-            let sum_count_word = String(cString: sqlite3_column_text(str, 4))
-            let list = String(cString: sqlite3_column_text(str, 5))
-            print(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
-            values.append(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
-        }
-        
-        return values
-    }
-    
     func searchSlides (_ req: String) -> [Slide] {
         
         var slides: [Slide] = []
@@ -303,15 +264,12 @@ extension DB {
             
             let idSlide = Int(String(cString: sqlite3_column_text(str, 0))) ?? 0
             let nameTopic = String(cString: sqlite3_column_text(str, 1))
-
             let name = String(cString: sqlite3_column_text(str, 2))
             let count = String(cString: sqlite3_column_text(str, 3))
             let sum_count_word = String(cString: sqlite3_column_text(str, 4))
             let list = String(cString: sqlite3_column_text(str, 5))
             print(nameTopic + ": id=\(idSlide), " + name + "(" + count + ", " + sum_count_word + "): " + list)
-            
-            // values.append(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
-                        
+    
             let slide = Slide(id: idSlide, name: name, nameTopic: nameTopic,
                               search: "(" + count + ", " + sum_count_word + "): " + list)
             slides.append(slide)
@@ -425,6 +383,48 @@ extension DB {
     }
 }
 
+// MARK: get info about image or video for slide id
+// SELECT id, name FROM slides_image where id_slide = 1;
+extension DB {
+    
+    // TODO: - use Model
+    func getInfoAboutDocForSlide(_ id: Int = 1) -> (String, Data) {
+        
+        var str: OpaquePointer? = nil
+        var blob = Data()
+        var name = String()
+        let query = "SELECT name, image from slides_image WHERE id = \(id);"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("prepare query \(query) is DONE")
+        } else {
+            print("prepare query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+        
+        if sqlite3_step(str) == SQLITE_ROW {
+            
+            // get name file image
+            name = String(cString: sqlite3_column_text(str, 0))
+            
+            if let dataBlob = sqlite3_column_blob(str, 1){
+                let dataBlobLength = sqlite3_column_bytes(str, 1)
+                blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
+                print("dataBlob: \n", dataBlob)
+                print("dataBlobLength = ", dataBlobLength)
+            }
+        } else {
+            print("query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error run query: \(errmsg)")
+        }
+        
+        return (name, blob)
+    }
+}
+
+
 // MARK: - get count word in table slides_search on id_slide
 // SELECT count(word) as word_count FROM slides_search  WHERE id_slide = "7";
 extension DB {
@@ -454,17 +454,42 @@ extension DB {
 // TODO: - delete extension!
 extension DB {
     
-    // сделать через модель
+    func searchSlides (_ req: String) -> [String] {
+        
+        var values = [String]()
+        var str: OpaquePointer? = nil
+        let query = req
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("query \(query) is DONE")
+        } else {
+            print("query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+        
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            
+            let idSlide = String(cString: sqlite3_column_text(str, 0))
+            let nameTopic = String(cString: sqlite3_column_text(str, 1))
+            let name = String(cString: sqlite3_column_text(str, 2))
+            let count = String(cString: sqlite3_column_text(str, 3))
+            let sum_count_word = String(cString: sqlite3_column_text(str, 4))
+            let list = String(cString: sqlite3_column_text(str, 5))
+            print(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
+            values.append(nameTopic + ": id=" + idSlide + ", " + name + "(" + count + ", " + sum_count_word + "): " + list)
+        }
+        
+        return values
+    }
+    
     private func updateSlideWord(inTable: String, txt: String, id: Int) {
         
         var update: OpaquePointer? = nil
-        
-        //        print("txt = ", txt, "\nid = ", id)
-        
+                
         let updateString = """
         UPDATE \(inTable) SET txt = '\(txt)' WHERE iD = \(id)
         """
-        //        print("updateString = ",updateString)
         
         guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
             sqlite3_step(update) == SQLITE_DONE else {
@@ -498,8 +523,6 @@ extension DB {
                     print("error preparing insert: \(errmsg): for insert: ", insertString)
                     return
             }
-            
-            //            print(insertString)
         }
         
         sqlite3_finalize(insert)
@@ -509,15 +532,9 @@ extension DB {
         
         var update: OpaquePointer? = nil
         
-        //        print("txt = ", txt, "\nid = ", id)
-        
         let updateString = """
         UPDATE \(inTable) SET txt = '\(txt)' WHERE iD = \(id)
         """
-        
-        //        let updateString = "UPDATE slides SET txt = strftime('%Y-%m-%d %H:%M:%S', datetime('now','localtime')) WHERE iD = 3"
-        
-        //        print("updateString = ",updateString)
         
         guard sqlite3_prepare_v2(DB.db, updateString, -1, &update, nil) == SQLITE_OK,
             sqlite3_step(update) == SQLITE_DONE else {
@@ -525,72 +542,6 @@ extension DB {
                 print("error preparing update: \(errmsg)")
                 return
         }
-        //        print("update whith guard done")
-        
         sqlite3_finalize(update)
     }
-    
-    //    func updateTXT(_ id : Int = 3) -> String {
-    //
-    //        var html = String()
-    //        var str: OpaquePointer? = nil
-    //
-    //        let query = "SELECT html FROM slides WHERE id = \(id)"
-    //
-    //        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
-    //            //            print("query \(query) is DONE")
-    //        } else {
-    //            print("query \(query) is uncorrect")
-    //        }
-    //
-    //        if sqlite3_step(str) == SQLITE_ROW {
-    //            html = String(cString: sqlite3_column_text(str, 0))
-    //        } else {
-    //            print("error get HTML from DataBase")
-    //        }
-    //
-    //        // parser html and update field txt
-    //        var txt = parse(htmlString: html)
-    //
-    //        let arrDict = clearTxt(txt: &txt, id)
-    //
-    //        let dict: String = {
-    //
-    //            var dict = String()
-    //
-    //            arrDict.forEach{
-    //                dict += "\($0)" + "\n"
-    //            }
-    //
-    //            return dict
-    //        }()
-    //
-    //        deleteRecords(inTable: "slide_word", id: id)
-    //
-    //        insertSlideWord(inTable: "slide_word",
-    //                        arrDict: arrDict)
-    //
-    //        updateTXT(inTable: "slides", txt: txt, id: id)
-    //
-    //        // get TXT from BD
-    //        let queryTXT = "SELECT txt FROM slides WHERE id = \(id)"
-    //        //        var txtSlides = ""
-    //
-    //        if sqlite3_prepare_v2(DB.db, queryTXT, -1, &str, nil) == SQLITE_OK {
-    //            //            print("queryTXT \(query) is DONE")
-    //        } else {
-    //            print("queryTXT \(query) is uncorrect")
-    //        }
-    //
-    //        if sqlite3_step(str) == SQLITE_ROW {
-    //            //            txtSlides = String(cString: sqlite3_column_text(str, 0))
-    //        } else {
-    //            print("error get TXT from DataBase")
-    //        }
-    //
-    //        //        print("txtSlides = ", txtSlides)
-    //
-    //        return dict
-    //    }
-    
 }
