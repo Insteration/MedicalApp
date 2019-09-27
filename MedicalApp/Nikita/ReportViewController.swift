@@ -25,17 +25,26 @@ class ReportViewController: UIViewController {
     var isKeyboardShow = false
     var lastCell = UITableViewCell()
     var keyBoardHeight = CGFloat(0)
+    var names = namesEnglish
+    var reportDataPicker = reportDataPickerEnglish
     
    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let locale = Locale.current.languageCode
+//        print("/////////////////////", locale)
+        if locale == "fr" {
+            names = namesFransh
+            reportDataPicker = reportDataPickerFransh
+        }
+        
         mainTableView.allowsSelection = false
         customInit()
         clearFields()
 //        dataReport = []
-//        dataReport = [dataReport[0],dataReport[1],dataReport[2],dataReport[3],dataReport[4],dataReport[0],dataReport[1],dataReport[2],dataReport[3],dataReport[4]]
+
         printData()
         self.hideKeyboardWhenTappedAround()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -44,7 +53,6 @@ class ReportViewController: UIViewController {
         for i in 0..<textFields.count {
             textFields[i].text = String(i)
         }
-        
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -91,7 +99,7 @@ class ReportViewController: UIViewController {
             saveData()
             dismiss(animated: true, completion: nil)
         } else {
-            createAllert("Warning", "Not all fields are filled")
+            createAllert(names[namesId.warning.rawValue], names[namesId.notAllFieldsAreFilled.rawValue])
         }
         
     }
@@ -102,7 +110,7 @@ class ReportViewController: UIViewController {
             sendData()
             dismiss(animated: true, completion: nil)
         } else {
-            createAllert("Warning", "Not all fields are filled")
+            createAllert(names[namesId.warning.rawValue], names[namesId.notAllFieldsAreFilled.rawValue])
         }
     }
     
@@ -111,12 +119,12 @@ class ReportViewController: UIViewController {
     }
     
     @IBAction func pushButtonPlus(_ sender: UIButton) {
-        print("plus")
+        //print("plus")
         if areAllFieldsFilled() {
             addReportIntoData()
             clearFields()
         } else {
-            createAllert("Warning", "Not all fields are filled")
+            createAllert(names[namesId.warning.rawValue], names[namesId.notAllFieldsAreFilled.rawValue])
         }
     }
     
@@ -126,16 +134,16 @@ class ReportViewController: UIViewController {
     private func createAllert(_ title: String,_ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: names[namesId.ok.rawValue], style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     private func createAllertForExit() {
-        let alert = UIAlertController(title: "", message: "Are you sure you want to exit?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "", message: names[namesId.areYouSureYouWantToExit.rawValue], preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "Stay", style: UIAlertAction.Style.default, handler: nil ))
-        alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: names[namesId.stay.rawValue], style: UIAlertAction.Style.default, handler: nil ))
+        alert.addAction(UIAlertAction(title: names[namesId.exit.rawValue], style: UIAlertAction.Style.destructive, handler: { action in
             self.dismiss(animated: true, completion: nil)  //FIXME: exit
         }))
         
@@ -326,25 +334,25 @@ extension ReportViewController {
         return cell
     }
     
-    private func createCellWithLabel() -> UITableViewCell {
-        let cell = UITableViewCell()
-        let myLabel = UILabel()
-        
-        cell.addSubview(myLabel)
-        
-        myLabel.translatesAutoresizingMaskIntoConstraints = false
-        myLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
-        myLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor,constant: -8).isActive = true
-        myLabel.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
-        myLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
-        
-        myLabel.numberOfLines = 0
-        myLabel.textAlignment = .center
-        myLabel.text = names[namesId.allert.rawValue]
-        
-        
-        return cell
-    }
+//    private func createCellWithLabel() -> UITableViewCell {
+//        let cell = UITableViewCell()
+//        let myLabel = UILabel()
+//
+//        cell.addSubview(myLabel)
+//
+//        myLabel.translatesAutoresizingMaskIntoConstraints = false
+//        myLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+//        myLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor,constant: -8).isActive = true
+//        myLabel.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
+//        myLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
+//
+//        myLabel.numberOfLines = 0
+//        myLabel.textAlignment = .center
+//        myLabel.text = names[namesId.allert.rawValue]
+//
+//
+//        return cell
+//    }
     
     private func createCellForItem(_ id: Int) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -498,7 +506,6 @@ extension ReportViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

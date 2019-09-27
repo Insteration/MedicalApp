@@ -15,11 +15,8 @@
 		0BC6338622F5669900F2F24C /*  Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /*  Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
 		0BDDD780230593D200574842 /* MainVcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDDD77F230593D200574842 /* MainVcData.swift */; };
-		40042819230B188200B9A02C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40042817230B188200B9A02C /* CollectionViewController.swift */; };
-		4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40042818230B188200B9A02C /* CollectionViewController.xib */; };
-		4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004281B230B18C500B9A02C /* CollectionModel.swift */; };
-		404A85162339084D00159DED /* MainReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404A85142339084D00159DED /* MainReportViewController.swift */; };
-		404A85172339084D00159DED /* MainReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404A85152339084D00159DED /* MainReportViewController.xib */; };
+		40428EFA233D271600DE2ED1 /* ReportCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40428EF8233D271600DE2ED1 /* ReportCollectionViewController.swift */; };
+		40428EFB233D271600DE2ED1 /* ReportCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40428EF9233D271600DE2ED1 /* ReportCollectionViewController.xib */; };
 		4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2222F4A3910051A609 /* ReportViewController.swift */; };
 		4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A292F2322F4A3920051A609 /* ReportViewController.xib */; };
 		4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A292F2422F4A3920051A609 /* ModelReport.swift */; };
@@ -62,11 +59,8 @@
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
 		0BDDD77F230593D200574842 /* MainVcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVcData.swift; sourceTree = "<group>"; };
 		2FD39EF8466ADD142FC0684A /* Pods-MedicalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedicalApp/Pods-MedicalApp.release.xcconfig"; sourceTree = "<group>"; };
-		40042817230B188200B9A02C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		40042818230B188200B9A02C /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
-		4004281B230B18C500B9A02C /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
-		404A85142339084D00159DED /* MainReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReportViewController.swift; sourceTree = "<group>"; };
-		404A85152339084D00159DED /* MainReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainReportViewController.xib; sourceTree = "<group>"; };
+		40428EF8233D271600DE2ED1 /* ReportCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCollectionViewController.swift; sourceTree = "<group>"; };
+		40428EF9233D271600DE2ED1 /* ReportCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCollectionViewController.xib; sourceTree = "<group>"; };
 		4A292F2222F4A3910051A609 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		4A292F2322F4A3920051A609 /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		4A292F2422F4A3920051A609 /* ModelReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelReport.swift; sourceTree = "<group>"; };
@@ -131,13 +125,10 @@
 		4A292F2122F4A3820051A609 /* Nikita */ = {
 			isa = PBXGroup;
 			children = (
-				404A85142339084D00159DED /* MainReportViewController.swift */,
 				4A292F2222F4A3910051A609 /* ReportViewController.swift */,
-				40042817230B188200B9A02C /* CollectionViewController.swift */,
+				40428EF8233D271600DE2ED1 /* ReportCollectionViewController.swift */,
 				4A292F2322F4A3920051A609 /* ReportViewController.xib */,
-				404A85152339084D00159DED /* MainReportViewController.xib */,
-				40042818230B188200B9A02C /* CollectionViewController.xib */,
-				4004281B230B18C500B9A02C /* CollectionModel.swift */,
+				40428EF9233D271600DE2ED1 /* ReportCollectionViewController.xib */,
 				4A292F2422F4A3920051A609 /* ModelReport.swift */,
 			);
 			path = Nikita;
@@ -319,11 +310,10 @@
 			files = (
 				4A6A441722EF6A200082CDA3 /* LaunchScreen.storyboard in Resources */,
 				4A6A441422EF6A200082CDA3 /* Assets.xcassets in Resources */,
+				40428EFB233D271600DE2ED1 /* ReportCollectionViewController.xib in Resources */,
 				0B13F1F422F56C2200BE97B9 /* Localizable_eng.strings in Resources */,
 				ACC2FFD62315A15A00439103 /* slide_example in Resources */,
 				4A292F2622F4A3920051A609 /* ReportViewController.xib in Resources */,
-				4004281A230B188200B9A02C /* CollectionViewController.xib in Resources */,
-				404A85172339084D00159DED /* MainReportViewController.xib in Resources */,
 				0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */,
 				0B13F1F222F56C0E00BE97B9 /* Localizable_rus.strings in Resources */,
 				4ADB102622F1A88400DB7ACB /* GoogleService-Info.plist in Resources */,
@@ -397,7 +387,6 @@
 			files = (
 				AC2877E923181EBC00ED15A3 /* LibraryViewController.swift in Sources */,
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
-				404A85162339084D00159DED /* MainReportViewController.swift in Sources */,
 				ACC2FFD92315A25A00439103 /* ParserSoup.swift in Sources */,
 				0BDDD780230593D200574842 /* MainVcData.swift in Sources */,
 				0B2EFB94232FE5330082FE9B /* FM.swift in Sources */,
@@ -409,14 +398,13 @@
 				ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */,
 				ACEA0D53230D12BB0054B75E /* QuestionsViewController.swift in Sources */,
 				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
-				4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,
 				C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */,
 				4A6A442322EF6B280082CDA3 /* View.swift in Sources */,
-				40042819230B188200B9A02C /* CollectionViewController.swift in Sources */,
 				ACE63A552305BF0A00F04758 /* PresentationsCollectionViewCell.swift in Sources */,
 				ACEA0D51230C62990054B75E /* ItemFromVideoViewController.swift in Sources */,
 				0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */,
+				40428EFA233D271600DE2ED1 /* ReportCollectionViewController.swift in Sources */,
 				AC4F030222F023C900F1622B /* SignINViewControllerXIB.swift in Sources */,
 				4A292F2522F4A3920051A609 /* ReportViewController.swift in Sources */,
 				4ADB102B22F1B42B00DB7ACB /* MainViewController.swift in Sources */,
@@ -591,7 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 866745QNDF;
+				DEVELOPMENT_TEAM = Q8X493RPBY;
 				INFOPLIST_FILE = "$(SRCROOT)/MedicalApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,7 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 866745QNDF;
+				DEVELOPMENT_TEAM = Q8X493RPBY;
 				INFOPLIST_FILE = "$(SRCROOT)/MedicalApp/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

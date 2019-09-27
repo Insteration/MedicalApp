@@ -124,7 +124,10 @@ class MainViewController: UIViewController {
     
     
     @IBAction func pendingReportActionButton(_ sender: UIButton) {
-        self.present(MainReportViewController(), animated: true, completion: nil)
+        let layout = UICollectionViewFlowLayout()
+        let myCollectionVC = ReportCollectionViewController(collectionViewLayout: layout)
+        self.present(myCollectionVC, animated: true, completion: nil)
+//         self.present(ReportViewController(), animated: true, completion: nil)
     }
     
     

@@ -27,9 +27,12 @@ struct ReportData: Codable {
     }
 }
 
-let reportDataPicker = ["HCP visite", "Pharmacy visit", "Round table" ,"Clinical meeting", "Others"]
+let reportDataPickerEnglish = ["HCP visite", "Pharmacy visit", "Round table" ,"Clinical meeting", "Others"]
 
-let names = ["Date of meeting",
+let reportDataPickerFransh = ["HCP visite1234", "Pharmacy visit1243", "Round table1234" ,"Clinical meeting1234", "Others1234"]
+// "HCP visite / Pharmacy visit / Round table / Clinical meeting / Others",
+
+let namesEnglish = ["Date of meeting",
              "Number of people",
              "Country",
              "City",
@@ -42,14 +45,51 @@ let names = ["Date of meeting",
              "Email",
              "Number",
              "Commentaire",
-             "HCP visite / Pharmacy visit / Round table / Clinical meeting / Others",
              "Accepted to contact et to receive Newsletter.",
              "LATER",
              "SEND",
              "Usage propre",
              "Report",
              "+",
-             "Finish"]
+             "Finish",
+             "Warning",
+             "Not all fields are filled",
+             "Ok",
+             "Are you sure you want to exit?",
+             "Stay",
+             "Exit",
+             "Count reports",
+             "Home"]
+
+let namesFransh = ["Date of meeting1234",
+                    "Number of people1234",
+                    "Country1234",
+                    "City1234",
+                    "Commentaire1234",
+                    "visitType1234",
+                    "Name1234",
+                    "Last name1234",
+                    "Fonction1234",
+                    "Organisation1234",
+                    "Email1234",
+                    "Number1234",
+                    "Commentaire1234",
+                    "Accepted to contact et to receive Newsletter.1234",
+                    "LATER1234",
+                    "SEND1234",
+                    "Usage propre1234",
+                    "Report1234",
+                    "+1234",
+                    "Finish1234",
+                    "Warning1234",
+                    "Not all fields are fille123d",
+                    "Ok1234",
+                    "Are you sure you want to exit?123",
+                    "Stay1234",
+                    "Exit123",
+                    "Count reports1234",
+                    "Home1234"]
+
 
 enum namesId: Int {
     case dateOfMeeting
@@ -65,7 +105,7 @@ enum namesId: Int {
     case email
     case number
     case commentaire2
-    case allert
+    //case allert
     case accept
     case buttonLater
     case buttonSend
@@ -73,6 +113,14 @@ enum namesId: Int {
     case report
     case buttonPlus
     case buttonFinish
+    case warning
+    case notAllFieldsAreFilled
+    case ok
+    case areYouSureYouWantToExit
+    case stay
+    case exit
+    case countReports
+    case home
 }
 
 
