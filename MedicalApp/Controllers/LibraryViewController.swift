@@ -45,10 +45,9 @@ class LibraryViewController: UIViewController {
 
         // TODO: - make with thread only read DB
         let html = db.getHTML(id)
-//        let documentsDirectoryURL = FM.documentsDirectoryURL
         let urlForSlide = FM.getUrlForSlide(id)
         print("urlForSlide = ", urlForSlide)
-        
+                
         libraryWebView.loadHTMLString(html, baseURL: urlForSlide)
 
     }

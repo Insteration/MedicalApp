@@ -388,12 +388,11 @@ extension DB {
 extension DB {
     
     // TODO: - use Model
-    func getInfoAboutDocForSlide(_ id: Int = 1) -> (String, Data) {
+    func getInfoAboutDocForSlide(_ id: Int) -> [DocSlide] {
         
         var str: OpaquePointer? = nil
-        var blob = Data()
-        var name = String()
-        let query = "SELECT name, image from slides_image WHERE id = \(id);"
+        var info = [DocSlide]()
+        let query = "SELECT id, name from slides_image WHERE id_slide = \(id);"
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("prepare query \(query) is DONE")
@@ -402,28 +401,17 @@ extension DB {
             let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
             print("error preparing query: \(errmsg)")
         }
-        
-        if sqlite3_step(str) == SQLITE_ROW {
-            
-            // get name file image
-            name = String(cString: sqlite3_column_text(str, 0))
-            
-            if let dataBlob = sqlite3_column_blob(str, 1){
-                let dataBlobLength = sqlite3_column_bytes(str, 1)
-                blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
-                print("dataBlob: \n", dataBlob)
-                print("dataBlobLength = ", dataBlobLength)
-            }
-        } else {
-            print("query \(query) is uncorrect")
-            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
-            print("error run query: \(errmsg)")
+                
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            let idDoc = Int(sqlite3_column_int(str, 0))
+            let name = String(cString: sqlite3_column_text(str, 1))
+            let docSlide = DocSlide(idSlide: id, idDoc: idDoc, nameDoc: name)
+            info.append(docSlide)
         }
         
-        return (name, blob)
+        return info
     }
 }
-
 
 // MARK: - get count word in table slides_search on id_slide
 // SELECT count(word) as word_count FROM slides_search  WHERE id_slide = "7";

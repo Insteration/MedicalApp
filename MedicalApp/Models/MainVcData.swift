@@ -54,7 +54,20 @@ struct Slide {
     
 }
 
-
+struct DocSlide {
+    
+    var idSlide: Int
+    var idDoc: Int
+    var nameDoc: String
+    
+    init(idSlide: Int, idDoc: Int, nameDoc: String) {
+        self.idSlide = idSlide
+        self.idDoc = idDoc
+        self.nameDoc = nameDoc
+    }
+    
+    
+}
 
 struct Test {
     

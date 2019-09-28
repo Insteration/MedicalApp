@@ -26,9 +26,10 @@ class SlideVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         let id = self.slide.id
-        
+                
         lbSearch.text = slide.search ?? "search"
         
+        print("getInfoAboutDocForSlide =  ", db.getInfoAboutDocForSlide(id))
         
         let html = db.getHTML(id)
         
