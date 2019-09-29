@@ -346,13 +346,11 @@ extension DB {
 // MARK: get data image and video from blob
 extension DB {
     
-    // TODO: - use Model : (String, Data)
-    func getDataFromBlob(_ id: Int = 1) -> (String, Data) {
+    func getDataFromBlob(_ id: Int) -> Data {
         
         var str: OpaquePointer? = nil
         var blob = Data()
-        var name = String()
-        let query = "SELECT name, image from slides_image WHERE id = \(id);"
+        let query = "SELECT image from slides_image WHERE id = \(id);"
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("prepare query \(query) is DONE")
@@ -363,12 +361,9 @@ extension DB {
         }
         
         if sqlite3_step(str) == SQLITE_ROW {
-            
-            // get name file image
-            name = String(cString: sqlite3_column_text(str, 0))
-            
-            if let dataBlob = sqlite3_column_blob(str, 1){
-                let dataBlobLength = sqlite3_column_bytes(str, 1)
+                        
+            if let dataBlob = sqlite3_column_blob(str, 0){
+                let dataBlobLength = sqlite3_column_bytes(str, 0)
                 blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
                 print("dataBlob: \n", dataBlob)
                 print("dataBlobLength = ", dataBlobLength)
@@ -379,7 +374,7 @@ extension DB {
             print("error run query: \(errmsg)")
         }
         
-        return (name, blob)
+        return blob
     }
 }
 
