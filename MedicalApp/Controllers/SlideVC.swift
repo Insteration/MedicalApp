@@ -21,14 +21,16 @@ class SlideVC: UIViewController {
         dismiss(animated: true)
     }
     
-    override func viewDidLoad() {}
+    override func viewDidLoad() {
+        
+//        navigationController?.navigationBar.topItem?.title = slide.name
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
         let id = self.slide.id
-        
-        self.navigationItem.title = slide.name
-        
+                
         // TODO: - need to make with guard or if and use class for cell of the tableView
         let nameTopic = slide.nameTopic ?? "slide.nameTopic"
         let name = slide.name
@@ -44,15 +46,15 @@ class SlideVC: UIViewController {
         let getUrlForSlide = FM.getUrlForSlide(id)
         print("getUrlForSlide = ", getUrlForSlide)
         
+        /* code for output hmvl file in webview, before save it file in folder
         let getUrlHTMLFile = FM.getUrlHTMLFile(id: id, nameFile: name)
         FM.saveHTMLFile(html: html, url: getUrlHTMLFile)
-        
-        FM.printListItemsFromDir(getUrlForSlide.path)
-        
         let request = URLRequest(url: getUrlHTMLFile)
         webView.load(request)
-        webView.loadFileURL(getUrlHTMLFile, allowingReadAccessTo: getUrlHTMLFile)
-        //        webView.loadHTMLString(html, baseURL: getUrlForSlide)
+        webView.loadFileURL(getUrlHTMLFile, allowingReadAccessTo: getUrlHTMLFile) */
+ 
+        FM.printListItemsFromDir(getUrlForSlide.path)
+        webView.loadHTMLString(html, baseURL: getUrlForSlide)
     }
     
 }

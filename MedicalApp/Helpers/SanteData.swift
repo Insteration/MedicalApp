@@ -434,6 +434,36 @@ extension DB {
     
 }
 
+// MARK: get Topics form BD
+// SELECT id, name FROM slides_topic;
+extension DB {
+    
+    func getTopics() -> [Topic] {
+        
+        var str: OpaquePointer? = nil
+        var topics = [Topic]()
+        let query = "SELECT id, name FROM slides_topic;"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("prepare query \(query) is DONE")
+        } else {
+            print("prepare query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+                
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            let id = Int(sqlite3_column_int(str, 0))
+            let name = String(cString: sqlite3_column_text(str, 1))
+            let topic = Topic(id: id, name: name)
+            topics.append(topic)
+        }
+        
+        return topics
+    }
+}
+
+
 // TODO: - delete extension!
 extension DB {
     

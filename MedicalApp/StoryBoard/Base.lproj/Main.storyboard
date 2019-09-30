@@ -5,6 +5,7 @@
         <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -503,27 +504,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="712" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TFS-mF-DqQ">
-                                <rect key="frame" x="21" y="85" width="357" height="172"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60975490269999999" green="1" blue="0.94542474970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKF-bV-zbn">
-                                <rect key="frame" x="20" y="277" width="672" height="727"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-tf-gyP">
                                 <rect key="frame" x="0.0" y="0.0" width="712" height="56"/>
                                 <items>
-                                    <navigationItem title="Title" id="dZa-vf-mek">
+                                    <navigationItem title="Library" id="dZa-vf-mek">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Z1B-D0-UH6">
                                             <connections>
                                                 <action selector="btBack:" destination="CbR-1A-Ckr" id="OEI-G4-eu3"/>
@@ -532,11 +516,47 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIh-3r-hG9">
-                                <rect key="frame" x="385" y="85" width="307" height="172"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.5111056746" green="0.56911424909999997" blue="0.97680455450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cpM-l3-Wcn">
+                                <rect key="frame" x="20" y="56" width="672" height="908"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Nh-9f-LhR">
+                                    <size key="itemSize" width="318" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IndCell" id="0ky-6p-gTD" customClass="LibCollectVCell" customModule="MedicalApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="114"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FiN-j7-sMR">
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="114"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameTopic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snq-YD-YdO">
+                                                    <rect key="frame" x="7.9045946612122862" y="9.2930153304528176" width="302.00000000000045" height="98.000000000000455"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Snq-YD-YdO" firstAttribute="leading" secondItem="FiN-j7-sMR" secondAttribute="leading" constant="7.9045946612122862" id="Dk8-em-E0A"/>
+                                                <constraint firstItem="Snq-YD-YdO" firstAttribute="centerX" secondItem="FiN-j7-sMR" secondAttribute="centerX" id="Fud-PB-nMx"/>
+                                                <constraint firstAttribute="bottom" secondItem="Snq-YD-YdO" secondAttribute="bottom" constant="6.7069846695467277" id="dEm-xu-KeS"/>
+                                                <constraint firstItem="Snq-YD-YdO" firstAttribute="top" secondItem="FiN-j7-sMR" secondAttribute="top" constant="9.2930153304528176" id="p1j-05-1En"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="318" height="114"/>
+                                        <connections>
+                                            <outlet property="labelNameTopic" destination="Snq-YD-YdO" id="gx8-dX-lZV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -547,14 +567,12 @@
                         <viewLayoutGuide key="safeArea" id="o9Y-9F-tvY"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="UIh-3r-hG9" id="ugT-Rm-2lS"/>
-                        <outlet property="libraryTextView" destination="TFS-mF-DqQ" id="Tdy-hq-XQ2"/>
-                        <outlet property="libraryWebView" destination="aKF-bV-zbn" id="HCE-qL-Q0n"/>
+                        <outlet property="libCollectV" destination="cpM-l3-Wcn" id="XMD-mh-eHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7y-8g-it5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2141" y="-1497"/>
+            <point key="canvasLocation" x="2140.625" y="-1497.0703125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Xy6-vP-n6c">

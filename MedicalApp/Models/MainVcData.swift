@@ -69,12 +69,18 @@ struct DocSlide {
     
 }
 
-struct Test {
+struct Topic {
+    var id: Int
+    var name: String
+}
+
+// static? 
+struct Topics {
     
+    let listTopic: [Topic]
     
-    func testPrintSlide() {
-        
-        let slide = Slide(id: 1, name: "xcv")
-        print(slide)
+    init() {
+        self.listTopic = DB().getTopics()
     }
+    
 }

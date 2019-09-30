@@ -13,6 +13,7 @@
 		0B2EFB912326DAF30082FE9B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB902326DAF30082FE9B /* SearchVC.swift */; };
 		0B2EFB94232FE5330082FE9B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB93232FE5330082FE9B /* FM.swift */; };
 		0BA64DEC233BE07900BBC6E8 /* SlideVCSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */; };
+		0BBF5A0A234219F6007A465B /* LibCollectVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF5A09234219F6007A465B /* LibCollectVCell.swift */; };
 		0BC6338622F5669900F2F24C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /* Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
 		0BCDE5CB233B8DDF0081DA44 /* SlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */; };
@@ -59,6 +60,7 @@
 		0B2EFB902326DAF30082FE9B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
 		0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideVCSB.storyboard; sourceTree = "<group>"; };
+		0BBF5A09234219F6007A465B /* LibCollectVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibCollectVCell.swift; path = /Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Controllers/LibCollectVCell.swift; sourceTree = "<absolute>"; };
 		0BC6338522F5669900F2F24C /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
 		0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		4A6A442022EF6A590082CDA3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0BBF5A09234219F6007A465B /* LibCollectVCell.swift */,
 				0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */,
 				4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
@@ -412,6 +415,7 @@
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
+				0BBF5A0A234219F6007A465B /* LibCollectVCell.swift in Sources */,
 				0BC6338622F5669900F2F24C /* Data.swift in Sources */,
 				ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */,
 				ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */,

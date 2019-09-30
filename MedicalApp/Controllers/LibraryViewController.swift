@@ -4,25 +4,48 @@ import WebKit
 
 class LibraryViewController: UIViewController {
     
-    @IBOutlet weak var libraryWebView: WKWebView!
-    @IBOutlet weak var libraryTextView: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
+    let indCell = "IndCell"
+    let topics = Topics().listTopic
     
-//    var db = DB()
+    @IBOutlet weak var libCollectV: UICollectionView!
     
     @IBAction func btBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
-//    var fm = FM()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(topics)
+        libCollectV.dataSource = self
+//        libCollectV.delegate = self
+
+    }
+}
+
+extension LibraryViewController : UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return topics.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+//        let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: indCell, for: indexPath)
+        
+        let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: indCell, for: indexPath) as? LibCollectVCell
+        
+        itemCell!.nameTopic = topics[indexPath.row].name
+        
+        return itemCell!
+    }
+    
+}
+
 //        DispatchQueue.global(qos: .background).async {
 //            let dbThread = self.db
 ////            var slideWord = String()
-//            
+//
 //            DispatchQueue.main.async {
 //                for i in 1...7 {
 //                    dbThread.createDict(i)
@@ -50,8 +73,6 @@ class LibraryViewController: UIViewController {
 //
 //        libraryWebView.loadHTMLString(html, baseURL: urlForSlide)
 
-    }
-}
 
 // MARK: - data to image to imageView
 //extension LibraryViewController {
