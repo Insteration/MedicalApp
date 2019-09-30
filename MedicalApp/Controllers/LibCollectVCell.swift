@@ -17,4 +17,11 @@ class LibCollectVCell: UICollectionViewCell {
             print("labelNameTopic.text = ", labelNameTopic.text!)
           }
       }
+    
+    var topic: Topic? {
+             didSet {
+                labelNameTopic.text = topic?.name ?? "name Topic?"
+//               print("labelNameTopic.text = ", labelNameTopic.text!)
+             }
+         }
 }

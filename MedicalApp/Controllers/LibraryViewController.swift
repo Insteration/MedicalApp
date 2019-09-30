@@ -35,7 +35,7 @@ extension LibraryViewController : UICollectionViewDataSource {
         
         let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: indCell, for: indexPath) as? LibCollectVCell
         
-        itemCell!.nameTopic = topics[indexPath.row].name
+        itemCell!.topic = topics[indexPath.row]
         
         return itemCell!
     }
