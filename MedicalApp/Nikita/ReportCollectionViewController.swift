@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-private let collectionViewHeaderFooterReuseIdentifier = "MyHeaderFooterClass"
-private var names = namesEnglish
+fileprivate let reuseIdentifier = "Cell"
+fileprivate let collectionViewHeaderFooterReuseIdentifier = "MyHeaderFooterClass"
+fileprivate var names = namesEnglish
 
 class ReportCollectionViewController: UICollectionViewController {
     
@@ -18,12 +18,10 @@ class ReportCollectionViewController: UICollectionViewController {
     var buttons = [UIButton]()
     
     var data = dataReport
-//    var names = namesEnglish
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let locale = Locale.current.languageCode
-        //        print("/////////////////////", locale)
         if locale == "fr" {
             names = namesFransh
         }
@@ -88,9 +86,9 @@ extension ReportCollectionViewController {
         cell.contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 40).isActive = true
-        imageView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10).isActive = true
-        imageView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10).isActive = true
-        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 8).isActive = true
+        imageView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -8).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         imageView.image = UIImage(named: "cola")
         imageView.contentMode = .scaleAspectFill
         
@@ -100,9 +98,9 @@ extension ReportCollectionViewController {
         textLabel.textAlignment = .center
         cell.contentView.addSubview(textLabel)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        textLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10).isActive = true
-        textLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10).isActive = true
+        textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,constant: 8).isActive = true
+        textLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 8).isActive = true
+        textLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -8).isActive = true
         textLabel.text = self.data[indexPath].meatingData[namesId.visitType.rawValue] + "\n"
             + self.data[indexPath].meatingData[namesId.dateOfMeeting.rawValue]
         
@@ -112,9 +110,9 @@ extension ReportCollectionViewController {
         buttonFinish.backgroundColor = .blue
         buttonFinish.translatesAutoresizingMaskIntoConstraints = false
         buttonFinish.topAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
-        buttonFinish.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10).isActive = true
-        buttonFinish.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10).isActive = true
-        buttonFinish.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: 10).isActive = true
+        buttonFinish.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 8).isActive = true
+        buttonFinish.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -8).isActive = true
+        buttonFinish.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: 8).isActive = true
         buttonFinish.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         buttonFinish.setTitle(names[namesId.buttonFinish.rawValue], for: .normal)
@@ -157,26 +155,26 @@ extension ReportCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = 150
-        return CGSize(width: size, height: size + size / 2 + 30)
+//        let size = 120
+        return CGSize(width: 150, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20) //.zero
+        return UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 30) //.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 20
     }
 }
 
