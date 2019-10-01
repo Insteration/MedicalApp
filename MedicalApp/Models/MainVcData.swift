@@ -18,7 +18,6 @@ struct VideoLogo {
     var text: String?
 }
 
-
 struct Slide {
     
     var id: Int
@@ -65,8 +64,6 @@ struct DocSlide {
         self.idDoc = idDoc
         self.nameDoc = nameDoc
     }
-    
-    
 }
 
 struct Topic {
@@ -81,6 +78,17 @@ struct Topics {
     
     init() {
         self.listTopic = DB().getTopics()
+    }
+    
+}
+
+struct SlidesInTopic {
+    
+    var listSlides: [Slide]
+    
+    init(_ idTopic: Int) {
+        
+        self.listSlides = DB().getNameSlidesInTopic(idTopic)
     }
     
 }

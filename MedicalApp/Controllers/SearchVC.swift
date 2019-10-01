@@ -39,7 +39,6 @@ class SearchVC: UIViewController {
         
         let arrWordSearch = db.splittingSearch(query)
         let querySql = db.prepareSearch(arrWordSearch)
-//        array = db.searchSlides(querySql)
         
         self.slides = db.searchSlides(querySql)
         print("slides = ", slides)
@@ -65,7 +64,6 @@ class SearchVC: UIViewController {
 // TODO: - make with thread only read DB
 //        let html = db.getHTML(6)
 //        libraryWebView.loadHTMLString(html, baseURL: nil)
-
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

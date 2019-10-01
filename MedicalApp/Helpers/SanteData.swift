@@ -463,6 +463,35 @@ extension DB {
     }
 }
 
+// MARK: - get list slides on Topic form DB, get id and name
+extension DB {
+    
+    // SELECT id, name FROM slides where id_topic = 3;
+    func getNameSlidesInTopic(_ idTopic: Int) -> [Slide] {
+        
+        var str: OpaquePointer? = nil
+        var slides = [Slide]()
+        let query = "SELECT id, name FROM slides where id_topic = \(idTopic);"
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("prepare query \(query) is DONE")
+        } else {
+            print("prepare query \(query) is uncorrect")
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error preparing query: \(errmsg)")
+        }
+                
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            let id = Int(sqlite3_column_int(str, 0))
+            let name = String(cString: sqlite3_column_text(str, 1))
+            let slide = Slide(id: id, name: name)
+            slides.append(slide)
+        }
+        
+        return slides
+    }
+}
+
 
 // TODO: - delete extension!
 extension DB {
