@@ -299,6 +299,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Dag-Sr-Hvd" secondAttribute="trailing" constant="4" id="hHA-7H-QYm"/>
                                             <constraint firstAttribute="trailing" secondItem="Pk8-sW-gQy" secondAttribute="trailing" constant="4" id="yN4-mq-zlF"/>
                                         </constraints>
+                                        <size key="customSize" width="120" height="120"/>
                                         <connections>
                                             <outlet property="videoImageView" destination="Dag-Sr-Hvd" id="jf9-0r-iZ4"/>
                                             <outlet property="videoLabel" destination="Pk8-sW-gQy" id="AHK-Z6-siL"/>
@@ -518,22 +519,24 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cpM-l3-Wcn">
                                 <rect key="frame" x="20" y="56" width="672" height="908"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Nh-9f-LhR">
-                                    <size key="itemSize" width="325" height="292"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Nh-9f-LhR">
+                                    <size key="itemSize" width="330" height="300"/>
+                                    <size key="estimatedItemSize" width="330" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IndCell" id="0ky-6p-gTD" customClass="LibCollectionVCell" customModule="MedicalApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="292"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-uB-wIz">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-uB-wIz">
                                                     <rect key="frame" x="0.0" y="0.0" width="325" height="292"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameTopic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snq-YD-YdO">
                                                             <rect key="frame" x="0.0" y="0.0" width="325" height="24"/>
@@ -566,16 +569,6 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="centerX" secondItem="0ky-6p-gTD" secondAttribute="centerX" id="8Dk-ZL-WH3"/>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="leading" secondItem="0ky-6p-gTD" secondAttribute="leading" id="9bn-UV-qIr"/>
-                                            <constraint firstAttribute="trailing" secondItem="ITA-uB-wIz" secondAttribute="trailing" id="Din-a1-ftD"/>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="height" secondItem="0ky-6p-gTD" secondAttribute="height" id="H6O-JL-gY9"/>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="top" secondItem="0ky-6p-gTD" secondAttribute="top" id="Y3C-4z-YzI"/>
-                                            <constraint firstAttribute="bottom" secondItem="ITA-uB-wIz" secondAttribute="bottom" id="hRj-qV-t61"/>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="width" secondItem="0ky-6p-gTD" secondAttribute="width" id="rc7-Ff-xnR"/>
-                                            <constraint firstItem="ITA-uB-wIz" firstAttribute="centerY" secondItem="0ky-6p-gTD" secondAttribute="centerY" id="v5M-P7-rgn"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="labelNameTopic" destination="Snq-YD-YdO" id="gx8-dX-lZV"/>
                                             <outlet property="tvSlides" destination="a3h-cm-FUv" id="b8J-gb-DIp"/>
@@ -602,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7y-8g-it5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140.625" y="-1497.0703125"/>
+            <point key="canvasLocation" x="2324" y="-1313"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Xy6-vP-n6c">
@@ -723,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiG-sT-aGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4022" y="-1645"/>
+            <point key="canvasLocation" x="3892" y="-1313"/>
         </scene>
         <!--Item From Presentation View Controller-->
         <scene sceneID="hWx-vD-Fxf">
