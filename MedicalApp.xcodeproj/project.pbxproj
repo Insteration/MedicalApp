@@ -13,7 +13,6 @@
 		0B2EFB912326DAF30082FE9B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB902326DAF30082FE9B /* SearchVC.swift */; };
 		0B2EFB94232FE5330082FE9B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB93232FE5330082FE9B /* FM.swift */; };
 		0BA64DEC233BE07900BBC6E8 /* SlideVCSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */; };
-		0BBF5A0A234219F6007A465B /* LibCollectVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF5A09234219F6007A465B /* LibCollectVCell.swift */; };
 		0BBF5A0C2342A7B3007A465B /* SlideTableVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */; };
 		0BC6338622F5669900F2F24C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /* Data.swift */; };
 		0BC6338822F566B600F2F24C /* SignUPFinalViewController_lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */; };
@@ -47,6 +46,7 @@
 		ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */; };
 		ACEA0D51230C62990054B75E /* ItemFromVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */; };
 		ACEA0D53230D12BB0054B75E /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA0D52230D12BB0054B75E /* QuestionsViewController.swift */; };
+		ACEF5BF52343C69300609F60 /* LibCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */; };
 		AEA4DC510DDFD23048512F2D /* Pods_MedicalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7336171A34AD569070F139E /* Pods_MedicalApp.framework */; };
 		C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */; };
 		C204BEF422F15E0200EDB741 /* RegularEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204BEF322F15E0200EDB741 /* RegularEmail.swift */; };
@@ -61,7 +61,6 @@
 		0B2EFB902326DAF30082FE9B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
 		0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideVCSB.storyboard; sourceTree = "<group>"; };
-		0BBF5A09234219F6007A465B /* LibCollectVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibCollectVCell.swift; path = /Users/alexkholodoff/Developer/MedicalApp/MedicalApp/MedicalApp/Controllers/LibCollectVCell.swift; sourceTree = "<absolute>"; };
 		0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideTableVCell.swift; path = MedicalApp/Controllers/SlideTableVCell.swift; sourceTree = SOURCE_ROOT; };
 		0BC6338522F5669900F2F24C /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFromPresentationViewController.swift; sourceTree = "<group>"; };
 		ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFromVideoViewController.swift; sourceTree = "<group>"; };
 		ACEA0D52230D12BB0054B75E /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibCollectionVCell.swift; sourceTree = "<group>"; };
 		ACF647A423159ACE0083E708 /* SwiftSoup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSoup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C204BEF122F1586300EDB741 /* SignUPFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController.swift; sourceTree = "<group>"; };
 		C204BEF322F15E0200EDB741 /* RegularEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularEmail.swift; sourceTree = "<group>"; };
@@ -212,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */,
-				0BBF5A09234219F6007A465B /* LibCollectVCell.swift */,
 				0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */,
 				4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
@@ -225,6 +224,7 @@
 				ACEA0D52230D12BB0054B75E /* QuestionsViewController.swift */,
 				AC2877E823181EBC00ED15A3 /* LibraryViewController.swift */,
 				0B2EFB902326DAF30082FE9B /* SearchVC.swift */,
+				ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -412,6 +412,7 @@
 				0BBF5A0C2342A7B3007A465B /* SlideTableVCell.swift in Sources */,
 				0BCDE5CB233B8DDF0081DA44 /* SlideVC.swift in Sources */,
 				AC2877E923181EBC00ED15A3 /* LibraryViewController.swift in Sources */,
+				ACEF5BF52343C69300609F60 /* LibCollectionVCell.swift in Sources */,
 				4A6A440F22EF6A1F0082CDA3 /* StartViewController.swift in Sources */,
 				ACC2FFD92315A25A00439103 /* ParserSoup.swift in Sources */,
 				0BDDD780230593D200574842 /* MainVcData.swift in Sources */,
@@ -419,7 +420,6 @@
 				4ADB102D22F1BDA300DB7ACB /* RegistrationViewController.swift in Sources */,
 				C204BEF222F1586300EDB741 /* SignUPFinalViewController.swift in Sources */,
 				4A6A440D22EF6A1F0082CDA3 /* AppDelegate.swift in Sources */,
-				0BBF5A0A234219F6007A465B /* LibCollectVCell.swift in Sources */,
 				0BC6338622F5669900F2F24C /* Data.swift in Sources */,
 				ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */,
 				ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */,
@@ -614,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Arte65767dffmkkk.MedicalApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-01-10-2019.MedicalApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -634,7 +634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Arte65767dffmkkk.MedicalApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "-01-10-2019.MedicalApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
