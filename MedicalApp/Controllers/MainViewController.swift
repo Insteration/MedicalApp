@@ -110,13 +110,22 @@ class MainViewController: UIViewController {
     
     
     @IBAction func questionsActionButton(_ sender: UIButton) {
-        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
+//        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
+//
+//        self.addChild(questionsVC)
+//        questionsVC.view.frame = self.view.frame
+//        self.view.addSubview(questionsVC.view)
+//
+//        questionsVC.didMove(toParent: self)
         
-        self.addChild(questionsVC)
-        questionsVC.view.frame = self.view.frame
-        self.view.addSubview(questionsVC.view)
+       let storyboard: UIStoryboard = UIStoryboard(name: "QuestionSB", bundle: nil)
+        let controller: QuestionNCViewController = storyboard.instantiateViewController(withIdentifier: "QuestionIdentity") as! QuestionNCViewController
         
-        questionsVC.didMove(toParent: self)
+        
+        controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        controller.modalPresentationStyle = .overCurrentContext
+        self.present(controller, animated: true, completion: nil)
+        
     }
     
     @IBAction func pendingReportActionButton(_ sender: UIButton) {

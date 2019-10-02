@@ -222,11 +222,11 @@ extension DB {
 
 // MARK: - insert In Table question
 extension DB {
-    func insertInTable(inTable: String, question: String) {
+    func insertInTable(inTable: String, values1: String, values2: String) {
         
         var insert: OpaquePointer? = nil
         let insertString = """
-        INSERT INTO \(inTable) (question) VALUES ('\(question)');
+        INSERT INTO \(inTable) (question, date_question) VALUES ('\(values1)', '\(values2)');
         """
         guard sqlite3_prepare_v2(DB.db, insertString, -1, &insert, nil) == SQLITE_OK,
             sqlite3_step(insert) == SQLITE_DONE
@@ -239,6 +239,32 @@ extension DB {
         print("insert in table done")
         print(insertString)
         sqlite3_finalize(insert)
+    }
+}
+
+//MARK: - get values from qustion table
+extension DB {
+    func selectFromTable(column: String, inTable: String, afterWhere: String) -> [String] {
+        var values = [String]()
+        var str: OpaquePointer? = nil
+        var query = "SELECT \(column) FROM \(inTable) "
+        
+        if afterWhere != "" {
+            query += "WHERE \(afterWhere)"
+        }
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("query \(query) is DONE")
+        } else {
+            print("query \(query) is uncorrect")
+        }
+        
+        while (sqlite3_step(str)) == SQLITE_ROW {
+            let value = String(cString: sqlite3_column_text(str, 0))
+            values.append(value)
+        }
+        
+        return values
     }
 }
 

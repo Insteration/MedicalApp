@@ -2,24 +2,31 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
     
-    @IBOutlet weak var questionsView: UIView!
-    @IBOutlet weak var questionsTextView: UITextView!
-    
+    @IBOutlet weak var textViewQuestion: UITextView!
     var db = DB()
+    
+     func date() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDate = format.string(from: date)
+        return "\(formattedDate)"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            }
+    
+    
+    @IBAction func sendQuestionButton(_ sender: UIButton) {
         
-        questionsView.layer.cornerRadius = 25
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        db.insertInTable(inTable: "questions", values1: textViewQuestion.text, values2: date())
         
-        moveIn()
+        print("COLUMN DATE = \(db.selectFromTable(column: "question_date", inTable: "questions", afterWhere: ""))")
+        
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func sendQuestionsActionButton(_ sender: UIButton) {
-        moveOut()
-        db.insertInTable(inTable: "questions", question: questionsTextView.text)
-    }
     
     func moveIn() {
         
