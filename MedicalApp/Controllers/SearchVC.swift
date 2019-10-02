@@ -62,8 +62,6 @@ class SearchVC: UIViewController {
 }
 
 // TODO: - make with thread only read DB
-//        let html = db.getHTML(6)
-//        libraryWebView.loadHTMLString(html, baseURL: nil)
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

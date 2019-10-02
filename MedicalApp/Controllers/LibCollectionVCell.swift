@@ -27,11 +27,11 @@ class LibCollectionVCell: UICollectionViewCell {
     }
     
     override func layoutSubviews()
-       {
-           super.layoutSubviews()
-           tvSlides.delegate = self
-           tvSlides.dataSource = self
-       }
+    {
+        super.layoutSubviews()
+        tvSlides.delegate = self
+        tvSlides.dataSource = self
+    }
 }
 
 extension LibCollectionVCell: UITableViewDelegate, UITableViewDataSource {
@@ -50,12 +50,38 @@ extension LibCollectionVCell: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellInd)!
         let object = listSlides[indexPath.row].name
-//        print("listSlides[indexPath.row].name =", object)
+        //        print("listSlides[indexPath.row].name =", object)
         cell.textLabel?.text = object
         print("cell.textLabel?.text =", cell.textLabel?.text ?? " empty!!! ")
-//        cell.labelNameSlide.text = object
-//        print("cell.textLabel?.text =", cell.textLabel?.text ?? " empty!!! ")
+        //        cell.labelNameSlide.text = object
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
+        let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
+        
+        controller.slide = listSlides[indexPath.row]
+        
+        controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        controller.modalPresentationStyle = .overCurrentContext
+        let currentController = self.getCurrentViewController()
+        
+        currentController?.present(controller, animated: true, completion: nil)
+    }
+    
+    func getCurrentViewController() -> UIViewController? {
+        
+        if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+            var currentController: UIViewController! = rootController
+            while( currentController.presentedViewController != nil ) {
+                currentController = currentController.presentedViewController
+            }
+            return currentController
+        }
+        return nil
+        
+    }
+
 }
