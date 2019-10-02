@@ -14,23 +14,33 @@ class LibCollectionVCell: UICollectionViewCell {
     var listSlides = [Slide]()
     let cellInd = "CellSlide"
     
-    var topic: Topic? {
-        didSet {
-            labelNameTopic.text = topic?.name ?? "name Topic?"
-            
-            self.listSlides = SlidesInTopic(topic!.id).listSlides
-            print("Topic :", topic?.name ?? "name Topic?")
-            self.listSlides.forEach{
-                print("id slide =", $0.id, ", name slide =", $0.name)
-            }
-        }
-    }
+    var topic: Topic?
+//    {
+//        didSet {
+//            labelNameTopic.text = topic?.name ?? "name Topic?"
+//
+//            self.listSlides = SlidesInTopic(topic!.id).listSlides
+//            print("Topic :", topic?.name ?? "name Topic?")
+//            self.listSlides.forEach{
+//                print("id slide =", $0.id, ", name slide =", $0.name)
+//            }
+//        }
+//    }
     
-    override func layoutSubviews()
-    {
+    override func layoutSubviews() {
         super.layoutSubviews()
+        labelNameTopic.text = topic?.name ?? "name Topic?"
+        
+        self.listSlides = SlidesInTopic(topic!.id).listSlides
+        print("Topic :", topic?.name ?? "name Topic?")
+        self.listSlides.forEach{
+            print("id slide =", $0.id, ", name slide =", $0.name)
+        }
+        
         tvSlides.delegate = self
         tvSlides.dataSource = self
+        
+        tvSlides.reloadData()
     }
 }
 
@@ -83,5 +93,5 @@ extension LibCollectionVCell: UITableViewDelegate, UITableViewDataSource {
         return nil
         
     }
-
+    
 }
