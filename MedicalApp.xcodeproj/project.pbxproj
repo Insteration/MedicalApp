@@ -235,10 +235,7 @@
 				AC2877E823181EBC00ED15A3 /* LibraryViewController.swift */,
 				0B2EFB902326DAF30082FE9B /* SearchVC.swift */,
 				ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */,
-				AC3A33F9234511A8004A7E3B /* QuestionsViewController.swift */,
-				AC3A33FB234511CD004A7E3B /* QuestionsTableViewController.swift */,
-				AC3A33FD234511ED004A7E3B /* ListQuestViewController.swift */,
-				AC3A33FF234513B9004A7E3B /* QuestionNCViewController.swift */,
+				AC92C2132345D56600961D41 /* Question */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +255,17 @@
 				4ADB102522F1A88400DB7ACB /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC92C2132345D56600961D41 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				AC3A33F9234511A8004A7E3B /* QuestionsViewController.swift */,
+				AC3A33FB234511CD004A7E3B /* QuestionsTableViewController.swift */,
+				AC3A33FD234511ED004A7E3B /* ListQuestViewController.swift */,
+				AC3A33FF234513B9004A7E3B /* QuestionNCViewController.swift */,
+			);
+			path = Question;
 			sourceTree = "<group>";
 		};
 		ACC2FFD72315A22300439103 /* Helpers */ = {

@@ -22,8 +22,4 @@ class Engine {
     }
 }
 
-struct QuestionsAtribute {
-    var name = String()
-    var question = String()
-    var time = String()
-}
+

@@ -18,6 +18,18 @@ struct VideoLogo {
     var text: String?
 }
 
+struct QuestionsAtribute {
+    var name: String?
+    var question: String?
+    var time: String?
+    
+//    init(name: String = "User", question: String, time: String) {
+//        self.name = name
+//        self.question = question
+//        self.time = time
+//    }
+}
+
 struct Slide {
     
     var id: Int
