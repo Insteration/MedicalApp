@@ -110,15 +110,15 @@ class MainViewController: UIViewController {
     
     
     @IBAction func questionsActionButton(_ sender: UIButton) {
-//        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
-//
-//        self.addChild(questionsVC)
-//        questionsVC.view.frame = self.view.frame
-//        self.view.addSubview(questionsVC.view)
-//
-//        questionsVC.didMove(toParent: self)
+        //        let questionsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionsVC")
+        //
+        //        self.addChild(questionsVC)
+        //        questionsVC.view.frame = self.view.frame
+        //        self.view.addSubview(questionsVC.view)
+        //
+        //        questionsVC.didMove(toParent: self)
         
-       let storyboard: UIStoryboard = UIStoryboard(name: "QuestionSB", bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "QuestionSB", bundle: nil)
         let controller: QuestionNCViewController = storyboard.instantiateViewController(withIdentifier: "QuestionIdentity") as! QuestionNCViewController
         
         
@@ -140,8 +140,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         switch collectionView {
         case presentationsCollectionView:
-            self.performSegue(withIdentifier: "showPresentationItem", sender: nil)
-            case videoCollectionView:
+            self.performSegue(withIdentifier: "showPresentation", sender: nil)
+            
+        case videoCollectionView:
             self.performSegue(withIdentifier: "showVideoItem", sender: nil)
         default:
             break

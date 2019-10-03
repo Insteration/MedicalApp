@@ -412,7 +412,7 @@
                         <outlet property="presentationsCollectionView" destination="mFR-O0-4ab" id="60p-Fg-iHX"/>
                         <outlet property="videoCollectionView" destination="SfL-T6-vy5" id="9Vn-38-G0u"/>
                         <segue destination="cKC-pf-gd4" kind="show" identifier="showVideoItem" id="OTw-7t-UiC"/>
-                        <segue destination="nQp-Fk-CDq" kind="show" identifier="showPresentation" id="b2s-hE-g0o"/>
+                        <segue destination="0hV-P1-cb2" kind="show" identifier="showPresentation" id="gsP-dv-zcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czq-mS-cqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -665,6 +665,22 @@
             </objects>
             <point key="canvasLocation" x="3892" y="-1313"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RXc-uH-NIv">
+            <objects>
+                <viewController id="0hV-P1-cb2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IIF-Vq-Riy">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="30i-Lj-vFk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YiD-oA-RgO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8w-79-55V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4068" y="-534"/>
+        </scene>
         <!--Item From Video View Controller-->
         <scene sceneID="Jz4-eD-vau">
             <objects>
@@ -859,16 +875,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FC7-KM-CCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.375" y="-536.61971830985919"/>
-        </scene>
-        <!--PresentationSB-->
-        <scene sceneID="otq-rX-m0p">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PresentationSB" id="nQp-Fk-CDq" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="M9v-mP-Kdw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RbK-Of-mLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4246" y="-556"/>
         </scene>
     </scenes>
 </document>
