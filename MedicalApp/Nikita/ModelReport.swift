@@ -96,7 +96,7 @@ enum namesId: Int {
     case numberOfPeople
     case country
     case city
-    case casecommentaire1
+    case commentaire1
     case visitType
     case name
     case lastName

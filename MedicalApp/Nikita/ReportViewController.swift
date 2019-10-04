@@ -43,16 +43,17 @@ class ReportViewController: UIViewController {
         mainTableView.allowsSelection = false
         customInit()
         clearFields()
-//        dataReport = []
 
+        
+        for value in textFields {
+            value.addTarget(self, action: #selector(valueChangeTextField), for: UIControl.Event.editingChanged)
+        }
+        
         printData()
         self.hideKeyboardWhenTappedAround()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        for i in 0..<textFields.count {
-            textFields[i].text = String(i)
-        }
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -75,14 +76,19 @@ class ReportViewController: UIViewController {
         for i in 0..<12 {
             textFields.append(UITextField())
             textFields[i].borderStyle = UITextField.BorderStyle.roundedRect
+            
         }
+        
+//        for value in textFields {
+//            value.delegate = self
+//        }
+        
         send.addTarget(self, action: #selector(pushSendButton), for: UIControl.Event.touchUpInside)
         later.addTarget(self, action: #selector(pushLaterButton), for: UIControl.Event.touchUpInside)
         usagePropre.addTarget(self, action: #selector(pushUsagePropreButton), for: UIControl.Event.touchUpInside)
         plus.addTarget(self, action: #selector(pushButtonPlus), for: UIControl.Event.touchUpInside)
         
         let tmpButtont = [send , usagePropre, later]
-        
         for value in tmpButtont {
            value.layer.cornerRadius = 15
             value.clipsToBounds = true
@@ -91,7 +97,45 @@ class ReportViewController: UIViewController {
     }
     
     
-    
+    @IBAction func valueChangeTextField(_ sender: UITextField) {
+        let id = textFields.firstIndex(of: sender) ?? textFields.count
+        var isRed = false
+        switch id {
+        case namesId.dateOfMeeting.rawValue:()
+            if !isValidDate(sender.text ?? "") { isRed = true }
+        case namesId.numberOfPeople.rawValue:
+            if !isValidNumbers(sender.text ?? "") { isRed = true }
+        case namesId.country.rawValue:
+            if !isValidCountry(sender.text ?? "") { isRed = true }
+        case namesId.city.rawValue:
+            if !isValidCity(sender.text ?? "") { isRed = true }
+        case namesId.commentaire1.rawValue:()
+        case namesId.name.rawValue - 1:
+            if !isValidName(sender.text ?? "") { isRed = true }
+        case namesId.lastName.rawValue - 1:
+            if !isValidName(sender.text ?? "") { isRed = true }
+        case namesId.fonction.rawValue - 1:()
+        case namesId.organisation.rawValue - 1:()
+        case namesId.email.rawValue - 1:
+            if !isValidEmail(sender.text ?? "") {
+                isRed = true
+            }
+        case namesId.number.rawValue - 1:
+            if !isValidPhone(sender.text ?? "") {
+                isRed = true
+            }
+        case namesId.commentaire2.rawValue - 1:()
+            
+        default:()
+        }
+        
+        if isRed {
+            sender.textColor = .red
+        } else {
+            sender.textColor = .black
+        }
+        
+    }
     
     @IBAction func pushLaterButton(_ sender: UIButton) {
         if areAllFieldsFilled() {
@@ -153,6 +197,9 @@ class ReportViewController: UIViewController {
     private func areAllFieldsFilled() -> Bool {
         for textField in textFields {
             if textField.text == "" {
+                return false
+            }
+            if textField.textColor == .red {
                 return false
             }
         }
@@ -334,25 +381,7 @@ extension ReportViewController {
         return cell
     }
     
-//    private func createCellWithLabel() -> UITableViewCell {
-//        let cell = UITableViewCell()
-//        let myLabel = UILabel()
-//
-//        cell.addSubview(myLabel)
-//
-//        myLabel.translatesAutoresizingMaskIntoConstraints = false
-//        myLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
-//        myLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor,constant: -8).isActive = true
-//        myLabel.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
-//        myLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
-//
-//        myLabel.numberOfLines = 0
-//        myLabel.textAlignment = .center
-//        myLabel.text = names[namesId.allert.rawValue]
-//
-//
-//        return cell
-//    }
+    
     
     private func createCellForItem(_ id: Int) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -456,7 +485,6 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
-
 extension ReportViewController {
     
     func hideKeyboardWhenTappedAround() {
@@ -532,3 +560,38 @@ extension ReportViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 
 
+
+extension ReportViewController {
+    func isValidNumbers(_ str: String) -> Bool {
+        return isValid(str, "^[0-9]+$")
+    }
+    
+    func isValidPhone(_ str: String) -> Bool {
+        return isValid(str, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$")
+    }
+    
+    func isValidEmail(_ str: String) -> Bool {
+        return isValid(str,"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+    }
+    
+    func isValidName(_ str: String) -> Bool {
+        return isValid(str, "^[a-zA-Z]+$")
+    }
+    
+    func isValidCountry(_ str: String) -> Bool {
+        return isValid(str, "^[a-zA-Z]{2,}$")
+    }
+    
+    func isValidCity(_ str: String) -> Bool {
+        return isValid(str, "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$")
+    }
+    
+    func isValidDate(_ str: String) -> Bool {
+        return isValid(str, "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")
+    }
+    
+    func isValid(_ str: String, _ reg: String) -> Bool {
+        let pred = NSPredicate(format:"SELF MATCHES %@", reg)
+        return pred.evaluate(with: str)
+    }
+}
