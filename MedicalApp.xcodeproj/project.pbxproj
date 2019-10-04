@@ -12,6 +12,7 @@
 		0B13F1F722F56D7700BE97B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B13F1F922F56D7700BE97B9 /* Localizable.strings */; };
 		0B2EFB912326DAF30082FE9B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB902326DAF30082FE9B /* SearchVC.swift */; };
 		0B2EFB94232FE5330082FE9B /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2EFB93232FE5330082FE9B /* FM.swift */; };
+		0B621EE32347544800AADA09 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B621EE22347544800AADA09 /* SlideView.swift */; };
 		0BA64DEC233BE07900BBC6E8 /* SlideVCSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */; };
 		0BBF5A0C2342A7B3007A465B /* SlideTableVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */; };
 		0BC6338622F5669900F2F24C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6338522F5669900F2F24C /* Data.swift */; };
@@ -65,6 +66,7 @@
 		0B13F1FA22F56D7D00BE97B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0B2EFB902326DAF30082FE9B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
+		0B621EE22347544800AADA09 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideVCSB.storyboard; sourceTree = "<group>"; };
 		0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideTableVCell.swift; path = MedicalApp/Controllers/LibraryVC/SlideTableVCell.swift; sourceTree = SOURCE_ROOT; };
 		0BC6338522F5669900F2F24C /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				4A6A442222EF6B280082CDA3 /* View.swift */,
 				ACE63A542305BF0A00F04758 /* PresentationsCollectionViewCell.swift */,
 				ACE63A562305BF1A00F04758 /* VideoCollectionViewCell.swift */,
+				0B621EE22347544800AADA09 /* SlideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				ACE63A572305BF1A00F04758 /* VideoCollectionViewCell.swift in Sources */,
 				ACEA0D4F230C62830054B75E /* ItemFromPresentationViewController.swift in Sources */,
 				4A292F2722F4A3920051A609 /* ModelReport.swift in Sources */,
+				0B621EE32347544800AADA09 /* SlideView.swift in Sources */,
 				4004281C230B18C500B9A02C /* CollectionModel.swift in Sources */,
 				AC3A3402234513D9004A7E3B /* Engine.swift in Sources */,
 				AC4F030522F0322400F1622B /* UserProfile.swift in Sources */,

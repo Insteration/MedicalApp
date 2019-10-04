@@ -35,7 +35,7 @@ class SlideVC: UIViewController {
         let nameTopic = slide.nameTopic ?? "slide.nameTopic"
         let name = slide.name
         let search = slide.search ?? "search"
-        lbSearch.text = nameTopic + ": " + name + " - " + search
+//        lbSearch.text = nameTopic + ": " + name + " - " + search
         
         let info = db.getInfoAboutDocForSlide(id)
         
@@ -54,7 +54,16 @@ class SlideVC: UIViewController {
         webView.loadFileURL(getUrlHTMLFile, allowingReadAccessTo: getUrlHTMLFile) */
  
         FM.printListItemsFromDir(getUrlForSlide.path)
-        webView.loadHTMLString(html, baseURL: getUrlForSlide)
+//        webView.loadHTMLString(html, baseURL: getUrlForSlide)
+        
+        var frameSlide = self.view.frame
+        frameSlide = CGRect(x: 20, y: 50, width: frameSlide.width - 40, height: frameSlide.height - 100)
+        
+        let nameSlide = nameTopic + ": " + name + " - " + search
+        let slideView = SlideView(frame: frameSlide, name: nameSlide, txtHTML: html, baseUrl: getUrlForSlide)
+        
+        self.view.addSubview(slideView)
+
     }
     
 }
