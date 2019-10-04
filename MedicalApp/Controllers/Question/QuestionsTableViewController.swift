@@ -4,6 +4,7 @@ import UIKit
 class QuestionsTableViewController: UITableViewController {
     
     var engine = Engine()
+    var nameTableQuestion = "questions"
     
     
     override func viewDidLoad() {
@@ -22,17 +23,17 @@ class QuestionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return engine.selectQuestionFromTable(nameTable: "questions").count
+        return engine.selectQuestionFromTable(nameTable: nameTableQuestion).count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = engine.selectQuestionFromTable(nameTable: "questions")[indexPath.row]
+        cell.textLabel?.text = engine.selectQuestionFromTable(nameTable: nameTableQuestion)[indexPath.row]
         
 
-        cell.detailTextLabel?.text = engine.selectDateFromTable(nameTable: "questions")[indexPath.row]
+        cell.detailTextLabel?.text = engine.selectDateFromTable(nameTable: nameTableQuestion)[indexPath.row]
         
         return cell
     }
@@ -50,7 +51,7 @@ class QuestionsTableViewController: UITableViewController {
             }
             
             let vc = segue.destination as! ListQuestViewController
-            vc.txtQuestion.question = engine.selectQuestionFromTable(nameTable: "questions")[path.row]
+            vc.txtQuestion.question = engine.selectQuestionFromTable(nameTable: nameTableQuestion)[path.row]
         }
         
     }
