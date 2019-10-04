@@ -2,23 +2,17 @@ import Foundation
 
 class Engine {
     var db = DB()
+    var question = "question"
+    var date_question = "date_question"
     
     func selectQuestionFromTable(nameTable: String) -> [String] {
-        var result = ["hello"]
         
-        result.append(contentsOf: db.selectFromTable(column: "question", inTable: nameTable, afterWhere: ""))
-        
-        return result
+        return db.selectFromTable(column: question, inTable: nameTable, afterWhere: "")
     }
     
     func selectDateFromTable(nameTable: String) -> [String] {
-        var result = ["hello_date"]
         
-        result.append(contentsOf: db.selectFromTable(column: "date_question", inTable: nameTable, afterWhere: ""))
-        
-        return result
-        
-        
+        return db.selectFromTable(column: date_question, inTable: nameTable, afterWhere: "")
     }
 }
 
