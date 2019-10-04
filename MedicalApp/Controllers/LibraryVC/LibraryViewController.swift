@@ -5,7 +5,7 @@ import WebKit
 class LibraryViewController: UIViewController {
     
     let indCell = "IndCell"
-    let topics = Topics().listTopic
+    var topics = Topics().listTopic
     
     @IBOutlet weak var libCollectV: UICollectionView!
     
@@ -18,12 +18,16 @@ class LibraryViewController: UIViewController {
         
         print(topics)
         libCollectV.dataSource = self
-//        libCollectV.delegate = self
+        libCollectV.delegate = self
 
     }
 }
 
-extension LibraryViewController : UICollectionViewDataSource {
+extension LibraryViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/2.1 , height: collectionView.frame.width/2.4)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topics.count
@@ -31,10 +35,12 @@ extension LibraryViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+//        topics.sort(by: {$0.id > $1.id})
+        
         let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: indCell, for: indexPath) as? LibCollectionVCell
         
         itemCell!.topic = topics[indexPath.row]
-        
+                
         return itemCell!
     }
     

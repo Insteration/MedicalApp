@@ -66,7 +66,7 @@
 		0B2EFB902326DAF30082FE9B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		0B2EFB93232FE5330082FE9B /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
 		0BA64DEB233BE07900BBC6E8 /* SlideVCSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideVCSB.storyboard; sourceTree = "<group>"; };
-		0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideTableVCell.swift; path = MedicalApp/Controllers/SlideTableVCell.swift; sourceTree = SOURCE_ROOT; };
+		0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideTableVCell.swift; path = MedicalApp/Controllers/LibraryVC/SlideTableVCell.swift; sourceTree = SOURCE_ROOT; };
 		0BC6338522F5669900F2F24C /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0BC6338722F566B600F2F24C /* SignUPFinalViewController_lang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUPFinalViewController_lang.swift; sourceTree = "<group>"; };
 		0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideVC.swift; sourceTree = "<group>"; };
@@ -133,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B621EDF2345DB8100AADA09 /* LibraryVC */ = {
+			isa = PBXGroup;
+			children = (
+				AC2877E823181EBC00ED15A3 /* LibraryViewController.swift */,
+				ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */,
+				0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */,
+			);
+			path = LibraryVC;
+			sourceTree = "<group>";
+		};
 		0BA64DEA233BE05300BBC6E8 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,7 +232,7 @@
 		4A6A442022EF6A590082CDA3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0BBF5A0B2342A7B3007A465B /* SlideTableVCell.swift */,
+				0B621EDF2345DB8100AADA09 /* LibraryVC */,
 				0BCDE5CA233B8DDE0081DA44 /* SlideVC.swift */,
 				4A6A440E22EF6A1F0082CDA3 /* StartViewController.swift */,
 				AC4F030022F023C900F1622B /* SignINViewControllerXIB.swift */,
@@ -232,9 +242,7 @@
 				4ADB102C22F1BDA300DB7ACB /* RegistrationViewController.swift */,
 				ACEA0D4E230C62830054B75E /* ItemFromPresentationViewController.swift */,
 				ACEA0D50230C62990054B75E /* ItemFromVideoViewController.swift */,
-				AC2877E823181EBC00ED15A3 /* LibraryViewController.swift */,
 				0B2EFB902326DAF30082FE9B /* SearchVC.swift */,
-				ACEF5BF42343C69300609F60 /* LibCollectionVCell.swift */,
 				AC3A33F9234511A8004A7E3B /* QuestionsViewController.swift */,
 				AC3A33FB234511CD004A7E3B /* QuestionsTableViewController.swift */,
 				AC3A33FD234511ED004A7E3B /* ListQuestViewController.swift */,

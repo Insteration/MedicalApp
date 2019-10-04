@@ -39,7 +39,7 @@ class LibCollectionVCell: UICollectionViewCell {
         
         tvSlides.delegate = self
         tvSlides.dataSource = self
-        
+
         tvSlides.reloadData()
     }
 }
@@ -77,7 +77,7 @@ extension LibCollectionVCell: UITableViewDelegate, UITableViewDataSource {
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext
         let currentController = self.getCurrentViewController()
-        
+                
         currentController?.present(controller, animated: true, completion: nil)
     }
     
