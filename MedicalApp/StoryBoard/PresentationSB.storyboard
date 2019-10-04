@@ -88,20 +88,128 @@
             <point key="canvasLocation" x="4244.927536231884" y="-556.47321428571422"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="L3e-DV-V8K">
+            <objects>
+                <viewController id="A2X-Xs-v80" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lWj-Da-ZWe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkZ-OC-6kB">
+                                <rect key="frame" x="192" y="753" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ok"/>
+                                <connections>
+                                    <segue destination="PqD-gi-d1i" kind="show" id="fkU-th-JYm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Lpf-NQ-7bG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u7u-dS-ScW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzY-V7-N3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6877" y="-1280"/>
+        </scene>
+        <!--User info-->
         <scene sceneID="d5l-Dg-wJn">
             <objects>
                 <viewController id="SSe-lb-bEF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t4q-hF-xoC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa1-oO-MF3">
+                                <rect key="frame" x="47" y="618" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Custom"/>
+                                <connections>
+                                    <segue destination="A2X-Xs-v80" kind="show" id="Grx-U4-W5N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfb-gw-Bfj">
+                                <rect key="frame" x="285" y="618" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Use this"/>
+                                <connections>
+                                    <segue destination="PqD-gi-d1i" kind="show" id="b6g-N4-IhX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Wau-gX-mY0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gvR-gp-ElA"/>
+                    <navigationItem key="navigationItem" title="User info" id="dSP-jf-bkL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jg-2P-jVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6932" y="-556"/>
+            <point key="canvasLocation" x="6878" y="-556"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8mY-so-Es9">
+            <objects>
+                <viewController id="PqD-gi-d1i" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9J1-tk-bBk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YWg-v3-Rqk">
+                                <rect key="frame" x="183" y="433" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhe-tk-13H">
+                                <rect key="frame" x="191" y="750" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <segue destination="E8O-vw-qoT" kind="show" id="y6a-AG-HhK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iaa-bz-onX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jMt-by-7mh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nyq-NA-0Id" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7823" y="-556"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Iot-j6-cAj">
+            <objects>
+                <viewController id="E8O-vw-qoT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Of5-DT-WVw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jH1-IN-Jn4">
+                                <rect key="frame" x="20" y="88" width="374" height="643"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3db-uC-b1G"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u62-sF-wd0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gq2-7m-TIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7821.739130434783" y="179.46428571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fkU-th-JYm"/>
+    </inferredMetricsTieBreakers>
 </document>
