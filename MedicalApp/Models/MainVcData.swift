@@ -6,7 +6,7 @@
 //  Copyright © 2019 iOS Team. All rights reserved.
 //
 
-//import Foundation
+import Foundation
 
 struct PresentationLogo {
     var image: String?
@@ -25,6 +25,7 @@ struct Slide {
     var nameTopic: String?
     var html: String?
     var search: String?
+    var baseUrl: URL?
     
     init(id: Int = 0, name: String = "") {
         
@@ -48,6 +49,16 @@ struct Slide {
         self.search = search
     }
     
+    // init for SlideView
+    init(id: Int, name: String, nameTopic: String, search: String, html: String, baseUrl: URL) {
+        
+        self.id = id
+        self.name = name
+        self.nameTopic = nameTopic
+        self.search = search
+        self.html = html
+        self.baseUrl = baseUrl
+    }
     
     // ceate more init for any cases
     
