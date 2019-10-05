@@ -11,8 +11,8 @@ class LibCollectionVCell: UICollectionViewCell {
     @IBOutlet weak var tvSlides: UITableView!
     
     @IBOutlet weak var labelNameSlide: UILabel!
-    var listSlides = [Slide]()
-    let cellInd = "CellSlide"
+    private var listSlides = [Slide]()
+    private let cellInd = "CellSlide"
     
     var topic: Topic?
     {
@@ -72,7 +72,10 @@ extension LibCollectionVCell: UITableViewDelegate, UITableViewDataSource {
         let storyboard: UIStoryboard = UIStoryboard(name: "SlideVCSB", bundle: nil)
         let controller: SlideVC = storyboard.instantiateViewController(withIdentifier: "ControllerIdentifier") as! SlideVC
         
-        controller.slide = listSlides[indexPath.row]
+        var slide: Slide = listSlides[indexPath.row]
+        slide.nameTopic = self.topic?.name
+        
+        controller.slide = slide
         
         controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         controller.modalPresentationStyle = .overCurrentContext

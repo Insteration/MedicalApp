@@ -62,7 +62,7 @@ extension SlideView {
         // TODO: - need to make with guard or if and use class for cell of the tableView
         let nameTopic = slide.nameTopic ?? "slide.nameTopic??"
         let name = slide.name
-        let search = slide.search ?? ""
+        let search = (slide.search != nil) ? (" - " + slide.search!) : ""
         
         let info = db.getInfoAboutDocForSlide(id)
         
@@ -75,7 +75,7 @@ extension SlideView {
         
         FM.printListItemsFromDir(getUrlForSlide.path)
         
-        let nameSlide = nameTopic + ": " + name + " - " + search
+        let nameSlide = nameTopic + ": " + name + search
         
         slide = Slide(id: id, name: nameSlide, nameTopic: nameTopic, search: search, html: html, baseUrl: getUrlForSlide)
     }
