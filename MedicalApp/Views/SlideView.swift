@@ -19,7 +19,6 @@ class SlideView: UIView {
     private var webView = WKWebView()
     private var slide = Slide()
     
-//    init(frame frameSlide: CGRect, name: String, txtHTML: String, baseUrl: URL)
     init(_ slide: Slide, frameSlide: CGRect) {
         
         let frame = CGRect(x: 20, y: 50, width: frameSlide.width - 40, height: frameSlide.height - 100)
@@ -93,6 +92,7 @@ extension SlideView {
         labelName.backgroundColor = .lightGray
         labelName.textAlignment = .natural
         labelName.text = name
+        labelName.layer.borderWidth = 1
         labelName.sizeToFit()
         print("self.labelName.frame =", self.labelName.frame)
         
@@ -106,3 +106,37 @@ extension SlideView {
  let request = URLRequest(url: getUrlHTMLFile)
  webView.load(request)
  webView.loadFileURL(getUrlHTMLFile, allowingReadAccessTo: getUrlHTMLFile) */
+
+class PaddingLabel: UILabel {
+
+    var topInset: CGFloat
+    var bottomInset: CGFloat
+    var leftInset: CGFloat
+    var rightInset: CGFloat
+
+    required init(withInsets top: CGFloat, _ bottom: CGFloat,_ left: CGFloat,_ right: CGFloat) {
+        self.topInset = top
+        self.bottomInset = bottom
+        self.leftInset = left
+        self.rightInset = right
+        super.init(frame: CGRect.zero)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        get {
+            var contentSize = super.intrinsicContentSize
+            contentSize.height += topInset + bottomInset
+            contentSize.width += leftInset + rightInset
+            return contentSize
+        }
+    }
+}
