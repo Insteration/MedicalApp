@@ -101,8 +101,8 @@ extension ReportCollectionViewController {
         textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor,constant: 8).isActive = true
         textLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 8).isActive = true
         textLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -8).isActive = true
-        textLabel.text = self.data[indexPath].meatingData[namesId.visitType.rawValue] + "\n"
-            + self.data[indexPath].meatingData[namesId.dateOfMeeting.rawValue]
+        textLabel.text = self.data[indexPath].meatingType + "\n"
+            + self.data[indexPath].meatingData
         
         
         buttonFinish = UIButton()

@@ -11,21 +11,76 @@ import Foundation
 
 
 
-struct ReportData: Codable {
-    var meatingData: [String]
-    var peopleReports: [[String]]
-    var isAccepted = [Bool]()
-    var countPeoples: Int {
-        get {
-            return peopleReports.count
-        }
-    }
+//struct ReportData: Codable {
+//    var meatingData: [String]
+//    var peopleReports: [[String]]
+//    var isAccepted = [Bool]()
+//    var countPeoples: Int {
+//        get {
+//            return peopleReports.count
+//        }
+//    }
+//
+//    init() {
+//        meatingData = [String]()
+//        peopleReports = [[String]]()
+//    }
+//}
+
+
+struct Report: Codable {
+    var meatingData: String
+    var numberOfPeople: String
+    var meatingType: String
+    var country: String
+    var city: String
+    var comment: String
+    var people: [Person]
     
     init() {
-        meatingData = [String]()
-        peopleReports = [[String]]()
+        meatingData = ""
+        numberOfPeople = ""
+        meatingType = ""
+        country = ""
+        city = ""
+        comment = ""
+        people = [Person]()
     }
 }
+
+struct Person: Codable {
+    var name: String
+    var lastName: String
+    var function: String
+    var organization: String
+    var email: String
+    var phone: String
+    var comment: String
+    var isAccept: Bool
+    
+    init() {
+        name = ""
+        lastName = ""
+        function = ""
+        organization = "10"
+        email = "11"
+        phone = "12"
+        comment = "13"
+        isAccept = false
+    }
+}
+
+var dataReport: [Report] {
+    get {
+        return UserDefaults.standard.structArrayData(Report.self, forKey: "ReportData")
+    }
+    set {
+        UserDefaults.standard.setStructArray(newValue, forKey: "ReportData")
+        UserDefaults.standard.synchronize()
+    }
+}
+
+
 
 let reportDataPickerEnglish = ["HCP visite", "Pharmacy visit", "Round table" ,"Clinical meeting", "Others"]
 
@@ -100,10 +155,10 @@ enum namesId: Int {
     case visitType
     case name
     case lastName
-    case fonction
+    case function
     case organisation
     case email
-    case number
+    case phone
     case commentaire2
     //case allert
     case accept
@@ -126,12 +181,4 @@ enum namesId: Int {
 
 
 
-var dataReport: [ReportData] {
-    get {
-        return UserDefaults.standard.structArrayData(ReportData.self, forKey: "ReportData")
-    }
-    set {
-        UserDefaults.standard.setStructArray(newValue, forKey: "ReportData")
-        UserDefaults.standard.synchronize()
-    }
-}
+
